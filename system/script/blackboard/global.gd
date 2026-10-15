@@ -7,7 +7,6 @@ extends Node
 		blackboard = val
 		Util.optional_connect(blackboard, "blackboard_updated", _on_blackboard_updated)
 
-
 signal blackboard_updated
 
 func _on_blackboard_updated():

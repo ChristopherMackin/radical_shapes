@@ -35,7 +35,7 @@ func start_event(event : Event, blackboard: Blackboard):
 	event_queue.array.find_custom(func(x): x.val1 = event) != -1: return
 	
 	var callable: Callable = func():
-		if event.await_queue:
+		if event.await_queue && event_queue.size() > 0:
 			await queue_empty
 		if event.can_interupt:
 			await cancel_current_event()

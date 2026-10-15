@@ -1,5 +1,11 @@
 [gd_scene format=3 uid="uid://cc4icsnjm1hvv"]
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_0pfla"]
+[ext_resource type="Resource" uid="uid://cup507x34oicg" path="res://world/church/dining_hall/bb_world_dining_hall.tres" id="2_7gxi1"]
 
-[node name="WorldLevel" instance=ExtResource("1_0pfla")]
+[node name="WorldLevel" unique_id=1029443331 instance=ExtResource("1_0pfla")]
+
+[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355]
+blackboard = ExtResource("2_7gxi1")
+
+[editable path="===UI========/DialogueArea"]

@@ -34,18 +34,21 @@ func _scene_added():
 	
 	scene_loader.set_scene_state(self)
 	
-	await query_event
+	await query_event()
 	
 	(func(): on_scene_load.emit()).call_deferred()
 	queue_free()
 
 func query_event():
+	if !event_factory: return
+	var bb = blackboard if blackboard else Global.blackboard
+	
 	var query : Dictionary
 	query[Flag.name(Flag.CONCEPT)] = Const.Concept.ON_SCENE_ENTER
-	query.merge(blackboard.get_query())
+	query.merge(bb.get_query())
 	
 	var event = event_factory.get_event(query)
 	
 	if !event: return
 	
-	await event_manager.start_event(event, blackboard)
+	await event_manager.start_event(event, bb)

@@ -12,4 +12,5 @@ func start_animation(animation : String):
 	animation_player.play(animation)
 
 func cancel_animation():
-	animation_player.play("RESET")
+	if animation_player and animation_player.has_animation("RESET"):
+		animation_player.play("RESET")

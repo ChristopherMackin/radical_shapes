@@ -1,7 +1,29 @@
 [gd_resource type="Resource" script_class="BucketEventFactory" format=3 uid="uid://fowxmelh4k2l"]
 
 [ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="1_gar2g"]
+[ext_resource type="Resource" uid="uid://d1haqrj1r8frx" path="res://world/webber_household/samsons_room/event/ev_samsons_room_samson_intro.tres" id="2_1uxeq"]
 [ext_resource type="Script" uid="uid://bkpc76nqmkxc2" path="res://system/script/event_factory/bucket_event_factory.gd" id="2_u21af"]
+[ext_resource type="Script" uid="uid://dbvysemw11ei8" path="res://system/script/event_factory/single_event_factory.gd" id="3_fy3p0"]
+[ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/rule/concept_rule.gd" id="4_8tox1"]
+[ext_resource type="Script" uid="uid://c44gav4s6as63" path="res://system/script/event_factory/rule_bucket_event_factory.gd" id="5_rs650"]
+
+[sub_resource type="Resource" id="Resource_1xxsp"]
+script = ExtResource("3_fy3p0")
+event = ExtResource("2_1uxeq")
+metadata/_custom_type_script = "uid://dbvysemw11ei8"
+
+[sub_resource type="Resource" id="Resource_xd64n"]
+resource_name = "RU: ON_SCENE_ENTER"
+script = ExtResource("4_8tox1")
+concept = 10
+metadata/_custom_type_script = "uid://fnphjbccs4gy"
+
+[sub_resource type="Resource" id="Resource_phv5u"]
+script = ExtResource("5_rs650")
+rule = SubResource("Resource_xd64n")
+buckets = Array[ExtResource("1_gar2g")]([SubResource("Resource_1xxsp")])
+metadata/_custom_type_script = "uid://c44gav4s6as63"
 
 [resource]
 script = ExtResource("2_u21af")
+buckets = Array[ExtResource("1_gar2g")]([SubResource("Resource_phv5u")])

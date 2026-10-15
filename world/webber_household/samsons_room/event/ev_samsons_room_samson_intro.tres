@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://d1haqrj1r8frx"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_ev6kx"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_dhkc8"]
+[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="2_virlj"]
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("2_virlj")
+
+[sub_resource type="Resource" id="Resource_dhkc8"]
+script = ExtResource("2_dhkc8")
+inputs = Dictionary[String, Variant]({
+"actor": "",
+"await": true,
+"overwrite": true,
+"trigger": "samson_intro"
+})
+action = SubResource("Resource_ml60a")
+
+[resource]
+script = ExtResource("1_ev6kx")
+await_queue = true
+await_event = true
+start_task = SubResource("Resource_dhkc8")
+tasks = Array[ExtResource("2_dhkc8")]([SubResource("Resource_dhkc8")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

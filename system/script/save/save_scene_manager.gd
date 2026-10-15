@@ -8,6 +8,9 @@ class_name SaveSceneManager
 func _enter_tree():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
+func _exit_tree() -> void:
+	save_data()
+
 func _ready():
 	load_data()
 

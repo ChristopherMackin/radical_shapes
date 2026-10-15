@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_e4xpx"]
 [ext_resource type="PackedScene" uid="uid://be76871vkp6ce" path="res://_asset/world/webber_household/joys_room/mod_env_world_joys_room.glb" id="3_rspw4"]
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_lumdv"]
+[ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://system/script/save/save_data.gd" id="5_6jg01"]
 [ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change_trigger.gd" id="5_bx7er"]
+[ext_resource type="Resource" uid="uid://tffp4suvbq3u" path="res://world/webber_household/joys_room/bb_world_joys_room.tres" id="5_tpkmb"]
 [ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="6_tpkmb"]
 [ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="7_6jg01"]
 [ext_resource type="Material" uid="uid://d2ecuh58bhjv3" path="res://_asset/_general/material/m_debug_transparent.tres" id="7_lumdv"]
@@ -14,6 +16,14 @@
 
 [sub_resource type="Resource" id="Resource_3o2n4"]
 script = ExtResource("3_e4xpx")
+
+[sub_resource type="Resource" id="Resource_vbgxv"]
+script = ExtResource("5_6jg01")
+should_save_data = false
+should_load_data = false
+path = "world/webber_household/bb_world_joys_room.res"
+resource = ExtResource("5_tpkmb")
+metadata/_custom_type_script = "uid://dcyrmp3ja8f55"
 
 [sub_resource type="Resource" id="Resource_5lljs"]
 script = ExtResource("6_tpkmb")
@@ -55,7 +65,11 @@ tween_on_load = false
 camera_3d_resource = ExtResource("4_lumdv")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
+[node name="SaveManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="0" unique_id=1041070775]
+save_data_list = Array[ExtResource("5_6jg01")]([SubResource("Resource_vbgxv")])
+
 [node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355 node_paths=PackedStringArray("spawn_locations")]
+blackboard = ExtResource("5_tpkmb")
 spawn_locations = [NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn01")]
 
 [node name="Spawn01" type="Marker3D" parent="===SCENE_CHANGE========/SpawnLocations" parent_id_path=PackedInt32Array(369867195) index="0" unique_id=1192065279]

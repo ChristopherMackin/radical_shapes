@@ -10,10 +10,108 @@
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="5_t3rax"]
 [ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="6_ilpj6"]
 [ext_resource type="PackedScene" uid="uid://bpxkmt2cdyvqw" path="res://player/cb_joy.tscn" id="10_ilpj6"]
+[ext_resource type="Script" uid="uid://i1rx170t4865" path="res://_debug/world/conditional_node.gd" id="11_85jcy"]
 [ext_resource type="Texture2D" uid="uid://td6xb5xantxy" path="res://_asset/_general/texture/dialogue_background.png" id="11_f2xca"]
+[ext_resource type="Script" uid="uid://cgsr0p1sth0wy" path="res://system/script/rule/expression_rule.gd" id="12_eto5s"]
 [ext_resource type="PackedScene" uid="uid://bgxyjg7p6d1iu" path="res://_general/packed_scene/simple_dynamic_speech_bubble.tscn" id="14_c3aa4"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1vivr"]
+
+[sub_resource type="Resource" id="Resource_1vivr"]
+resource_name = "RU: Exp: false"
+script = ExtResource("12_eto5s")
+expression = "false"
+metadata/_custom_type_script = "uid://cgsr0p1sth0wy"
+
+[sub_resource type="Animation" id="Animation_85jcy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomBar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1080)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TopBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -135)]
+}
+
+[sub_resource type="Animation" id="Animation_eto5s"]
+resource_name = "slide_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomBar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1080), Vector2(0, 945)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TopBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -135), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pp6lc"]
+resource_name = "slide_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopBar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -135)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BottomBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 945), Vector2(0, 1080)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fk17n"]
+_data = {
+&"RESET": SubResource("Animation_85jcy"),
+&"slide_in": SubResource("Animation_eto5s"),
+&"slide_out": SubResource("Animation_pp6lc")
+}
 
 [node name="WorldLevel" type="Node3D" unique_id=1505589296]
 
@@ -36,11 +134,10 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 script = ExtResource("1_xgvwx")
 metadata/_custom_type_script = "uid://bqa5o66nsm0hq"
 
-[node name="SceneLoadManager" type="Node" parent="===MANAGER========" unique_id=991142355 node_paths=PackedStringArray("scene_animator", "character_controller")]
+[node name="SceneLoadManager" type="Node" parent="===MANAGER========" unique_id=991142355 node_paths=PackedStringArray("scene_animator")]
 script = ExtResource("2_be1jf")
 event_manager = ExtResource("4_f2xca")
 scene_animator = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationPlayer")
-character_controller = NodePath("../../===ACTOR========/CBJoy")
 
 [node name="InputManager" type="Node" parent="===MANAGER========" unique_id=535647948]
 script = ExtResource("2_8d011")
@@ -73,6 +170,9 @@ animation_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator" unique_id=743721924]
 
+[node name="CutsceneCanvas" type="CanvasLayer" parent="===CUTSCENE========" unique_id=812164978]
+layer = 2
+
 [node name="===AUDIO========" type="Node3D" parent="." unique_id=1531277118]
 
 [node name="===WORLD========" type="Node3D" parent="." unique_id=1848467908]
@@ -101,7 +201,37 @@ camera = NodePath("../../===CAMERA========/MainCamera")
 
 [node name="===UI========" type="CanvasLayer" parent="." unique_id=1608434002]
 
+[node name="UiGameView" type="SubViewportContainer" parent="===UI========" unique_id=2093334745]
+process_mode = 4
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="===UI========/UiGameView" unique_id=208854357]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="MainCamera" type="Camera3D" parent="===UI========/UiGameView/SubViewport" unique_id=807046495]
+top_level = true
+current = true
+
+[node name="MainCameraHost" type="Node" parent="===UI========/UiGameView/SubViewport/MainCamera" unique_id=2312105]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_qlsal")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="ConditionalNode" type="Node" parent="===UI========/UiGameView" unique_id=2057907838]
+script = ExtResource("11_85jcy")
+rule = SubResource("Resource_1vivr")
+change_on_blackboard_update = false
+metadata/_custom_type_script = "uid://i1rx170t4865"
+
 [node name="DialogueArea" parent="===UI========" unique_id=1196501776 instance=ExtResource("14_c3aa4")]
+visible = false
 offset_left = -337.0
 offset_top = 185.0
 offset_right = -337.0
@@ -166,7 +296,7 @@ metadata/_edit_use_anchors_ = true
 [node name="SubViewport" type="SubViewport" parent="===UI========/DialogueArea/Portrait" unique_id=264276467]
 transparent_bg = true
 handle_input_locally = false
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="PortraitCamera" type="Camera3D" parent="===UI========/DialogueArea/Portrait/SubViewport" unique_id=1879654437]
 physics_interpolation_mode = 1
@@ -183,5 +313,35 @@ auto_translate_mode = 2
 script = ExtResource("1_qlsal")
 host_layers = 524288
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="CinematicBars" type="Control" parent="===UI========" unique_id=148940324]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="===UI========/CinematicBars" unique_id=1639828682]
+libraries/ = SubResource("AnimationLibrary_fk17n")
+
+[node name="TopBar" type="ColorRect" parent="===UI========/CinematicBars" unique_id=149732505]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -135.0
+grow_horizontal = 2
+color = Color(0.16502175, 0.10332183, 0.017429084, 1)
+
+[node name="BottomBar" type="ColorRect" parent="===UI========/CinematicBars" unique_id=216923107]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.16502175, 0.10332183, 0.017429084, 1)
 
 [editable path="===UI========/DialogueArea"]

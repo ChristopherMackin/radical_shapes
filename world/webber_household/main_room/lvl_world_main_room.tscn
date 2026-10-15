@@ -7,7 +7,9 @@
 [ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change_trigger.gd" id="5_jbm42"]
 [ext_resource type="PackedScene" uid="uid://diji74lby6hok" path="res://_asset/world/webber_household/main_room/mod_env_world_main_room.glb" id="5_t4ukt"]
 [ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="6_oehnn"]
+[ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://system/script/save/save_data.gd" id="7_bnm5v"]
 [ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="7_qegdh"]
+[ext_resource type="Resource" uid="uid://bqt4iy0uptjvr" path="res://world/webber_household/main_room/bb_world_main_room.tres" id="7_qr2va"]
 [ext_resource type="Script" uid="uid://dd6d8mjib2ks" path="res://system/script/event/interactable.gd" id="8_plbqc"]
 [ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="10_eiiqb"]
 [ext_resource type="Script" uid="uid://dbvysemw11ei8" path="res://system/script/event_factory/single_event_factory.gd" id="10_isc0q"]
@@ -42,6 +44,14 @@ script = ExtResource("19_bnm5v")
 flag = 30
 value = 0
 metadata/_custom_type_script = "uid://76yu5gwmebt5"
+
+[sub_resource type="Resource" id="Resource_rsnrf"]
+script = ExtResource("7_bnm5v")
+should_save_data = false
+should_load_data = false
+path = "world/webber_household/bb_world_main_room.res"
+resource = ExtResource("7_qr2va")
+metadata/_custom_type_script = "uid://dcyrmp3ja8f55"
 
 [sub_resource type="Resource" id="Resource_1vivr"]
 script = ExtResource("6_oehnn")
@@ -144,7 +154,11 @@ rule = SubResource("Resource_u87o0")
 change_on_blackboard_update = false
 metadata/_custom_type_script = "uid://i1rx170t4865"
 
+[node name="SaveManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="0" unique_id=1041070775]
+save_data_list = Array[ExtResource("7_bnm5v")]([SubResource("Resource_rsnrf")])
+
 [node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355 node_paths=PackedStringArray("character_controllers", "spawn_locations")]
+blackboard = ExtResource("7_qr2va")
 character_controllers = [NodePath("../../===ACTOR========/CBJoy"), NodePath("../../===ACTOR========/CbSamson")]
 spawn_locations = [NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn01"), NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn02"), NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn03")]
 
