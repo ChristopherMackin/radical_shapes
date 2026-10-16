@@ -15,6 +15,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": true,
 "await_input": true,
 "close_timer": 2.0,
+"dialogue_area_index": 0.0,
 "talk": true,
 "text": "Why are you here?"
 })
@@ -28,6 +29,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": true,
 "await_input": false,
 "close_timer": 0.4,
+"dialogue_area_index": 0.0,
 "talk": true,
 "text": "To test the ga"
 })
@@ -41,6 +43,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": true,
 "await_input": true,
 "close_timer": 0.0,
+"dialogue_area_index": 0.0,
 "talk": true,
 "text": "I mean... because I work here!"
 })
@@ -54,6 +57,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": true,
 "await_input": true,
 "close_timer": 0.0,
+"dialogue_area_index": 0.0,
 "talk": true,
 "text": "In the void?.."
 })
@@ -67,6 +71,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": true,
 "await_input": true,
 "close_timer": 2.0,
+"dialogue_area_index": 0.0,
 "talk": true,
 "text": "..."
 })
@@ -79,6 +84,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": true,
 "await_input": true,
 "close_timer": 0.0,
+"dialogue_area_index": 0.0,
 "talk": true,
 "text": "Yes."
 })
@@ -86,7 +92,6 @@ action = SubResource("Resource_x7ur8")
 
 [resource]
 script = ExtResource("1_hppdf")
-await_event = true
 frequency = 2
 start_task = SubResource("Resource_q6b07")
 tasks = Array[ExtResource("2_q6b07")]([SubResource("Resource_q6b07"), SubResource("Resource_ecubv"), SubResource("Resource_2wfp7"), SubResource("Resource_0h8xn"), SubResource("Resource_javyq"), SubResource("Resource_x1sra")])

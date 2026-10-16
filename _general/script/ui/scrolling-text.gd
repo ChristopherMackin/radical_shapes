@@ -26,7 +26,7 @@ func _process(delta):
 	visible_ratio = normalized_dialogue_position
 	if visible_ratio >= 1:
 		is_scrolling = false
-		normalized_dialogue_position = 1;
+		normalized_dialogue_position = 1
 		on_scroll_completed.emit()
 
 func set_scrolling_text(scrolling_text : String, auto_scroll := true):

@@ -56,7 +56,7 @@ func start_event(event : Event, blackboard: Blackboard):
 			current_task = current_event.get_task(index)
 		
 		var expire = current_event.get_expiration_flags()
-		if expire != null:
+		if expire != null && !Engine.is_editor_hint():
 			blackboard.add(current_event.resource_path.get_file(), true, expire)
 		
 		await _end_event(current_event)
@@ -66,6 +66,7 @@ func start_event(event : Event, blackboard: Blackboard):
 			start_event(tuple.val1, tuple.val2)
 		else:
 			queue_empty.emit()
+			current_event = null
 	
 	if event.await_event:
 		await callable.call()

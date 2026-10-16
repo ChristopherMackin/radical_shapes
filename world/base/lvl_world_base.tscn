@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://bjv4hqyvjwdsh"]
 
+[ext_resource type="Script" uid="uid://db6exlegr7inp" path="res://_debug/script/debug_event_manager.gd" id="1_eto5s"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_qlsal"]
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="1_xgvwx"]
 [ext_resource type="Script" uid="uid://bojj5s0o4f2s3" path="res://system/script/input/world_input_manager.gd" id="2_8d011"]
 [ext_resource type="Script" uid="uid://xhjdfq3aubk1" path="res://scene_management/_script/scene_load_manager.gd" id="2_be1jf"]
+[ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="2_pp6lc"]
 [ext_resource type="Script" uid="uid://crmfqkx4p7ujf" path="res://system/script/event/event_subscriber/scene_event_manager.gd" id="2_t3rax"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="4_f2xca"]
 [ext_resource type="Resource" uid="uid://4avsth0e8b0u" path="res://system/input/ih_player_movement.tres" id="5_ot6eh"]
@@ -115,6 +117,18 @@ _data = {
 
 [node name="WorldLevel" type="Node3D" unique_id=1505589296]
 
+[node name="===DEBUG========" type="Node3D" parent="." unique_id=1940565046]
+
+[node name="DebugEventManager" type="Node" parent="===DEBUG========" unique_id=1296634209 node_paths=PackedStringArray("event_subscriber")]
+script = ExtResource("1_eto5s")
+btn_continue = Callable()
+btn_skip = Callable()
+btn_cancel = Callable()
+_blackboard = ExtResource("2_pp6lc")
+btn_event_factory = Callable()
+event_subscriber = NodePath("../../===MANAGER========/SceneEventManager")
+metadata/_custom_type_script = "uid://db6exlegr7inp"
+
 [node name="===CAMERA========" type="Node3D" parent="." unique_id=1477970177]
 
 [node name="MainCamera" type="Camera3D" parent="===CAMERA========" unique_id=1922745435]
@@ -143,10 +157,9 @@ scene_animator = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationPlay
 script = ExtResource("2_8d011")
 active_handler = ExtResource("5_ot6eh")
 
-[node name="SceneEventManager" type="Node" parent="===MANAGER========" unique_id=333180430 node_paths=PackedStringArray("scene_animator_handler", "default_dialogue_area", "input_manager")]
+[node name="SceneEventManager" type="Node" parent="===MANAGER========" unique_id=333180430 node_paths=PackedStringArray("scene_animator_handler", "input_manager")]
 script = ExtResource("2_t3rax")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
-default_dialogue_area = NodePath("../../===UI========/DialogueArea")
 input_manager = NodePath("../InputManager")
 dialogue_input_handler = ExtResource("6_ilpj6")
 manager = ExtResource("4_f2xca")
@@ -202,7 +215,6 @@ camera = NodePath("../../===CAMERA========/MainCamera")
 [node name="===UI========" type="CanvasLayer" parent="." unique_id=1608434002]
 
 [node name="UiGameView" type="SubViewportContainer" parent="===UI========" unique_id=2093334745]
-process_mode = 4
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -218,7 +230,7 @@ render_target_update_mode = 4
 top_level = true
 current = true
 
-[node name="MainCameraHost" type="Node" parent="===UI========/UiGameView/SubViewport/MainCamera" unique_id=2312105]
+[node name="UiGameViewHost" type="Node" parent="===UI========/UiGameView/SubViewport/MainCamera" unique_id=1340236510]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("1_qlsal")

@@ -787,6 +787,9 @@ bones/32/scale = Vector3(1, 1, 1)
 bones/33/position = Vector3(0.0815766, -9.89181e-06, 2.22529e-08)
 bones/33/rotation = Quaternion(1.47535e-09, -1.49789e-06, -1.37867e-06, 1)
 
+[node name="Lenses" parent="SimonSkin/root/Skeleton3D" index="10" unique_id=1021315991]
+visible = false
+
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="SimonSkin/root/Skeleton3D" index="17" unique_id=1475174430]
 bone_name = "head.x"
 bone = 5
@@ -818,9 +821,13 @@ libraries/ = SubResource("AnimationLibrary_uchn5")
 mouth_row_count = 4
 skeleton = NodePath("../SimonSkin/root/Skeleton3D")
 
+[node name="DialogueCamera" parent="." index="4" unique_id=1887443005]
+transform = Transform3D(1, 0, 0, 0, 0.9970892, -0.07624404, 0, 0.07624404, 0.9970892, 0.0122085, 1.4701998, 1.5935996)
+
 [node name="PersonalBubble" parent="." index="5" unique_id=2003500690 node_paths=PackedStringArray("exceptions")]
 exceptions = [NodePath("../SimonSkin/root/Skeleton3D/BoneAttachment3D/Area3D")]
 
-[connection signal="pose_updated" from="SimonSkin/root/Skeleton3D" to="FacialAnimator" method="pose_updated"]
+[node name="Camera3D" parent="." index="7" unique_id=654277568]
+transform = Transform3D(1, 0, 0, 0, 0.9970892, -0.07624404, 0, 0.07624404, 0.9970892, 0.0122085, 1.4701998, 1.5935996)
 
 [editable path="SimonSkin"]

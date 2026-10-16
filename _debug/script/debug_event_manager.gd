@@ -24,6 +24,9 @@ class_name DebugEventManager
 @export var active_contestant: Const.Player
 @export var card_history: Array[CardBase]
 @export var current_round: int
+@export var _blackboard: Blackboard:
+	get():
+		return blackboard if blackboard else Global.blackboard
 @export var blackboard: Blackboard
 
 @export_group("")
@@ -76,7 +79,7 @@ func _process(delta) -> void:
 	_previous_task = manager.current_task
 
 func start_event():
-	manager.start_event(event, blackboard)
+	manager.start_event(event, _blackboard)
 	notify_property_list_changed()
 
 func cancel_event():
@@ -106,6 +109,6 @@ func get_event_using_data():
 	
 	query["card_history"] = card_history
 	
-	query.merge(manager.blackboard.get_query())
+	query.merge(manager._blackboard.get_query())
 	
 	event = event_factory.get_event(query)

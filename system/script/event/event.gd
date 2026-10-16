@@ -11,8 +11,8 @@ enum Frequency {
 
 @export var skip:= false
 @export var can_interupt := false
-@export var await_queue := false
-@export var await_event := false
+@export var await_queue := true
+@export var await_event := true
 @export var frequency : Frequency
 
 @export_group("Task")

@@ -19,8 +19,6 @@ action = SubResource("Resource_ml60a")
 
 [resource]
 script = ExtResource("1_ev6kx")
-await_queue = true
-await_event = true
 start_task = SubResource("Resource_dhkc8")
 tasks = Array[ExtResource("2_dhkc8")]([SubResource("Resource_dhkc8")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

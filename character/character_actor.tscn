@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_ayaed"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_m4kvb"]
 [ext_resource type="Resource" uid="uid://v2wiqt0q1qwn" path="res://character/portrait_camera_resource.tres" id="9_t8a6v"]
+[ext_resource type="Script" uid="uid://i1rx170t4865" path="res://_debug/world/conditional_node.gd" id="9_v5ghv"]
+[ext_resource type="Script" uid="uid://cgsr0p1sth0wy" path="res://system/script/rule/expression_rule.gd" id="10_mv020"]
 [ext_resource type="Script" uid="uid://c8jtfyfmyewm1" path="res://_general/script/area_with_exceptions.gd" id="10_v5ghv"]
 
 [sub_resource type="Resource" id="Resource_v5ghv"]
@@ -16,6 +18,12 @@ ease = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lrl4d"]
 size = Vector3(2, 3, 1.75)
+
+[sub_resource type="Resource" id="Resource_1vivr"]
+resource_name = "RU: Exp: false"
+script = ExtResource("10_mv020")
+expression = "false"
+metadata/_custom_type_script = "uid://cgsr0p1sth0wy"
 
 [node name="AnimatedActor" type="Node3D" unique_id=1017530611 node_paths=PackedStringArray("_dialgoue_camera")]
 script = ExtResource("1_lrl4d")
@@ -63,11 +71,17 @@ cull_mask = 524288
 fov = 40.0
 far = 10.0
 
-[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1530594877]
+[node name="ActorPortrait" type="Node" parent="Camera3D" unique_id=1530594877]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("8_ayaed")
 host_layers = 524288
+
+[node name="ConditionalNode" type="Node" parent="Camera3D" unique_id=1013838363]
+script = ExtResource("9_v5ghv")
+rule = SubResource("Resource_1vivr")
+change_on_blackboard_update = false
+metadata/_custom_type_script = "uid://i1rx170t4865"
 
 [connection signal="area_entered" from="PersonalBubble" to="PersonalBubble" method="_on_area_entered"]
 [connection signal="area_exited" from="PersonalBubble" to="PersonalBubble" method="_on_area_exited"]

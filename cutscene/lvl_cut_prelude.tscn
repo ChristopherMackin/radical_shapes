@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="2_013v0"]
 [ext_resource type="AudioStream" uid="uid://brspvy678a3sh" path="res://_asset/sfx/static.mp3" id="2_g4mq0"]
 [ext_resource type="Shader" uid="uid://capxcs54yhxwx" path="res://_general/style/tv_static.gdshader" id="2_vpb4t"]
+[ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="3_m0ppm"]
 [ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://_general/style/default_theme.tres" id="3_s4d3p"]
 [ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://_asset/cutscene/name_background.png" id="6_013v0"]
 [ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://_general/script/ui/scrolling-text.gd" id="7_m0ppm"]
@@ -11,6 +12,7 @@
 [sub_resource type="Resource" id="Resource_oo0mk"]
 script = ExtResource("2_013v0")
 scene_name = "lvl_world_samsons_room"
+transition = ExtResource("3_m0ppm")
 metadata/_custom_type_script = "uid://c12mfuwapm0ko"
 
 [sub_resource type="Animation" id="Animation_x84ys"]

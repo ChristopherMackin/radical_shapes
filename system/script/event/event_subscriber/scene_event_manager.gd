@@ -4,10 +4,8 @@ extends EventSubscriber
 class_name SceneEventManager
 
 @export var scene_animator_handler: AnimationHandler
-var actors: Array[Actor]:
-	get(): return actors.filter(func(x): return x)
 
-@export var default_dialogue_area: DialogueArea
+@export var dialogue_areas: Array[DialogueArea]
 
 @export var input_manager: InputManager
 @export var dialogue_input_handler: InputHandler
@@ -19,19 +17,18 @@ signal continue_dialogue
 signal skip
 
 func _ready():
+	super._ready()
 	if Engine.is_editor_hint(): return
 	_dialogue_setup()
 
 func _dialogue_setup():
-	actors = Global.actors
+	_refresh_actor_list()
 	
-	if default_dialogue_area:
-		default_dialogue_area.visible = false
+	for area in dialogue_areas:
+		area.visible = false
 	
-	for actor in actors:
-		if actor.dialogue_area_override: actor.dialogue_area_override.visible = false
-	
-	if dialogue_input_handler: dialogue_input_handler.on_handle_input.connect(_handle_input)
+	if dialogue_input_handler and !Engine.is_editor_hint(): 
+		dialogue_input_handler.on_handle_input.connect(_handle_input)
 
 func _handle_input(_delta, input):
 	if input.is_action_just_pressed("action_1"):
@@ -67,13 +64,11 @@ func display_dialogue(dp: DialoguePayload):
 			return
 		current_actor = actors[index]
 	
-	if !default_dialogue_area && !current_actor.dialogue_area_override: return
+	var index = dp.dialogue_area_index if dp.dialogue_area_index < dialogue_areas.size() else 0
 	
-	var dialogue_area: DialogueArea = default_dialogue_area
+	var dialogue_area: DialogueArea = dialogue_areas[index]
 	
 	if current_actor:
-		if current_actor.dialogue_area_override:
-			dialogue_area = current_actor.dialogue_area_override
 		current_actor.focus_actor(true)
 		if current_actor is CharacterActor:
 			current_actor.talk_override = dp.talk
@@ -117,18 +112,15 @@ func display_dialogue(dp: DialoguePayload):
 		current_actor.focus_actor(false)
 
 func cancel_dialogue(actor):
-	var dialogue_area = default_dialogue_area
+	for area in dialogue_areas:
+		area.visible = false
 	
 	if actor != "":
 		var index = get_actor_index(actor)
 		var current_actor = actors[index]
-		if current_actor.dialogue_area_override:
-			dialogue_area = current_actor.dialogue_area_override
-
+		
 		current_actor.focus_actor(false)
-	
-		dialogue_area.visible = false
-	
+		
 	dialogue_canceled = true
 	_on_dialogue_canceled.emit()
 
@@ -169,7 +161,6 @@ func cancel_animation(actor):
 			
 		parent = actors[index]
 		animation_handler = parent.get_node_or_null(NodePath("AnimationHandler"))
-
 	
 	else:
 		animation_handler = scene_animator_handler

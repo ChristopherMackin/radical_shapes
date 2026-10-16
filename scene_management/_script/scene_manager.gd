@@ -72,8 +72,6 @@ func replace_scene_by_index_async(scene_index: int, transition: PackedScene = nu
 			
 			await transition_instance.start_transition_in()
 			transition_instance.queue_free()
-			on_scene_loaded.emit()
-		
 		else:
 			transition_instance.queue_free()
 			
@@ -82,15 +80,12 @@ func replace_scene_by_index_async(scene_index: int, transition: PackedScene = nu
 			on_scene_unloaded.emit()
 		
 			instantiate_scene_by_index.call_deferred(scene_index)
-			on_scene_loaded.emit()
-	
 	else:
 		await Util.await_all(free_functions)
 		loaded_scenes.clear()
 		on_scene_unloaded.emit()
 		
 		instantiate_scene_by_index.call_deferred(scene_index)
-		on_scene_loaded.emit()
 	
 	return true
 
@@ -103,6 +98,8 @@ func instantiate_scene_by_index(scene_index: int):
 		canvas.add_child(instance)
 	else:
 		add_child(instance)
+	
+	on_scene_loaded.emit()
 	
 	await Util.await_predicate(func(): 
 		var parent = instance.get_parent()

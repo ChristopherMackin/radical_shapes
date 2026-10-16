@@ -67,6 +67,15 @@ slot/5/right_type = 0
 slot/5/right_color = Color(1, 1, 1, 1)
 slot/5/right_icon = null
 slot/5/draw_stylebox = true
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color(1, 1, 1, 1)
+slot/6/left_icon = null
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color(1, 1, 1, 1)
+slot/6/right_icon = null
+slot/6/draw_stylebox = true
 script = ExtResource("1_g3ufa")
 task_action = SubResource("Resource_x7ur8")
 
@@ -86,6 +95,13 @@ size_flags_vertical = 3
 placeholder_text = "Actor Name"
 script = ExtResource("3_aeafh")
 field_name = "actor"
+
+[node name="DialogueAreaIndex" type="SpinBox" parent="." unique_id=821260718]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+prefix = "Dialogue Area Index:"
+script = ExtResource("3_aeafh")
+field_name = "dialogue_area_index"
 
 [node name="CheckButton" type="CheckButton" parent="." unique_id=1538457877]
 custom_minimum_size = Vector2(0, 60)

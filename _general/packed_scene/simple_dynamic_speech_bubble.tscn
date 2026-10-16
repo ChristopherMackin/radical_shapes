@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgxyjg7p6d1iu"]
 
-[ext_resource type="Script" uid="uid://4bchriocygww" path="res://_general/script/dialogue/dialogue_area.gd" id="1_0ovlf"]
+[ext_resource type="Script" uid="uid://dpuvbnec3snd8" path="res://_general/script/dialogue/dialogue_area.gd" id="1_0ovlf"]
 [ext_resource type="Script" uid="uid://be7cf323sop52" path="res://_general/script/dialogue/dynamic_speech_bubble_tail.gd" id="1_puers"]
 [ext_resource type="FontFile" uid="uid://dm7kd3g4er8v2" path="res://_asset/_general/font/FriendlySans-Regular.ttf" id="3_uu3p6"]
 [ext_resource type="Texture2D" uid="uid://davvi6dypeb1h" path="res://_asset/_general/texture/t_speech_bubble_outline.png" id="3_xje5t"]
@@ -16,8 +16,9 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0ovlf")
-scrolling_text = NodePath("ScrollingText")
+text = "Testing"
 normal_characters_per_second = 20
+scrolling_text = NodePath("ScrollingText")
 
 [node name="BubbleBody" type="Control" parent="." unique_id=1492291815 node_paths=PackedStringArray("background", "outline", "point_parent")]
 anchors_preset = 0
