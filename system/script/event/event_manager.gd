@@ -131,5 +131,13 @@ func cancel_timer():
 		callables
 	)
 
+func emit_event_signal(label: String):
+	var callables: Array[Callable]
+	callables.assign(subscribers.map(func(sub: EventSubscriber): return func(): await sub.emit_event_signal(label)))
+	
+	await Util.await_all(
+		callables
+	)
+
 func queue_event(event: Event):
 	pass

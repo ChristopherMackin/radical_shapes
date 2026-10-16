@@ -242,6 +242,36 @@ rule = SubResource("Resource_1vivr")
 change_on_blackboard_update = false
 metadata/_custom_type_script = "uid://i1rx170t4865"
 
+[node name="CinematicBars" type="Control" parent="===UI========" unique_id=148940324]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="===UI========/CinematicBars" unique_id=1639828682]
+libraries/ = SubResource("AnimationLibrary_fk17n")
+
+[node name="TopBar" type="ColorRect" parent="===UI========/CinematicBars" unique_id=149732505]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -135.0
+grow_horizontal = 2
+color = Color(0.16502175, 0.10332183, 0.017429084, 1)
+
+[node name="BottomBar" type="ColorRect" parent="===UI========/CinematicBars" unique_id=216923107]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.16502175, 0.10332183, 0.017429084, 1)
+
 [node name="DialogueArea" parent="===UI========" unique_id=1196501776 instance=ExtResource("14_c3aa4")]
 visible = false
 offset_left = -337.0
@@ -325,35 +355,5 @@ auto_translate_mode = 2
 script = ExtResource("1_qlsal")
 host_layers = 524288
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
-
-[node name="CinematicBars" type="Control" parent="===UI========" unique_id=148940324]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="===UI========/CinematicBars" unique_id=1639828682]
-libraries/ = SubResource("AnimationLibrary_fk17n")
-
-[node name="TopBar" type="ColorRect" parent="===UI========/CinematicBars" unique_id=149732505]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = -135.0
-grow_horizontal = 2
-color = Color(0.16502175, 0.10332183, 0.017429084, 1)
-
-[node name="BottomBar" type="ColorRect" parent="===UI========/CinematicBars" unique_id=216923107]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 135.0
-grow_horizontal = 2
-grow_vertical = 0
-color = Color(0.16502175, 0.10332183, 0.017429084, 1)
 
 [editable path="===UI========/DialogueArea"]

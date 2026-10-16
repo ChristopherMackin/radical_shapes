@@ -3,12 +3,15 @@
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_ev6kx"]
 [ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_dhkc8"]
 [ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="2_virlj"]
+[ext_resource type="Script" uid="uid://dl7bhixloptqr" path="res://system/script/event/task_action/create_global_timer_task_action.gd" id="4_virlj"]
+[ext_resource type="Script" uid="uid://ct6mmwislthn4" path="res://system/script/event/task_action/set_global_value_task_action.gd" id="5_mbo75"]
 
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_virlj")
 
-[sub_resource type="Resource" id="Resource_dhkc8"]
+[sub_resource type="Resource" id="Resource_mbo75"]
 script = ExtResource("2_dhkc8")
+outputs = Array[int]([1])
 inputs = Dictionary[String, Variant]({
 "actor": "",
 "await": true,
@@ -17,8 +20,33 @@ inputs = Dictionary[String, Variant]({
 })
 action = SubResource("Resource_ml60a")
 
+[sub_resource type="Resource" id="Resource_2lo4u"]
+script = ExtResource("4_virlj")
+metadata/_custom_type_script = "uid://dl7bhixloptqr"
+
+[sub_resource type="Resource" id="Resource_lwpog"]
+script = ExtResource("2_dhkc8")
+outputs = Array[int]([2])
+inputs = Dictionary[String, Variant]({
+"name": "wait_for_joy",
+"seconds": 50.0
+})
+action = SubResource("Resource_2lo4u")
+
+[sub_resource type="Resource" id="Resource_idxig"]
+script = ExtResource("5_mbo75")
+metadata/_custom_type_script = "uid://ct6mmwislthn4"
+
+[sub_resource type="Resource" id="Resource_kh5pj"]
+script = ExtResource("2_dhkc8")
+inputs = Dictionary[String, Variant]({
+"flag_index": 31.0,
+"value": "true"
+})
+action = SubResource("Resource_idxig")
+
 [resource]
 script = ExtResource("1_ev6kx")
-start_task = SubResource("Resource_dhkc8")
-tasks = Array[ExtResource("2_dhkc8")]([SubResource("Resource_dhkc8")])
+start_task = SubResource("Resource_mbo75")
+tasks = Array[ExtResource("2_dhkc8")]([SubResource("Resource_mbo75"), SubResource("Resource_lwpog"), SubResource("Resource_kh5pj")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

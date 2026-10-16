@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://35fxxo0l0oge" path="res://addons/event_tree_plugin/task_node/rule_node.tscn" id="12_nl20v"]
 [ext_resource type="PackedScene" uid="uid://bruka2los7mb5" path="res://addons/event_tree_plugin/task_node/add_status_effect_node.tscn" id="13_ly33u"]
 [ext_resource type="PackedScene" uid="uid://nhhgwmvbjjr4" path="res://addons/event_tree_plugin/task_node/remove_status_effect_node.tscn" id="14_5ysm2"]
+[ext_resource type="PackedScene" uid="uid://bt3ortrltd7qy" path="res://addons/event_tree_plugin/task_node/signal_node.tscn" id="14_ly33u"]
+[ext_resource type="PackedScene" uid="uid://c15cvac3thf0v" path="res://addons/event_tree_plugin/task_node/create_global_timer_node.tscn" id="15_5ysm2"]
 
 [node name="Event Tree Graph Editor" type="Control" unique_id=1174903237]
 custom_minimum_size = Vector2(500, 0)
@@ -68,7 +70,7 @@ offset_top = -0.400085
 offset_right = 0.319992
 grow_vertical = 0
 size_flags_vertical = 3
-item_count = 9
+item_count = 10
 item_0/text = "ConsoleLog"
 item_1/text = "Dialogue"
 item_2/text = "Wait"
@@ -78,6 +80,7 @@ item_5/text = "SetLocalValue"
 item_6/text = "AddStatusEffect"
 item_7/text = "RemoveStatusEffect"
 item_8/text = "Rule"
+item_9/text = "Signal"
 script = ExtResource("1_mpg4u")
 event_graph = NodePath("../GraphContainer/EventGraph")
 task_node_type_parent = NodePath("../TaskNodeTypeParent")
@@ -115,6 +118,12 @@ layout_mode = 0
 [node name="Rule" parent="TaskNodeTypeParent" unique_id=151345177 instance=ExtResource("12_nl20v")]
 layout_mode = 0
 offset_bottom = 55.0
+
+[node name="Signal" parent="TaskNodeTypeParent" unique_id=691038116 instance=ExtResource("14_ly33u")]
+layout_mode = 0
+
+[node name="CreateGlobalTimer" parent="TaskNodeTypeParent" unique_id=1091520549 instance=ExtResource("15_5ysm2")]
+layout_mode = 0
 
 [connection signal="resource_changed" from="GraphContainer/MenuBarMarginContainer/EditorResourcePicker" to="." method="open_event_tree"]
 [connection signal="connection_drag_started" from="GraphContainer/EventGraph" to="GraphContainer/EventGraph" method="_on_connection_drag_started"]

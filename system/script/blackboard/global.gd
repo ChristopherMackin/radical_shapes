@@ -8,6 +8,7 @@ extends Node
 		Util.optional_connect(blackboard, "blackboard_updated", _on_blackboard_updated)
 
 signal blackboard_updated
+signal on_global_timer_timeout(name: String)
 
 func _on_blackboard_updated():
 	blackboard_updated.emit()
@@ -28,6 +29,10 @@ var state_nodes: Array[StateNode]:
 
 func create_timer(seconds : float):
 	await get_tree().create_timer(seconds).timeout
+
+func create_global_timer(seconds: float, name: String = "global_timer"):
+	await get_tree().create_timer(seconds).timeout
+	on_global_timer_timeout.emit(name)
 
 func process_frame():
 	await get_tree().process_frame

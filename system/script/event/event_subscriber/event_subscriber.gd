@@ -1,6 +1,6 @@
-extends Node
-
+@abstract
 class_name EventSubscriber
+extends Node
 
 @export var manager : EventManager:
 	set(val):
@@ -43,6 +43,9 @@ func play_animation(_animation : String, _actor : String, _overwrite_animation: 
 	pass
 
 func cancel_animation(_actor : String):
+	pass
+
+func emit_event_signal(label: String):
 	pass
 
 signal _on_timer_canceled

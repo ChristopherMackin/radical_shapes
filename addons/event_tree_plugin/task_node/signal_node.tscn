@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bt3ortrltd7qy"]
+
+[ext_resource type="Script" uid="uid://8qc3j4r3w1d4" path="res://addons/event_tree_plugin/task_node.gd" id="1_g8nt1"]
+[ext_resource type="Script" uid="uid://brh6nlas7k5uk" path="res://system/script/event/task_action/signal_task_action.gd" id="2_a7ugj"]
+[ext_resource type="Script" uid="uid://dhepl4pbwpvqx" path="res://addons/event_tree_plugin/task_node/task_node_field.gd" id="3_qri6e"]
+
+[sub_resource type="Resource" id="Resource_6ew0d"]
+script = ExtResource("2_a7ugj")
+metadata/_custom_type_script = "uid://brh6nlas7k5uk"
+
+[node name="Signal" type="GraphNode" unique_id=691038116]
+offset_right = 354.0
+offset_bottom = 135.0
+size_flags_vertical = 0
+resizable = true
+title = "Signal"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+script = ExtResource("1_g8nt1")
+task_action = SubResource("Resource_6ew0d")
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1398354530]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+placeholder_text = "Label"
+script = ExtResource("3_qri6e")
+field_name = "label"

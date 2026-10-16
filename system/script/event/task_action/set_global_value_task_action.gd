@@ -10,6 +10,6 @@ func invoke(task : Task, _manager : EventManager):
 	var bb : Blackboard = Global.blackboard
 	
 	#TODO: Make this a searchable enumerable flag list
-	bb.add(task.get_input("key"), str_to_var(task.get_input("val")))
+	bb.add_flag(task.get_input("flag_index"), str_to_var(task.get_input("value")))
 	
 	on_action_complete.emit(task.get_output(0))

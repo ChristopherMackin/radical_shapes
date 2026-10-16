@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c15cvac3thf0v"]
+
+[ext_resource type="Script" uid="uid://8qc3j4r3w1d4" path="res://addons/event_tree_plugin/task_node.gd" id="1_4m0rr"]
+[ext_resource type="Script" uid="uid://dl7bhixloptqr" path="res://system/script/event/task_action/create_global_timer_task_action.gd" id="2_4m0rr"]
+[ext_resource type="Script" uid="uid://dhepl4pbwpvqx" path="res://addons/event_tree_plugin/task_node/task_node_field.gd" id="3_4xyqb"]
+
+[sub_resource type="Resource" id="Resource_2lo4u"]
+script = ExtResource("2_4m0rr")
+metadata/_custom_type_script = "uid://dl7bhixloptqr"
+
+[node name="CreateGlobalTimer" type="GraphNode" unique_id=1091520549]
+offset_right = 244.0
+offset_bottom = 173.0
+title = "Create Global Timer"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("1_4m0rr")
+task_action = SubResource("Resource_2lo4u")
+
+[node name="SpinBox" type="SpinBox" parent="." unique_id=2008100672]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+step = 0.01
+suffix = "Seconds"
+script = ExtResource("3_4xyqb")
+field_name = "seconds"
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=465376274]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+placeholder_text = "Name"
+script = ExtResource("3_4xyqb")
+field_name = "name"

@@ -343,10 +343,7 @@ shape = SubResource("BoxShape3D_vbgxv")
 transform = Transform3D(1, 1.2165237e-31, 0, 1.2165237e-31, 1, 0, 0, 0, 1, 1.255, 0.23382568, 0.721)
 shape = SubResource("BoxShape3D_8vrlf")
 
-[node name="CBJoy" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="0" unique_id=948335993]
-process_mode = 4
-
-[node name="ConditionalNode" type="Node" parent="===ACTOR========/CBJoy" index="3" unique_id=588538234]
+[node name="ConditionalNode" type="Node" parent="===ACTOR========/CBJoy" parent_id_path=PackedInt32Array(948335993) index="3" unique_id=588538234]
 script = ExtResource("13_d2psw")
 rule = SubResource("Resource_8vrlf")
 change_on_blackboard_update = false
@@ -367,9 +364,6 @@ script = ExtResource("13_d2psw")
 rule = SubResource("Resource_c7ag6")
 change_on_blackboard_update = false
 metadata/_custom_type_script = "uid://i1rx170t4865"
-
-[node name="UiGameView" parent="===UI========" parent_id_path=PackedInt32Array(1608434002) index="0" unique_id=2093334745]
-process_mode = 4
 
 [node name="MainCamera" parent="===UI========/UiGameView/SubViewport" parent_id_path=PackedInt32Array(208854357) index="0" unique_id=807046495]
 transform = Transform3D(1, 0, 0, 0, 0.9427252, 0.3335704, 0, -0.3335704, 0.9427252, 2.855946, 2.9967859, 8.496166)

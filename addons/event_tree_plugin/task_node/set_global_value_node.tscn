@@ -10,7 +10,7 @@ metadata/_custom_type_script = "uid://ct6mmwislthn4"
 
 [node name="SetGlobalValue" type="GraphNode" unique_id=48354022]
 offset_right = 283.0
-offset_bottom = 199.0
+offset_bottom = 177.0
 size_flags_vertical = 0
 title = "Set Global Value"
 slot/0/left_enabled = true
@@ -34,12 +34,12 @@ slot/1/draw_stylebox = true
 script = ExtResource("1_kfviy")
 task_action = SubResource("Resource_idxig")
 
-[node name="Key" type="TextEdit" parent="." unique_id=803515857]
+[node name="FlagIndex" type="SpinBox" parent="." unique_id=1812511100]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-placeholder_text = "Key"
+max_value = 1000.0
 script = ExtResource("3_idxig")
-field_name = "key"
+field_name = "flag_index"
 
 [node name="Value" type="TextEdit" parent="." unique_id=595448345]
 custom_minimum_size = Vector2(0, 60)
