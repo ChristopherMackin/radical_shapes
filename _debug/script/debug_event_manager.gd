@@ -24,7 +24,7 @@ class_name DebugEventManager
 @export var active_contestant: Const.Player
 @export var card_history: Array[CardBase]
 @export var current_round: int
-@export var _blackboard: Blackboard:
+var _blackboard: Blackboard:
 	get():
 		return blackboard if blackboard else Global.blackboard
 @export var blackboard: Blackboard
