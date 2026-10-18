@@ -109,6 +109,6 @@ func get_event_using_data():
 	
 	query["card_history"] = card_history
 	
-	query.merge(manager._blackboard.get_query())
+	query.merge(_blackboard.get_query())
 	
 	event = event_factory.get_event(query)

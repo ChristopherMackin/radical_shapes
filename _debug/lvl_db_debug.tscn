@@ -2,7 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://da4quimbac65g" path="res://_debug/lvl_db_debug_base.tscn" id="1_pncn6"]
 [ext_resource type="Resource" uid="uid://hhr05iw7w226" path="res://_debug/bb_debug.tres" id="2_kjq1s"]
+[ext_resource type="Resource" uid="uid://delwvju7876r4" path="res://_debug/ev_debug.tres" id="2_kteli"]
 [ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="3_kjq1s"]
+[ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/rule/concept_rule.gd" id="3_ncwtg"]
+[ext_resource type="Script" uid="uid://c2ote8d3tq7pk" path="res://system/script/event_factory/rule_event_factory.gd" id="4_8hael"]
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="4_ew0wg"]
 [ext_resource type="Resource" uid="uid://beevy52aqog34" path="res://player/br_player.tres" id="5_vl5uf"]
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="6_gjvsf"]
@@ -16,6 +19,18 @@
 [ext_resource type="Script" uid="uid://dvf2hykscm20g" path="res://character/script/brain/segmented_brain.gd" id="13_8hael"]
 [ext_resource type="Resource" uid="uid://jy8316qpljpn" path="res://debate/simon/db_01/dk_db_simon_01.tres" id="13_67ixi"]
 [ext_resource type="Script" uid="uid://d05swc3suq1d1" path="res://system/script/card/card_array_filter/cost_order_card_array_filter.gd" id="13_ncwtg"]
+
+[sub_resource type="Resource" id="Resource_h52et"]
+resource_name = "RU: ON_TOKENS_PLAYED"
+script = ExtResource("3_ncwtg")
+concept = 3
+metadata/_custom_type_script = "uid://fnphjbccs4gy"
+
+[sub_resource type="Resource" id="Resource_08d3l"]
+script = ExtResource("4_8hael")
+rule = SubResource("Resource_h52et")
+event = ExtResource("2_kteli")
+metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
 
 [sub_resource type="Resource" id="Resource_pncn6"]
 script = ExtResource("3_kjq1s")
@@ -81,8 +96,7 @@ metadata/_custom_type_script = "uid://18i051ifv5h0"
 btn_continue = Callable()
 btn_skip = Callable()
 btn_cancel = Callable()
-_blackboard = ExtResource("4_ew0wg")
-btn_event_factory = Callable()
+event_factory = SubResource("Resource_08d3l")
 
 [node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="0" unique_id=4102704]
 event_factory = SubResource("Resource_pncn6")
