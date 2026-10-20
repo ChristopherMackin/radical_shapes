@@ -11,14 +11,21 @@
 [ext_resource type="Material" uid="uid://dvgcswmnervl5" path="res://_asset/_general/material/m_stucco.tres" id="11_833kt"]
 [ext_resource type="PackedScene" uid="uid://db0xxjhf61623" path="res://_asset/world/webber_household/samsons_room/mod_env_world_samsons_room.glb" id="11_d2psw"]
 [ext_resource type="PackedScene" uid="uid://bgxyjg7p6d1iu" path="res://_general/packed_scene/simple_dynamic_speech_bubble.tscn" id="11_s0gfc"]
+[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://scene_management/_script/scene_change/scene_change_node.gd" id="11_vu58g"]
+[ext_resource type="Script" uid="uid://dhx7e8wrgceej" path="res://system/script/global_timer_watcher.gd" id="12_at566"]
 [ext_resource type="Material" uid="uid://denlclmvv4lmo" path="res://_asset/_general/material/m_cardboard.tres" id="12_gj0p4"]
 [ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change_trigger.gd" id="12_hl6u8"]
 [ext_resource type="Script" uid="uid://i1rx170t4865" path="res://_debug/world/conditional_node.gd" id="13_d2psw"]
 [ext_resource type="PackedScene" uid="uid://clwowgg135cqd" path="res://player/cb_samson.tscn" id="13_gj0p4"]
 [ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="13_msuer"]
+[ext_resource type="Script" uid="uid://bexeevctdvv0t" path="res://system/script/event/event_trigger.gd" id="13_uh3dp"]
 [ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="14_belr8"]
 [ext_resource type="Script" uid="uid://76yu5gwmebt5" path="res://system/script/rule/flag_value_rule.gd" id="14_c7ag6"]
+[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="14_trqci"]
 [ext_resource type="Material" uid="uid://d2ecuh58bhjv3" path="res://_asset/_general/material/m_debug_transparent.tres" id="15_nacv3"]
+[ext_resource type="Resource" uid="uid://cbgobox8we5f1" path="res://world/webber_household/event/ev_act_1_transition_to_world_main_for_joy_intro.tres" id="15_trqci"]
+[ext_resource type="Script" uid="uid://dbvysemw11ei8" path="res://system/script/event_factory/single_event_factory.gd" id="16_qc4f5"]
+[ext_resource type="Script" uid="uid://bs3w0u36gnbxi" path="res://system/script/event/event_subscriber/signal_event_subscriber.gd" id="17_aita7"]
 
 [sub_resource type="Resource" id="Resource_s0gfc"]
 script = ExtResource("3_nacv3")
@@ -26,8 +33,6 @@ duration = 0.0
 
 [sub_resource type="Resource" id="Resource_ewf7u"]
 script = ExtResource("5_s0gfc")
-should_save_data = false
-should_load_data = false
 path = "world/webber_household/bb_world_samsons_room.res"
 resource = ExtResource("7_vbgxv")
 metadata/_custom_type_script = "uid://dcyrmp3ja8f55"
@@ -41,6 +46,17 @@ metadata/_custom_type_script = "uid://c12mfuwapm0ko"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v5gy4"]
 size = Vector3(1.955, 4, 1)
+
+[sub_resource type="Resource" id="Resource_v5gy4"]
+script = ExtResource("13_msuer")
+scene_name = "lvl_world_main_room"
+transition = ExtResource("14_belr8")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="Resource" id="Resource_qc4f5"]
+script = ExtResource("16_qc4f5")
+event = ExtResource("15_trqci")
+metadata/_custom_type_script = "uid://dbvysemw11ei8"
 
 [sub_resource type="Animation" id="Animation_do3o4"]
 length = 0.001
@@ -257,15 +273,38 @@ spawn_locations = [NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn0
 [node name="Spawn01" type="Marker3D" parent="===SCENE_CHANGE========/SpawnLocations" parent_id_path=PackedInt32Array(369867195) index="0" unique_id=949596269]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.1639905, 0, 3.814662)
 
-[node name="ToLvlWorldMainRoom" type="Area3D" parent="===SCENE_CHANGE========/SceneChangeNodes" parent_id_path=PackedInt32Array(1210513985) index="0" unique_id=1501008280]
+[node name="ToLvlWorldMainRoomTrigger" type="Area3D" parent="===SCENE_CHANGE========/SceneChangeNodes" parent_id_path=PackedInt32Array(1210513985) index="0" unique_id=1501008280]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("12_hl6u8")
 scene_change_data = SubResource("Resource_1vivr")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldMainRoom" index="0" unique_id=1171636324]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldMainRoomTrigger" index="0" unique_id=1171636324]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.135, 2, 5.2928634)
 shape = SubResource("BoxShape3D_v5gy4")
+
+[node name="ToLvlWorldMainRoom" type="Node" parent="===SCENE_CHANGE========/SceneChangeNodes" parent_id_path=PackedInt32Array(1210513985) index="1" unique_id=58218294]
+script = ExtResource("11_vu58g")
+scene_change_data = SubResource("Resource_v5gy4")
+metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
+
+[node name="WaitForJoyTimerWatcher" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="0" unique_id=1600295790]
+script = ExtResource("12_at566")
+filter = Array[String](["wait_for_joy"])
+metadata/_custom_type_script = "uid://dhx7e8wrgceej"
+
+[node name="Act1TransitionToWorldMainForJoyIntro" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="1" unique_id=171326804]
+script = ExtResource("13_uh3dp")
+event_manager = ExtResource("14_trqci")
+event_factory = SubResource("Resource_qc4f5")
+blackboard = ExtResource("7_vbgxv")
+metadata/_custom_type_script = "uid://bexeevctdvv0t"
+
+[node name="SignalEventSubscriber" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="2" unique_id=39593330]
+script = ExtResource("17_aita7")
+filter = Array[String](["to_lvl_world_main_room"])
+manager = ExtResource("14_trqci")
+metadata/_custom_type_script = "uid://bs3w0u36gnbxi"
 
 [node name="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator" parent_id_path=PackedInt32Array(484654225) index="1" unique_id=743721924]
 libraries/ = SubResource("AnimationLibrary_do3o4")
@@ -372,6 +411,9 @@ far = 100.0
 
 [node name="PortraitCamera" parent="===UI========/DialogueArea/Portrait/SubViewport" parent_id_path=PackedInt32Array(264276467) index="0" unique_id=1879654437]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0.0122085, 1.6233592, 2.2362573)
+
+[connection signal="on_global_timer_timeout" from="===EVENT========/WaitForJoyTimerWatcher" to="===EVENT========/Act1TransitionToWorldMainForJoyIntro" method="query_event" unbinds=1]
+[connection signal="on_recieved_event_signal" from="===EVENT========/SignalEventSubscriber" to="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldMainRoom" method="transition_scene" unbinds=1]
 
 [editable path="===CUTSCENE========/CutsceneCanvas/SamsonIntro/SpeechBubble"]
 [editable path="===ENVIRONMENT========/Model/mod_env_world_samsons_room"]

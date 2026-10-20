@@ -1,10 +1,15 @@
+@tool
 extends Resource
 
 class_name SaveData
 
 @export var should_save_data := true
 @export var should_load_data := true
-@export var path : String
+@export var path : String:
+	set(val):
+		path = val
+		if !path: return
+		resource_name = Util.get_file_name(path)
 var full_path:
 	get: return Const.save_path + path
 @export var resource : Resource

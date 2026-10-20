@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://8qc3j4r3w1d4" path="res://addons/event_tree_plugin/task_node.gd" id="1_kfviy"]
 [ext_resource type="Script" uid="uid://ct6mmwislthn4" path="res://system/script/event/task_action/set_global_value_task_action.gd" id="2_kfviy"]
 [ext_resource type="Script" uid="uid://dhepl4pbwpvqx" path="res://addons/event_tree_plugin/task_node/task_node_field.gd" id="3_idxig"]
+[ext_resource type="Script" uid="uid://dp6qyf2b4ua23" path="res://addons/event_tree_plugin/task_node/set_global_value_enum.gd" id="3_x8p4p"]
 
 [sub_resource type="Resource" id="Resource_idxig"]
 script = ExtResource("2_kfviy")
@@ -31,15 +32,38 @@ slot/1/right_type = 0
 slot/1/right_color = Color(1, 1, 1, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
 script = ExtResource("1_kfviy")
 task_action = SubResource("Resource_idxig")
 
-[node name="FlagIndex" type="SpinBox" parent="." unique_id=1812511100]
-custom_minimum_size = Vector2(0, 60)
+[node name="SetGlobalValueEnum" type="Node" parent="." unique_id=1748569505 node_paths=PackedStringArray("flag_option_button", "expiration_option_button")]
+script = ExtResource("3_x8p4p")
+flag_option_button = NodePath("../FlagIndex")
+expiration_option_button = NodePath("../ExpirationIndex")
+
+[node name="FlagIndex" type="OptionButton" parent="." unique_id=1244681518]
 layout_mode = 2
-max_value = 1000.0
+search_bar_enabled = true
 script = ExtResource("3_idxig")
 field_name = "flag_index"
+
+[node name="ExpirationIndex" type="OptionButton" parent="." unique_id=833140192]
+layout_mode = 2
+selected = 0
+search_bar_enabled = true
+item_count = 1
+popup/item_0/text = "None"
+popup/item_0/id = 0
+script = ExtResource("3_idxig")
+field_name = "expiration_index"
 
 [node name="Value" type="TextEdit" parent="." unique_id=595448345]
 custom_minimum_size = Vector2(0, 60)

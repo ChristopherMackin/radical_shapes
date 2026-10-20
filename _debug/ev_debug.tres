@@ -2,97 +2,24 @@
 
 [ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_hppdf"]
 [ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_q6b07"]
-[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="3_q6b07"]
+[ext_resource type="Script" uid="uid://ct6mmwislthn4" path="res://system/script/event/task_action/set_global_value_task_action.gd" id="3_q6b07"]
 
-[sub_resource type="Resource" id="Resource_x7ur8"]
+[sub_resource type="Resource" id="Resource_idxig"]
 script = ExtResource("3_q6b07")
+metadata/_custom_type_script = "uid://ct6mmwislthn4"
 
 [sub_resource type="Resource" id="Resource_q6b07"]
 script = ExtResource("2_q6b07")
-outputs = Array[int]([1])
 inputs = Dictionary[String, Variant]({
-"actor": "joy",
-"await_close": true,
-"await_input": true,
-"close_timer": 2.0,
-"dialogue_area_index": 0.0,
-"talk": true,
-"text": "Why are you here?"
+"expiration_index": 2,
+"flag_index": 31,
+"value": "true"
 })
-action = SubResource("Resource_x7ur8")
-
-[sub_resource type="Resource" id="Resource_ecubv"]
-script = ExtResource("2_q6b07")
-outputs = Array[int]([2])
-inputs = Dictionary[String, Variant]({
-"actor": "opal",
-"await_close": true,
-"await_input": false,
-"close_timer": 0.4,
-"dialogue_area_index": 0.0,
-"talk": true,
-"text": "To test the ga"
-})
-action = SubResource("Resource_x7ur8")
-
-[sub_resource type="Resource" id="Resource_2wfp7"]
-script = ExtResource("2_q6b07")
-outputs = Array[int]([3])
-inputs = Dictionary[String, Variant]({
-"actor": "opal",
-"await_close": true,
-"await_input": true,
-"close_timer": 0.0,
-"dialogue_area_index": 0.0,
-"talk": true,
-"text": "I mean... because I work here!"
-})
-action = SubResource("Resource_x7ur8")
-
-[sub_resource type="Resource" id="Resource_0h8xn"]
-script = ExtResource("2_q6b07")
-outputs = Array[int]([4])
-inputs = Dictionary[String, Variant]({
-"actor": "joy",
-"await_close": true,
-"await_input": true,
-"close_timer": 0.0,
-"dialogue_area_index": 0.0,
-"talk": true,
-"text": "In the void?.."
-})
-action = SubResource("Resource_x7ur8")
-
-[sub_resource type="Resource" id="Resource_javyq"]
-script = ExtResource("2_q6b07")
-outputs = Array[int]([5])
-inputs = Dictionary[String, Variant]({
-"actor": "opal",
-"await_close": true,
-"await_input": true,
-"close_timer": 2.0,
-"dialogue_area_index": 0.0,
-"talk": true,
-"text": "..."
-})
-action = SubResource("Resource_x7ur8")
-
-[sub_resource type="Resource" id="Resource_x1sra"]
-script = ExtResource("2_q6b07")
-inputs = Dictionary[String, Variant]({
-"actor": "opal",
-"await_close": true,
-"await_input": true,
-"close_timer": 0.0,
-"dialogue_area_index": 0.0,
-"talk": true,
-"text": "Yes."
-})
-action = SubResource("Resource_x7ur8")
+action = SubResource("Resource_idxig")
 
 [resource]
 script = ExtResource("1_hppdf")
 frequency = 2
 start_task = SubResource("Resource_q6b07")
-tasks = Array[ExtResource("2_q6b07")]([SubResource("Resource_q6b07"), SubResource("Resource_ecubv"), SubResource("Resource_2wfp7"), SubResource("Resource_0h8xn"), SubResource("Resource_javyq"), SubResource("Resource_x1sra")])
+tasks = Array[ExtResource("2_q6b07")]([SubResource("Resource_q6b07")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

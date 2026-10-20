@@ -7,7 +7,7 @@ signal on_debate_end
 @export var event_factory: EventFactory:
 	get:
 		if !event_factory:
-			event_factory = EventFactory.new()
+			event_factory = DefaultEventFactory.new()
 		return event_factory
 @export var event_manager : EventManager
 @export var blackboard: Blackboard

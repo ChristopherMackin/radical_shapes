@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_ccsgu"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_2b3v3"]
-[ext_resource type="Resource" uid="uid://d3is5wrbf6a5k" path="res://world/webber_household/main_room/event/ev_lvl_world_main_room_samson_intro.tres" id="2_kvvbj"]
+[ext_resource type="Resource" uid="uid://d3is5wrbf6a5k" path="res://world/webber_household/main_room/event/ev_world_main_room_samson_intro.tres" id="2_kvvbj"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_keswu"]
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_keswu"]
 [ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change_trigger.gd" id="5_jbm42"]
@@ -19,7 +19,7 @@
 [ext_resource type="Material" uid="uid://denlclmvv4lmo" path="res://_asset/_general/material/m_cardboard.tres" id="10_qegdh"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="11_8k61f"]
 [ext_resource type="Material" uid="uid://dvgcswmnervl5" path="res://_asset/_general/material/m_stucco.tres" id="11_eiiqb"]
-[ext_resource type="Resource" uid="uid://cq52a8sicnr4y" path="res://world/webber_household/main_room/event/ev_lvl_world_main_room_inspect_oven_01.tres" id="12_65tbs"]
+[ext_resource type="Resource" uid="uid://cq52a8sicnr4y" path="res://world/webber_household/main_room/event/ev_world_main_room_inspect_oven_01.tres" id="12_65tbs"]
 [ext_resource type="PackedScene" uid="uid://clwowgg135cqd" path="res://player/cb_samson.tscn" id="17_8k61f"]
 [ext_resource type="Script" uid="uid://i1rx170t4865" path="res://_debug/world/conditional_node.gd" id="18_qr2va"]
 [ext_resource type="Script" uid="uid://dhx7e8wrgceej" path="res://system/script/global_timer_watcher.gd" id="18_w1bvl"]
@@ -51,8 +51,6 @@ metadata/_custom_type_script = "uid://76yu5gwmebt5"
 
 [sub_resource type="Resource" id="Resource_rsnrf"]
 script = ExtResource("7_bnm5v")
-should_save_data = false
-should_load_data = false
 path = "world/webber_household/bb_world_main_room.res"
 resource = ExtResource("7_qr2va")
 metadata/_custom_type_script = "uid://dcyrmp3ja8f55"
@@ -319,8 +317,9 @@ metadata/_custom_type_script = "uid://dd6d8mjib2ks"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.852905, 0.42123032, 1.4392517)
 shape = SubResource("BoxShape3D_qbdty")
 
-[node name="GlobalTimerWatcher" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="1" unique_id=172463479]
+[node name="WaitForJoyTimerWatcher" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="1" unique_id=172463479]
 script = ExtResource("18_w1bvl")
+filter = Array[String](["wait_for_joy"])
 metadata/_custom_type_script = "uid://dhx7e8wrgceej"
 
 [node name="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator" parent_id_path=PackedInt32Array(484654225) index="1" unique_id=743721924]
@@ -420,8 +419,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.16470589, 0.101960786, 0.015686275, 0)
-
-[connection signal="on_global_timer_timeout" from="===EVENT========/GlobalTimerWatcher" to="===EVENT========/GlobalTimerWatcher" method="test"]
 
 [editable path="===ENVIRONMENT========/Model/ModEnvWorldMainRoom"]
 [editable path="===ACTOR========/CbSamson"]

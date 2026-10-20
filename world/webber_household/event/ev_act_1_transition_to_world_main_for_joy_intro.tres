@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://cbgobox8we5f1"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_klfkk"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_l0j24"]
+[ext_resource type="Script" uid="uid://brh6nlas7k5uk" path="res://system/script/event/task_action/signal_task_action.gd" id="2_pr4pg"]
+[ext_resource type="Script" uid="uid://ct6mmwislthn4" path="res://system/script/event/task_action/set_global_value_task_action.gd" id="4_pr4pg"]
+
+[sub_resource type="Resource" id="Resource_idxig"]
+script = ExtResource("4_pr4pg")
+metadata/_custom_type_script = "uid://ct6mmwislthn4"
+
+[sub_resource type="Resource" id="Resource_pr4pg"]
+script = ExtResource("2_l0j24")
+outputs = Array[int]([1])
+inputs = Dictionary[String, Variant]({
+"expiration_index": 0,
+"flag_index": 31,
+"value": "false"
+})
+action = SubResource("Resource_idxig")
+
+[sub_resource type="Resource" id="Resource_6ew0d"]
+script = ExtResource("2_pr4pg")
+metadata/_custom_type_script = "uid://brh6nlas7k5uk"
+
+[sub_resource type="Resource" id="Resource_4okal"]
+script = ExtResource("2_l0j24")
+inputs = Dictionary[String, Variant]({
+"label": "to_lvl_world_main_room"
+})
+action = SubResource("Resource_6ew0d")
+
+[resource]
+script = ExtResource("1_klfkk")
+start_task = SubResource("Resource_pr4pg")
+tasks = Array[ExtResource("2_l0j24")]([SubResource("Resource_pr4pg"), SubResource("Resource_4okal")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

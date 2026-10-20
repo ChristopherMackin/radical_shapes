@@ -1,7 +1,6 @@
 @tool
-extends GraphNode
-
 class_name TaskNode
+extends GraphNode
 
 @export var task_action : TaskAction
 

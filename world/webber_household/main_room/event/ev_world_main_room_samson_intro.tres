@@ -104,6 +104,7 @@ action = SubResource("Resource_ml60a")
 
 [resource]
 script = ExtResource("1_5f0rt")
+skip = true
 can_interupt = true
 await_queue = false
 start_task = SubResource("Resource_2tdcm")

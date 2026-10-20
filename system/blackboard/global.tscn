@@ -4,12 +4,27 @@
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="2_d6xf5"]
 [ext_resource type="Script" uid="uid://bqa5o66nsm0hq" path="res://system/script/save/save_scene_manager.gd" id="3_tegov"]
 [ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://system/script/save/save_data.gd" id="4_qwqry"]
+[ext_resource type="Resource" uid="uid://30fstvf0tbr0" path="res://world/webber_household/samsons_room/bb_world_samsons_room.tres" id="5_d6xf5"]
+[ext_resource type="Resource" uid="uid://bqt4iy0uptjvr" path="res://world/webber_household/main_room/bb_world_main_room.tres" id="6_tegov"]
 
 [sub_resource type="Resource" id="Resource_j0tf4"]
+resource_name = "bb_global.res"
 script = ExtResource("4_qwqry")
 path = "bb_global.res"
 resource = ExtResource("2_d6xf5")
 metadata/_custom_type_script = "uid://dcyrmp3ja8f55"
+
+[sub_resource type="Resource" id="Resource_gve53"]
+resource_name = "bb_world_samsons_roo"
+script = ExtResource("4_qwqry")
+path = "world/webber_household/bb_world_samsons_room.res"
+resource = ExtResource("5_d6xf5")
+
+[sub_resource type="Resource" id="Resource_qwqry"]
+resource_name = "bb_world_main_roo"
+script = ExtResource("4_qwqry")
+path = "world/webber_household/bb_world_main_room.res"
+resource = ExtResource("6_tegov")
 
 [node name="Global" type="Node" unique_id=881052229]
 process_mode = 3
@@ -17,7 +32,8 @@ script = ExtResource("1_gve53")
 blackboard = ExtResource("2_d6xf5")
 
 [node name="SaveManager" type="Node" parent="." unique_id=355131968]
+process_mode = 3
 script = ExtResource("3_tegov")
-save_data_list = Array[ExtResource("4_qwqry")]([SubResource("Resource_j0tf4")])
-save_on_project_stop = true
+save_data_list = Array[ExtResource("4_qwqry")]([SubResource("Resource_j0tf4"), SubResource("Resource_gve53"), SubResource("Resource_qwqry")])
+should_save_data_override = true
 metadata/_custom_type_script = "uid://bqa5o66nsm0hq"

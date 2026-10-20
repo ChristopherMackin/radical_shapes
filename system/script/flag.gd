@@ -2,7 +2,7 @@ class_name Flag
 extends Object
 
 enum {
-	CONCEPT = 0,
+CONCEPT = 0,
 	PLAYER = 1,
 	COMPUTER = 2,
 	CURRENT_TURN = 3,
@@ -39,10 +39,11 @@ enum {
 	
 	#System Flags
 	STORY_PROGRESS = 30,
+	CURRENT_LOCATION = 32,
 	
 	#Story Flags
 	A1_WAITING_ON_JOY = 31,
-	A1_JOY_IS_READY = 32,
+	A1_JOY_IS_INTRODUCED = 33,
 }
 
 enum Flag{
@@ -83,10 +84,11 @@ enum Flag{
 	
 	#System Flags
 	STORY_PROGRESS = 30,
+	CURRENT_LOCATION = 32,
 	
 	#Story Flags
 	A1_WAITING_ON_JOY = 31,
-	A1_JOY_IS_READY = 32,
+	A1_JOY_IS_INTRODUCED = 33,
 }
 
 static func get_all_names() -> Array[String]:

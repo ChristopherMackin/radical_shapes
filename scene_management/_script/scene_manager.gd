@@ -1,5 +1,6 @@
 extends Node
 
+signal on_scene_change
 signal on_scene_unloaded
 signal on_scene_loaded
 
@@ -49,6 +50,9 @@ func replace_scene_async(scene_name: String, transition: PackedScene = null) -> 
 
 func replace_scene_by_index_async(scene_index: int, transition: PackedScene = null):
 	if scene_index <0 || scene_index >= _scene_list.size(): return false
+	
+	Global.blackboard.add_flag(Flag.CURRENT_LOCATION, scene_index)
+	on_scene_change.emit()
 	
 	var free_functions: Array[Callable] = []
 	for key in loaded_scenes:

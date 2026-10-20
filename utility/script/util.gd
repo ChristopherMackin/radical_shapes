@@ -120,7 +120,8 @@ static func get_resource_name(resource: Resource) -> String:
 	return get_file_name(path)
 
 static func get_file_name(path: String) -> String:
-	return path.right(-path.rfind("/") - 1).left(-5)
+	var name = path.right(-path.rfind("/") - 1).left(-5)
+	return name if name else path
 
 static func auto_populate_resource_array(old_array: Array, new_array: Array, resource_type, resource_name: String = "New Resource") -> Array:
 	old_array.resize(new_array.size())

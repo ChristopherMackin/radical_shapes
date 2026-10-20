@@ -11,6 +11,3 @@ func _ready() -> void:
 func _emit_on_global_timer_timeout(name: String):
 	if !filter || filter.has(name):
 		on_global_timer_timeout.emit(name)
-
-func test(name: String):
-	print(name)
