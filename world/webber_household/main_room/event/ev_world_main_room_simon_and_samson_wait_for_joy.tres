@@ -8,9 +8,9 @@
 [sub_resource type="Resource" id="Resource_x7ur8"]
 script = ExtResource("3_al51o")
 
-[sub_resource type="Resource" id="Resource_2tdcm"]
+[sub_resource type="Resource" id="Resource_t7a14"]
 script = ExtResource("2_al51o")
-outputs = Array[int]([1])
+outputs = Array[int]([6])
 inputs = Dictionary[String, Variant]({
 "actor": "simon",
 "await_close": true,
@@ -22,27 +22,13 @@ inputs = Dictionary[String, Variant]({
 })
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_ml60a"]
-script = ExtResource("4_2tdcm")
-
-[sub_resource type="Resource" id="Resource_g0b8r"]
+[sub_resource type="Resource" id="Resource_62q0d"]
 script = ExtResource("2_al51o")
 outputs = Array[int]([2])
 inputs = Dictionary[String, Variant]({
-"actor": "",
-"await": true,
-"overwrite": false,
-"trigger": "samson_intro"
-})
-action = SubResource("Resource_ml60a")
-
-[sub_resource type="Resource" id="Resource_psowx"]
-script = ExtResource("2_al51o")
-outputs = Array[int]([3])
-inputs = Dictionary[String, Variant]({
 "actor": "samson",
 "await_close": true,
-"await_input": true,
+"await_input": false,
 "close_timer": 2.0,
 "dialogue_area_index": 0.0,
 "talk": true,
@@ -50,13 +36,13 @@ inputs = Dictionary[String, Variant]({
 })
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_fhpsi"]
+[sub_resource type="Resource" id="Resource_rkh3p"]
 script = ExtResource("2_al51o")
-outputs = Array[int]([4])
+outputs = Array[int]([3])
 inputs = Dictionary[String, Variant]({
 "actor": "simon",
 "await_close": true,
-"await_input": true,
+"await_input": false,
 "close_timer": 2.0,
 "dialogue_area_index": 0.0,
 "talk": true,
@@ -64,27 +50,27 @@ inputs = Dictionary[String, Variant]({
 })
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_0mrbp"]
+[sub_resource type="Resource" id="Resource_wdwhv"]
 script = ExtResource("2_al51o")
-outputs = Array[int]([5])
+outputs = Array[int]([4])
 inputs = Dictionary[String, Variant]({
 "actor": "simon",
 "await_close": true,
-"await_input": true,
-"close_timer": 0.0,
+"await_input": false,
+"close_timer": 2.0,
 "dialogue_area_index": 0.0,
 "talk": true,
 "text": "Your sister is taking her time, as usual."
 })
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_4gc1r"]
+[sub_resource type="Resource" id="Resource_flhgu"]
 script = ExtResource("2_al51o")
-outputs = Array[int]([6])
+outputs = Array[int]([5])
 inputs = Dictionary[String, Variant]({
 "actor": "simon",
 "await_close": true,
-"await_input": true,
+"await_input": false,
 "close_timer": 2.0,
 "dialogue_area_index": 0.0,
 "talk": true,
@@ -92,21 +78,45 @@ inputs = Dictionary[String, Variant]({
 })
 action = SubResource("Resource_x7ur8")
 
-[sub_resource type="Resource" id="Resource_mwsi5"]
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("4_2tdcm")
+
+[sub_resource type="Resource" id="Resource_txvrv"]
 script = ExtResource("2_al51o")
 inputs = Dictionary[String, Variant]({
 "actor": "",
 "await": false,
 "overwrite": false,
-"trigger": "end_cinematic"
+"trigger": "end_cutscene"
+})
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_q5p2a"]
+script = ExtResource("2_al51o")
+outputs = Array[int]([7])
+inputs = Dictionary[String, Variant]({
+"actor": "",
+"await": true,
+"overwrite": false,
+"trigger": "waiting_on_joy"
+})
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_gaovo"]
+script = ExtResource("2_al51o")
+outputs = Array[int]([1])
+inputs = Dictionary[String, Variant]({
+"actor": "",
+"await": true,
+"overwrite": false,
+"trigger": "start_cutscene"
 })
 action = SubResource("Resource_ml60a")
 
 [resource]
 script = ExtResource("1_5f0rt")
-skip = true
 can_interupt = true
 await_queue = false
-start_task = SubResource("Resource_2tdcm")
-tasks = Array[ExtResource("2_al51o")]([SubResource("Resource_2tdcm"), SubResource("Resource_g0b8r"), SubResource("Resource_psowx"), SubResource("Resource_fhpsi"), SubResource("Resource_0mrbp"), SubResource("Resource_4gc1r"), SubResource("Resource_mwsi5")])
+start_task = SubResource("Resource_t7a14")
+tasks = Array[ExtResource("2_al51o")]([SubResource("Resource_t7a14"), SubResource("Resource_62q0d"), SubResource("Resource_rkh3p"), SubResource("Resource_wdwhv"), SubResource("Resource_flhgu"), SubResource("Resource_txvrv"), SubResource("Resource_q5p2a"), SubResource("Resource_gaovo")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

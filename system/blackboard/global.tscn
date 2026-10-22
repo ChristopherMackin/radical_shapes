@@ -35,5 +35,6 @@ blackboard = ExtResource("2_d6xf5")
 process_mode = 3
 script = ExtResource("3_tegov")
 save_data_list = Array[ExtResource("4_qwqry")]([SubResource("Resource_j0tf4"), SubResource("Resource_gve53"), SubResource("Resource_qwqry")])
-should_save_data_override = true
+save_data_override = 1
+load_data_override = 2
 metadata/_custom_type_script = "uid://bqa5o66nsm0hq"

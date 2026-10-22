@@ -163,3 +163,23 @@ static func await_predicate(predicate: Callable):
 		await Global.process_frame()
 		timeout -= 1
 		if timeout <= 0: return
+
+static func get_animation_library_path_from_name(animation_player: AnimationPlayer, animation: String) -> String:
+	for library_name in animation_player.get_animation_library_list():
+			var library:= animation_player.get_animation_library(library_name)
+			for anim_name in library.get_animation_list():
+				if anim_name == animation:
+					if library_name == "": return anim_name
+					return "%s/%s" %[library_name, anim_name]
+	
+	return ""
+
+static func get_animation_library_path_from_animation(animation_player: AnimationPlayer, animation: Animation) -> String:
+	for library_name in animation_player.get_animation_library_list():
+			var library:= animation_player.get_animation_library(library_name)
+			for anim_name in library.get_animation_list():
+				if library.get_animation(anim_name) == animation:
+					if library_name == "": return anim_name
+					return "%s/%s" %[library_name, anim_name]
+	
+	return ""

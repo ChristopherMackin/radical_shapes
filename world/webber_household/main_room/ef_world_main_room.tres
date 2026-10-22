@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="1_3a1hb"]
 [ext_resource type="Script" uid="uid://bkpc76nqmkxc2" path="res://system/script/event_factory/bucket_event_factory.gd" id="2_6up6r"]
-[ext_resource type="Resource" uid="uid://d3is5wrbf6a5k" path="res://world/webber_household/main_room/event/ev_world_main_room_samson_intro.tres" id="2_npto1"]
+[ext_resource type="Resource" uid="uid://d3is5wrbf6a5k" path="res://world/webber_household/main_room/event/ev_world_main_room_simon_and_samson_wait_for_joy.tres" id="2_npto1"]
 [ext_resource type="Script" uid="uid://c2ote8d3tq7pk" path="res://system/script/event_factory/rule_event_factory.gd" id="3_0r44y"]
 [ext_resource type="Script" uid="uid://76yu5gwmebt5" path="res://system/script/rule/flag_value_rule.gd" id="3_018jj"]
 [ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/rule/concept_rule.gd" id="3_npto1"]
 [ext_resource type="Script" uid="uid://c44gav4s6as63" path="res://system/script/event_factory/rule_bucket_event_factory.gd" id="4_0r44y"]
+[ext_resource type="Resource" uid="uid://dr1b06clryio5" path="res://world/webber_household/main_room/event/ev_world_main_room_joy_intro.tres" id="5_i1usm"]
+[ext_resource type="Script" uid="uid://dbvysemw11ei8" path="res://system/script/event_factory/single_event_factory.gd" id="6_3dyoy"]
 
 [sub_resource type="Resource" id="Resource_03q7x"]
 resource_name = "RU: FlagValueRule"
@@ -21,6 +23,11 @@ rule = SubResource("Resource_03q7x")
 event = ExtResource("2_npto1")
 metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
 
+[sub_resource type="Resource" id="Resource_bxip3"]
+script = ExtResource("6_3dyoy")
+event = ExtResource("5_i1usm")
+metadata/_custom_type_script = "uid://dbvysemw11ei8"
+
 [sub_resource type="Resource" id="Resource_8xcp7"]
 resource_name = "RU: ON_SCENE_ENTER"
 script = ExtResource("3_npto1")
@@ -30,7 +37,7 @@ metadata/_custom_type_script = "uid://fnphjbccs4gy"
 [sub_resource type="Resource" id="Resource_tnxy5"]
 script = ExtResource("4_0r44y")
 rule = SubResource("Resource_8xcp7")
-buckets = Array[ExtResource("1_3a1hb")]([SubResource("Resource_chkuq")])
+buckets = Array[ExtResource("1_3a1hb")]([SubResource("Resource_chkuq"), SubResource("Resource_bxip3")])
 metadata/_custom_type_script = "uid://c44gav4s6as63"
 
 [resource]

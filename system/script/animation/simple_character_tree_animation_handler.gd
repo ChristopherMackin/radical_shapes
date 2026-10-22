@@ -5,14 +5,11 @@ class_name SimpleCharacterTreeAnimationHandler
 
 @export var animation_tree: CharacterAnimationTree
 
-@export var animation: Animation:
+var animation: Animation:
 	set(val):
 		if !animation_tree || val == null: return
-		for library_name in _animation_player.get_animation_library_list():
-			var library:= _animation_player.get_animation_library(library_name)
-			for anim_name in library.get_animation_list():
-				if library.get_animation(anim_name) == val:
-					start_animation("%s/%s" %[library_name, anim_name])
+		var path = Util.get_animation_library_path_from_animation(_animation_player, val)
+		if path: start_animation(path)
 
 var _animation_player: AnimationPlayer:
 	get(): 

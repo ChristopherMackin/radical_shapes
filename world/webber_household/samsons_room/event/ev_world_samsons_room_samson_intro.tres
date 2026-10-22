@@ -29,7 +29,7 @@ script = ExtResource("3_d28fa")
 outputs = Array[int]([2])
 inputs = Dictionary[String, Variant]({
 "name": "wait_for_joy",
-"seconds": 10.0
+"seconds": 30.0
 })
 action = SubResource("Resource_2lo4u")
 

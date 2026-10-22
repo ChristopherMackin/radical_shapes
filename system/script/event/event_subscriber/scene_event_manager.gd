@@ -144,8 +144,8 @@ func play_animation(animation : String, actor : String, overwrite_animation: boo
 	animation_handler.start_animation(animation)
 	
 	if await_animation:
-		var finished_animation = await animation_handler.on_animation_finished
-		while finished_animation != animation:
+		var finished_animation: String = await animation_handler.on_animation_finished
+		while finished_animation.split("/")[-1] != animation:
 			finished_animation = await animation_handler.on_animation_finished
 			print("finished_animation")
 

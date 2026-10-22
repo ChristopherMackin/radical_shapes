@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://dr1b06clryio5"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_u2of7"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_r42pf"]
+[ext_resource type="Script" uid="uid://ct6mmwislthn4" path="res://system/script/event/task_action/set_global_value_task_action.gd" id="2_yqnem"]
+[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="3_r42pf"]
+
+[sub_resource type="Resource" id="Resource_idxig"]
+script = ExtResource("2_yqnem")
+metadata/_custom_type_script = "uid://ct6mmwislthn4"
+
+[sub_resource type="Resource" id="Resource_yqnem"]
+script = ExtResource("2_r42pf")
+outputs = Array[int]([1])
+inputs = Dictionary[String, Variant]({
+"expiration_index": 0,
+"flag_index": 31,
+"value": "false"
+})
+action = SubResource("Resource_idxig")
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("3_r42pf")
+
+[sub_resource type="Resource" id="Resource_h0rjk"]
+script = ExtResource("2_r42pf")
+inputs = Dictionary[String, Variant]({
+"actor": "",
+"await": true,
+"overwrite": true,
+"trigger": "joy_intro"
+})
+action = SubResource("Resource_ml60a")
+
+[resource]
+script = ExtResource("1_u2of7")
+start_task = SubResource("Resource_yqnem")
+tasks = Array[ExtResource("2_r42pf")]([SubResource("Resource_yqnem"), SubResource("Resource_h0rjk")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

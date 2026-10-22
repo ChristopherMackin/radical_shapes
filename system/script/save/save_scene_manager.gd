@@ -8,8 +8,8 @@ class_name SaveSceneManager
 		save_data_list = Util.auto_populate_resource_array(save_data_list, val, SaveData, "New Save Data")
 
 @export_category("Settings")
-@export var should_save_data_override: bool = false
-@export var should_load_data_override: bool = false
+@export_enum("Resource Setting", "Save", "Don't Save") var save_data_override: int = 0
+@export_enum("Resource Setting", "Load", "Don't Load") var load_data_override: int = 0
 @export var save_on_project_stop := false
 
 func _enter_tree():
@@ -23,13 +23,13 @@ func _ready():
 func load_data():
 	for data : SaveData in save_data_list:
 		if !SaveDataGlobalList.loaded_data.has(data.resource):
-			if data.should_load_data:
+			if (data.should_load_data || load_data_override == 1) and !load_data_override == 2:
 				data.load_data()
 			SaveDataGlobalList.loaded_data.append(data.resource)
 
 func save_data():
 	for data : SaveData in save_data_list:
-		if data.should_save_data:
+		if (data.should_save_data || save_data_override == 1) and !save_data_override == 2:
 			data.save_data()
 
 func _notification(what: int) -> void:

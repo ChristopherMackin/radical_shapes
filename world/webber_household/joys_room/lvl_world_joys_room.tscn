@@ -6,31 +6,16 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_e4xpx"]
 [ext_resource type="PackedScene" uid="uid://be76871vkp6ce" path="res://_asset/world/webber_household/joys_room/mod_env_world_joys_room.glb" id="3_rspw4"]
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_lumdv"]
-[ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://system/script/save/save_data.gd" id="5_6jg01"]
 [ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change_trigger.gd" id="5_bx7er"]
 [ext_resource type="Resource" uid="uid://tffp4suvbq3u" path="res://world/webber_household/joys_room/bb_world_joys_room.tres" id="5_tpkmb"]
 [ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="6_tpkmb"]
 [ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="7_6jg01"]
 [ext_resource type="Material" uid="uid://d2ecuh58bhjv3" path="res://_asset/_general/material/m_debug_transparent.tres" id="7_lumdv"]
 [ext_resource type="Material" uid="uid://dvgcswmnervl5" path="res://_asset/_general/material/m_stucco.tres" id="8_3o2n4"]
-[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://scene_management/_script/scene_change/scene_change_node.gd" id="10_q2b13"]
-[ext_resource type="Script" uid="uid://dhx7e8wrgceej" path="res://system/script/global_timer_watcher.gd" id="11_d6hyr"]
-[ext_resource type="Script" uid="uid://bexeevctdvv0t" path="res://system/script/event/event_trigger.gd" id="12_gha5s"]
-[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="13_rsa38"]
-[ext_resource type="Resource" uid="uid://cbgobox8we5f1" path="res://world/webber_household/event/ev_act_1_transition_to_world_main_for_joy_intro.tres" id="14_soaqm"]
-[ext_resource type="Script" uid="uid://dbvysemw11ei8" path="res://system/script/event_factory/single_event_factory.gd" id="15_f7nk1"]
-[ext_resource type="Script" uid="uid://bs3w0u36gnbxi" path="res://system/script/event/event_subscriber/signal_event_subscriber.gd" id="16_y0mhm"]
 
 [sub_resource type="Resource" id="Resource_3o2n4"]
 script = ExtResource("3_e4xpx")
-
-[sub_resource type="Resource" id="Resource_vbgxv"]
-script = ExtResource("5_6jg01")
-should_save_data = false
-should_load_data = false
-path = "world/webber_household/bb_world_joys_room.res"
-resource = ExtResource("5_tpkmb")
-metadata/_custom_type_script = "uid://dcyrmp3ja8f55"
+duration = 0.0
 
 [sub_resource type="Resource" id="Resource_5lljs"]
 script = ExtResource("6_tpkmb")
@@ -41,17 +26,6 @@ metadata/_custom_type_script = "uid://c12mfuwapm0ko"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vwf2h"]
 size = Vector3(1.955, 4, 1)
-
-[sub_resource type="Resource" id="Resource_u8a2o"]
-script = ExtResource("6_tpkmb")
-scene_name = "lvl_world_main_room"
-transition = ExtResource("7_6jg01")
-metadata/_custom_type_script = "uid://c12mfuwapm0ko"
-
-[sub_resource type="Resource" id="Resource_i8h7a"]
-script = ExtResource("15_f7nk1")
-event = ExtResource("14_soaqm")
-metadata/_custom_type_script = "uid://dbvysemw11ei8"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lumdv"]
 size = Vector3(1, 4, 5.669)
@@ -89,11 +63,9 @@ tween_on_load = false
 camera_3d_resource = ExtResource("4_lumdv")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="SaveManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="0" unique_id=1041070775]
-save_data_list = Array[ExtResource("5_6jg01")]([SubResource("Resource_vbgxv")])
-
-[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355 node_paths=PackedStringArray("spawn_locations")]
+[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="0" unique_id=991142355 node_paths=PackedStringArray("character_controllers", "spawn_locations")]
 blackboard = ExtResource("5_tpkmb")
+character_controllers = [NodePath("../../===ACTOR========/CBJoy")]
 spawn_locations = [NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn01")]
 
 [node name="Spawn01" type="Marker3D" parent="===SCENE_CHANGE========/SpawnLocations" parent_id_path=PackedInt32Array(369867195) index="0" unique_id=1192065279]
@@ -108,29 +80,6 @@ scene_change_data = SubResource("Resource_5lljs")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldMainRoom" index="0" unique_id=1641651681]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90386724, 2, 5.206088)
 shape = SubResource("BoxShape3D_vwf2h")
-
-[node name="ToLvlWorldMainRoom" type="Node" parent="===SCENE_CHANGE========" parent_id_path=PackedInt32Array(288681498) index="2" unique_id=534978405]
-script = ExtResource("10_q2b13")
-scene_change_data = SubResource("Resource_u8a2o")
-metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
-
-[node name="WaitForJoyTimerWatcher" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="0" unique_id=1009051420]
-script = ExtResource("11_d6hyr")
-filter = Array[String](["wait_for_joy"])
-metadata/_custom_type_script = "uid://dhx7e8wrgceej"
-
-[node name="Act1TransitionToWorldMainForJoyIntro" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="1" unique_id=468486332]
-script = ExtResource("12_gha5s")
-event_manager = ExtResource("13_rsa38")
-event_factory = SubResource("Resource_i8h7a")
-blackboard = ExtResource("5_tpkmb")
-metadata/_custom_type_script = "uid://bexeevctdvv0t"
-
-[node name="SignalEventSubscriber" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="2" unique_id=1445760362]
-script = ExtResource("16_y0mhm")
-filter = Array[String](["to_lvl_world_main_room"])
-manager = ExtResource("13_rsa38")
-metadata/_custom_type_script = "uid://bs3w0u36gnbxi"
 
 [node name="WorldEnvironment" parent="===WORLD========" parent_id_path=PackedInt32Array(1848467908) index="0" unique_id=1940585086]
 environment = ExtResource("2_kqxlv")
@@ -170,9 +119,6 @@ shape = SubResource("BoxShape3D_tpkmb")
 transform = Transform3D(1, 0, 0, 0, 0.9427252, 0.3335704, 0, -0.3335704, 0.9427252, 2.5025125, 3.2252398, 9.141815)
 fov = 40.0
 far = 100.0
-
-[connection signal="on_global_timer_timeout" from="===EVENT========/WaitForJoyTimerWatcher" to="===EVENT========/Act1TransitionToWorldMainForJoyIntro" method="query_event" unbinds=1]
-[connection signal="on_recieved_event_signal" from="===EVENT========/SignalEventSubscriber" to="===SCENE_CHANGE========/ToLvlWorldMainRoom" method="transition_scene" unbinds=1]
 
 [editable path="===ENVIRONMENT========/Model/mod_env_world_joys_room"]
 [editable path="===UI========/DialogueArea"]

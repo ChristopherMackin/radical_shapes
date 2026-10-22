@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_do3o4"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_nacv3"]
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_vbgxv"]
-[ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://system/script/save/save_data.gd" id="5_s0gfc"]
 [ext_resource type="Resource" uid="uid://fowxmelh4k2l" path="res://world/webber_household/samsons_room/ef_world_samsons_room.tres" id="7_s0gfc"]
 [ext_resource type="Resource" uid="uid://30fstvf0tbr0" path="res://world/webber_household/samsons_room/bb_world_samsons_room.tres" id="7_vbgxv"]
 [ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="10_gj0p4"]
@@ -31,12 +30,6 @@
 script = ExtResource("3_nacv3")
 duration = 0.0
 
-[sub_resource type="Resource" id="Resource_ewf7u"]
-script = ExtResource("5_s0gfc")
-path = "world/webber_household/bb_world_samsons_room.res"
-resource = ExtResource("7_vbgxv")
-metadata/_custom_type_script = "uid://dcyrmp3ja8f55"
-
 [sub_resource type="Resource" id="Resource_1vivr"]
 script = ExtResource("13_msuer")
 scene_name = "lvl_world_main_room"
@@ -58,83 +51,44 @@ script = ExtResource("16_qc4f5")
 event = ExtResource("15_trqci")
 metadata/_custom_type_script = "uid://dbvysemw11ei8"
 
-[sub_resource type="Animation" id="Animation_do3o4"]
+[sub_resource type="Animation" id="Animation_trqci"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../../===ACTOR========/CbSamson:motion_mode")
+tracks/0/path = NodePath("../../===ACTOR========/CbSamson:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../===ACTOR========/CbSamson:position")
+tracks/1/path = NodePath("../CutsceneCanvas/SamsonIntro/SpeechBubble:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../===ACTOR========/CbSamson:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../CutsceneCanvas/SamsonIntro/SpeechBubble:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../CutsceneCanvas/SamsonIntro/SpeechBubble:text")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["Testing"]
 }
 
-[sub_resource type="Animation" id="Animation_c7ag6"]
-resource_name = "samson_intro"
-length = 10.0
-tracks/0/type = "value"
+[sub_resource type="Animation" id="Animation_uh3dp"]
+length = 9.633333
+tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../../===ACTOR========/CbSamson:motion_mode")
+tracks/0/path = NodePath("../../===UI========/CinematicBars/AnimationPlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4.1),
-"transitions": PackedFloat32Array(1, 1e-05),
-"update": 1,
-"values": [1, 0]
+"clips": PackedStringArray("slide_in", "slide_out"),
+"times": PackedFloat32Array(0, 9.3)
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -143,74 +97,28 @@ tracks/1/path = NodePath("../../===ACTOR========/CbSamson:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.12, 1.5),
+"times": PackedFloat32Array(0, 0.93333334, 1.2966666),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(1.1436789, 0.46684265, 0.81118083), Vector3(1.1436789, 0.46684265, 0.81118083), Vector3(1.1436789, -2.0813084e-12, 2.1229892)]
+"values": [Vector3(1.1632497, 0.46765137, 0.7117436), Vector3(1.1632497, 0.46765137, 0.7117436), Vector3(1.1632497, -2.081363e-12, 1.9859195)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../===ACTOR========/CbSamson:rotation")
+tracks/2/path = NodePath("../CutsceneCanvas/SamsonIntro/SpeechBubble:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, -1.2165237e-31)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../===UI========/CinematicBars:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 9.966666),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../CutsceneCanvas/SamsonIntro/SpeechBubble:visible")
-tracks/4/interp = 0
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 2.2666667),
-"transitions": PackedFloat32Array(1, 1e-05),
-"update": 1,
-"values": [false, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../CutsceneCanvas/SamsonIntro/SpeechBubble:text")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(2.2666667, 3.7, 4.733333, 5.5333333, 8, 8.79),
+"times": PackedFloat32Array(2.1666667, 3.825139, 4.8, 6.11, 8.110001, 8.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": ["Not that dream again...", "Not that dream again...", "Not that dream again...", "Okay... I better get going.", "Okay... I better get going.", "Okay... I better get going."]
-}
-tracks/6/type = "animation"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../../===UI========/CinematicBars/AnimationPlayer")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"clips": PackedStringArray("slide_in", "slide_out"),
-"times": PackedFloat32Array(0, 9.666667)
+"values": ["Not that dream again...", "Not that dream again...", "Not that dream again...", "Well, I better be going.", "Well, I better be going.", "Well, I better be going."]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_do3o4"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_trqci"]
 _data = {
-&"RESET": SubResource("Animation_do3o4"),
-&"samson_intro": SubResource("Animation_c7ag6")
+&"RESET": SubResource("Animation_trqci"),
+&"samson_intro": SubResource("Animation_uh3dp")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1vivr"]
@@ -261,10 +169,7 @@ tween_on_load = false
 camera_3d_resource = ExtResource("4_vbgxv")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="SaveManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="0" unique_id=1041070775]
-save_data_list = Array[ExtResource("5_s0gfc")]([SubResource("Resource_ewf7u")])
-
-[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355 node_paths=PackedStringArray("character_controllers", "spawn_locations")]
+[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="0" unique_id=991142355 node_paths=PackedStringArray("character_controllers", "spawn_locations")]
 event_factory = ExtResource("7_s0gfc")
 blackboard = ExtResource("7_vbgxv")
 character_controllers = [NodePath("../../===ACTOR========/CBJoy"), NodePath("../../===ACTOR========/CbSamson")]
@@ -300,14 +205,14 @@ event_factory = SubResource("Resource_qc4f5")
 blackboard = ExtResource("7_vbgxv")
 metadata/_custom_type_script = "uid://bexeevctdvv0t"
 
-[node name="SignalEventSubscriber" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="2" unique_id=39593330]
+[node name="ToLvlWorldMainRoomSignalSubscriber" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="2" unique_id=39593330]
 script = ExtResource("17_aita7")
 filter = Array[String](["to_lvl_world_main_room"])
 manager = ExtResource("14_trqci")
 metadata/_custom_type_script = "uid://bs3w0u36gnbxi"
 
 [node name="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator" parent_id_path=PackedInt32Array(484654225) index="1" unique_id=743721924]
-libraries/ = SubResource("AnimationLibrary_do3o4")
+libraries/ = SubResource("AnimationLibrary_trqci")
 
 [node name="SamsonIntro" type="Control" parent="===CUTSCENE========/CutsceneCanvas" parent_id_path=PackedInt32Array(812164978) index="0" unique_id=1491162512]
 layout_mode = 3
@@ -389,6 +294,7 @@ change_on_blackboard_update = false
 metadata/_custom_type_script = "uid://i1rx170t4865"
 
 [node name="CbSamson" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="1" unique_id=1496267453 node_paths=PackedStringArray("camera") instance=ExtResource("13_gj0p4")]
+transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 3
 camera = NodePath("../../===CAMERA========/MainCamera")
 
@@ -396,7 +302,7 @@ camera = NodePath("../../===CAMERA========/MainCamera")
 process_mode = 4
 
 [node name="Camera3D" parent="===ACTOR========/CbSamson/SamsonActor" parent_id_path=PackedInt32Array(1496267453, 1017530611) index="7" unique_id=654277568]
-transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0.0122085, 1.6233592, 2.2362573)
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 1.1754582, 2.0910106, 2.948001)
 
 [node name="ConditionalNode" type="Node" parent="===ACTOR========/CbSamson" index="2" unique_id=1389742577]
 script = ExtResource("13_d2psw")
@@ -410,10 +316,10 @@ fov = 40.0
 far = 100.0
 
 [node name="PortraitCamera" parent="===UI========/DialogueArea/Portrait/SubViewport" parent_id_path=PackedInt32Array(264276467) index="0" unique_id=1879654437]
-transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0.0122085, 1.6233592, 2.2362573)
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 1.1754582, 2.0910106, 2.948001)
 
 [connection signal="on_global_timer_timeout" from="===EVENT========/WaitForJoyTimerWatcher" to="===EVENT========/Act1TransitionToWorldMainForJoyIntro" method="query_event" unbinds=1]
-[connection signal="on_recieved_event_signal" from="===EVENT========/SignalEventSubscriber" to="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldMainRoom" method="transition_scene" unbinds=1]
+[connection signal="on_recieved_event_signal" from="===EVENT========/ToLvlWorldMainRoomSignalSubscriber" to="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldMainRoom" method="transition_scene" unbinds=1]
 
 [editable path="===CUTSCENE========/CutsceneCanvas/SamsonIntro/SpeechBubble"]
 [editable path="===ENVIRONMENT========/Model/mod_env_world_samsons_room"]
