@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="BucketEventFactory" format=3 uid="uid://cp2buuxunmvnc"]
+
+[ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="1_0xxlj"]
+[ext_resource type="Script" uid="uid://bkpc76nqmkxc2" path="res://system/script/event_factory/bucket_event_factory.gd" id="2_4ckut"]
+[ext_resource type="Resource" uid="uid://caaq4eonfuaho" path="res://world/city/car/event/ev_world_city_car_christmas_drive_to_church.tres" id="2_owiwf"]
+[ext_resource type="Script" uid="uid://dbvysemw11ei8" path="res://system/script/event_factory/single_event_factory.gd" id="3_xx3fu"]
+[ext_resource type="Script" uid="uid://76yu5gwmebt5" path="res://system/script/rule/flag_value_rule.gd" id="4_7lgqd"]
+[ext_resource type="Script" uid="uid://c44gav4s6as63" path="res://system/script/event_factory/rule_bucket_event_factory.gd" id="5_afbrf"]
+
+[sub_resource type="Resource" id="Resource_mnkge"]
+script = ExtResource("3_xx3fu")
+event = ExtResource("2_owiwf")
+metadata/_custom_type_script = "uid://dbvysemw11ei8"
+
+[sub_resource type="Resource" id="Resource_vuh6m"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("4_7lgqd")
+flag = 30
+value = 0
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
+
+[sub_resource type="Resource" id="Resource_nb044"]
+script = ExtResource("5_afbrf")
+rule = SubResource("Resource_vuh6m")
+buckets = Array[ExtResource("1_0xxlj")]([SubResource("Resource_mnkge")])
+metadata/_custom_type_script = "uid://c44gav4s6as63"
+
+[resource]
+script = ExtResource("2_4ckut")
+buckets = Array[ExtResource("1_0xxlj")]([SubResource("Resource_nb044")])

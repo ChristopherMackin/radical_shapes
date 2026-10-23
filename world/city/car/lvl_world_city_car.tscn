@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://u27hn16qxae3"]
+
+[ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_acign"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_afmb1"]
+[ext_resource type="Resource" uid="uid://cfg38d6lxppme" path="res://world/city/car/bb_world_city_car.tres" id="2_otkhy"]
+[ext_resource type="Resource" uid="uid://caaq4eonfuaho" path="res://world/city/car/event/ev_world_city_car_christmas_drive_to_church.tres" id="2_vuh6m"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_wfdk1"]
+[ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_nb044"]
+[ext_resource type="Resource" uid="uid://cp2buuxunmvnc" path="res://world/city/car/ef_world_city_car.tres" id="5_wfdk1"]
+[ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="6_vuh6m"]
+[ext_resource type="PackedScene" uid="uid://ci16fwpy0fn04" path="res://_asset/world/city/mod_env_world_car.glb" id="7_mnkge"]
+[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://scene_management/_script/scene_change/scene_change_node.gd" id="8_1se6p"]
+[ext_resource type="Script" uid="uid://bs3w0u36gnbxi" path="res://system/script/event/event_subscriber/signal_event_subscriber.gd" id="8_mnkge"]
+[ext_resource type="PackedScene" uid="uid://dnalajbqwpcg2" path="res://character/joy/act_joy.tscn" id="8_tatqd"]
+[ext_resource type="PackedScene" uid="uid://bw7ddkhtncrrr" path="res://character/samson/act_samson.tscn" id="9_s4mjw"]
+[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="9_tatqd"]
+[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="9_w2bsi"]
+[ext_resource type="PackedScene" uid="uid://crjk3jxv3f3il" path="res://character/simon/act_simon.tscn" id="10_1se6p"]
+[ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="10_y05uv"]
+[ext_resource type="PackedScene" uid="uid://bgxyjg7p6d1iu" path="res://_general/packed_scene/simple_dynamic_speech_bubble.tscn" id="12_nb044"]
+
+[sub_resource type="Resource" id="Resource_w2bsi"]
+script = ExtResource("3_wfdk1")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_1vivr"]
+script = ExtResource("9_w2bsi")
+scene_name = "lvl_world_church_lobby"
+transition = ExtResource("10_y05uv")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_20uup"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g2w6u"]
+animation = &"blink"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ntdmx"]
+filter_enabled = true
+filters = ["root/Skeleton3D:eye_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ghiyr"]
+animation = &"talk"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_3m87t"]
+filter_enabled = true
+filters = ["root/Skeleton3D:mouth_selector"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hxh6a"]
+resource_local_to_scene = true
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ij15x"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cka5i"]
+resource_local_to_scene = true
+graph_offset = Vector2(-95.644844, -2.5126946)
+nodes/output/position = Vector2(910, 480)
+nodes/talk/node = SubResource("AnimationNodeAnimation_ghiyr")
+nodes/talk/position = Vector2(400, 770)
+nodes/talk_override/node = SubResource("AnimationNodeOneShot_3m87t")
+nodes/talk_override/position = Vector2(665.1798, 663.2404)
+nodes/blink_override/node = SubResource("AnimationNodeOneShot_ntdmx")
+nodes/blink_override/position = Vector2(480, 410)
+nodes/blink/node = SubResource("AnimationNodeAnimation_g2w6u")
+nodes/blink/position = Vector2(230, 610)
+nodes/walk/node = SubResource("AnimationNodeAnimation_hxh6a")
+nodes/walk/position = Vector2(0, 280)
+nodes/walking/node = SubResource("AnimationNodeBlend2_ij15x")
+nodes/walking/position = Vector2(290, 120)
+nodes/animation/node = SubResource("AnimationNodeAnimation_20uup")
+nodes/animation/position = Vector2(40, 60)
+node_connections = [&"output", 0, &"talk_override", &"talk_override", 0, &"blink_override", &"talk_override", 1, &"talk", &"blink_override", 0, &"walking", &"blink_override", 1, &"blink", &"walking", 0, &"animation", &"walking", 1, &"walk"]
+
+[node name="WorldLevel" unique_id=1437513959 instance=ExtResource("1_acign")]
+
+[node name="DebugEventManager" parent="===DEBUG========" parent_id_path=PackedInt32Array(1940565046) index="0" unique_id=1296634209]
+btn_continue = Callable()
+btn_skip = Callable()
+btn_cancel = Callable()
+event = ExtResource("2_vuh6m")
+btn_event_factory = Callable()
+
+[node name="MainCamera" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="0" unique_id=1922745435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3580046, 3.5119104)
+fov = 40.0
+far = 100.0
+
+[node name="PhantomCamera3D" type="Node3D" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="1" unique_id=133042809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3580046, 3.5119104)
+script = ExtResource("2_afmb1")
+tween_resource = SubResource("Resource_w2bsi")
+tween_on_load = false
+camera_3d_resource = ExtResource("4_nb044")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="0" unique_id=991142355]
+event_factory = ExtResource("5_wfdk1")
+blackboard = ExtResource("2_otkhy")
+
+[node name="SceneEventManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="2" unique_id=333180430 node_paths=PackedStringArray("dialogue_areas")]
+dialogue_areas = [NodePath("../../===UI========/DialogueArea"), NodePath("../../===UI========/DriverSideDialogueArea"), NodePath("../../===UI========/PassengerSideDialogueArea")]
+
+[node name="ToLvlWorldChurchLobby" type="Node" parent="===SCENE_CHANGE========/SceneChangeNodes" parent_id_path=PackedInt32Array(1210513985) index="0" unique_id=1912895958]
+script = ExtResource("8_1se6p")
+scene_change_data = SubResource("Resource_1vivr")
+metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
+
+[node name="ToLvlWorldChurchLobbySignalSubscriber" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="0" unique_id=2144600046]
+script = ExtResource("8_mnkge")
+filter = Array[String](["to_lvl_world_church_lobby"])
+manager = ExtResource("9_tatqd")
+metadata/_custom_type_script = "uid://bs3w0u36gnbxi"
+
+[node name="WorldEnvironment" parent="===WORLD========" parent_id_path=PackedInt32Array(1848467908) index="0" unique_id=1940585086]
+environment = ExtResource("6_vuh6m")
+
+[node name="mod_env_world_car" parent="===ENVIRONMENT========/Model" parent_id_path=PackedInt32Array(1153107026) index="0" unique_id=79176750 instance=ExtResource("7_mnkge")]
+
+[node name="CBJoy" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="0" unique_id=948335993]
+transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+
+[node name="JoyActor" parent="===ACTOR========/CBJoy" index="1" unique_id=2066360241]
+actor_name = "unused"
+
+[node name="CharacterAnimationTree" parent="===ACTOR========/CBJoy/JoyActor" index="7" unique_id=1926218777]
+tree_root = SubResource("AnimationNodeBlendTree_cka5i")
+
+[node name="Camera3D" parent="===ACTOR========/CBJoy/JoyActor" index="9" unique_id=654277568]
+physics_interpolation_mode = 0
+transform = Transform3D(0.994835, 9.874899e-24, -0.1015054, -9.926167e-24, 1, 0, 0.1015054, 1.0075596e-24, 0.994835, -0.14638028, 1.5731384, 1.7510105)
+
+[node name="JoyActor" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="1" unique_id=1829406346 instance=ExtResource("8_tatqd")]
+transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 3.6429193e-17, -0.14317322, -0.24736464)
+
+[node name="SamsonActor" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="2" unique_id=1017530611 instance=ExtResource("9_s4mjw")]
+transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, -0.5468503, -0.26912594, 1.0354173)
+
+[node name="SimonActor" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="3" unique_id=292508824 instance=ExtResource("10_1se6p")]
+transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0.5791178, -0.14317322, 1.0108052)
+
+[node name="MainCamera" parent="===UI========/UiGameView/SubViewport" parent_id_path=PackedInt32Array(208854357) index="0" unique_id=807046495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3580046, 3.5119104)
+fov = 40.0
+far = 100.0
+
+[node name="PortraitCamera" parent="===UI========/DialogueArea/Portrait/SubViewport" parent_id_path=PackedInt32Array(264276467) index="0" unique_id=1879654437]
+physics_interpolation_mode = 0
+transform = Transform3D(1, -3.211788e-16, 3.743647e-16, 3.48787e-16, 0.9970892, -0.07624404, -3.48787e-16, 0.07624404, 0.9970892, 0.5913263, 1.3270266, 2.604405)
+
+[node name="DriverSideDialogueArea" parent="===UI========" parent_id_path=PackedInt32Array(1608434002) index="4" unique_id=1196501776 instance=ExtResource("12_nb044")]
+visible = false
+offset_left = 11.0
+offset_top = -41.0
+offset_right = 11.0
+offset_bottom = -41.0
+text = "These decorations are getting in the way of celebrating our LORDs birth."
+
+[node name="Tail2" parent="===UI========/DriverSideDialogueArea/BubbleBody/Points" parent_id_path=PackedInt32Array(1196501776, 1741830826) index="1" unique_id=106544719]
+offset_left = 158.0
+offset_top = 74.0
+offset_right = 198.0
+offset_bottom = 114.0
+
+[node name="Background" parent="===UI========/DriverSideDialogueArea/BubbleBody" parent_id_path=PackedInt32Array(1196501776, 1492291815) index="1" unique_id=418647870]
+polygon = PackedVector2Array(133.90181, -74.61571, 137.65367, -73.47759, 141.1114, -71.629395, 144.14214, -69.142136, 146.6294, -66.111404, 148.47758, -62.65367, 149.6157, -58.90181, 150, -55, 150, 30.464394, 150.25276, 30.632164, 153.83829, 32.997673, 157.47984, 35.387833, 161.16943, 37.799126, 164.89912, 40.228065, 168.66089, 42.671112, 172.44664, 45.124718, 176.24838, 47.585365, 180.05818, 50.049553, 183.86801, 52.51374, 187.66978, 54.974403, 191.4555, 57.428, 195.21724, 59.871033, 198.94695, 62.29998, 202.63657, 64.71129, 206.2781, 67.10144, 209.8636, 69.466934, 213.38503, 71.80423, 216.83432, 74.1098, 220.20349, 76.38011, 223.48457, 78.61166, 226.66954, 80.80092, 229.75034, 82.94434, 232.71896, 85.03842, 235.56746, 87.07963, 238.2878, 89.064445, 240.87192, 90.98934, 243.31183, 92.85078, 245.59955, 94.645256, 247.72708, 96.36924, 249.68636, 98.019196, 253.35863, 100.42287, 256.26184, 102.48817, 258.33194, 104.18688, 260.00684, 105.711716, 257.99316, 110.288284, 255.73738, 110.083626, 253.08641, 109.70507, 249.60231, 108.959946, 245.34917, 107.876434, 242.80902, 107.54664, 240.10065, 107.14283, 237.23203, 106.668526, 234.21121, 106.127235, 231.04622, 105.522514, 227.74504, 104.85787, 224.31567, 104.136826, 220.76614, 103.36291, 217.10448, 102.53964, 213.33867, 101.67057, 209.47672, 100.759186, 205.52664, 99.80902, 201.49648, 98.82362, 197.39421, 97.8065, 193.22784, 96.761185, 189.0054, 95.69118, 184.73491, 94.60003, 180.42436, 93.49127, 176.08176, 92.3684, 171.7151, 91.23495, 167.33246, 90.09446, 162.94182, 88.95045, 158.55115, 87.806435, 154.16847, 86.66593, 149.80185, 85.532486, 145.45927, 84.40963, 141.14871, 83.300865, 136.87819, 82.2097, 132.65576, 81.13971, 128.48943, 80.0944, 124.387146, 79.07727, 120.35694, 78.09186, 116.406876, 77.1417, 112.54497, 76.23034, 108.779144, 75.36125, 107.17242, 75, -130, 75, -133.90181, 74.61571, -137.65367, 73.47759, -141.1114, 71.629395, -144.14214, 69.142136, -146.6294, 66.111404, -148.47758, 62.65367, -149.6157, 58.90181, -150, 55, -150, -55, -149.6157, -58.90181, -148.47758, -62.65367, -146.6294, -66.111404, -144.14214, -69.142136, -141.1114, -71.629395, -137.65367, -73.47759, -133.90181, -74.61571, -130, -75, 130, -75)
+
+[node name="Line" parent="===UI========/DriverSideDialogueArea/BubbleBody" parent_id_path=PackedInt32Array(1196501776, 1492291815) index="2" unique_id=59601008]
+points = PackedVector2Array(133.90181, -74.61571, 137.65367, -73.47759, 141.1114, -71.629395, 144.14214, -69.142136, 146.6294, -66.111404, 148.47758, -62.65367, 149.6157, -58.90181, 150, -55, 150, 30.464394, 150.25276, 30.632164, 153.83829, 32.997673, 157.47984, 35.387833, 161.16943, 37.799126, 164.89912, 40.228065, 168.66089, 42.671112, 172.44664, 45.124718, 176.24838, 47.585365, 180.05818, 50.049553, 183.86801, 52.51374, 187.66978, 54.974403, 191.4555, 57.428, 195.21724, 59.871033, 198.94695, 62.29998, 202.63657, 64.71129, 206.2781, 67.10144, 209.8636, 69.466934, 213.38503, 71.80423, 216.83432, 74.1098, 220.20349, 76.38011, 223.48457, 78.61166, 226.66954, 80.80092, 229.75034, 82.94434, 232.71896, 85.03842, 235.56746, 87.07963, 238.2878, 89.064445, 240.87192, 90.98934, 243.31183, 92.85078, 245.59955, 94.645256, 247.72708, 96.36924, 249.68636, 98.019196, 253.35863, 100.42287, 256.26184, 102.48817, 258.33194, 104.18688, 260.00684, 105.711716, 257.99316, 110.288284, 255.73738, 110.083626, 253.08641, 109.70507, 249.60231, 108.959946, 245.34917, 107.876434, 242.80902, 107.54664, 240.10065, 107.14283, 237.23203, 106.668526, 234.21121, 106.127235, 231.04622, 105.522514, 227.74504, 104.85787, 224.31567, 104.136826, 220.76614, 103.36291, 217.10448, 102.53964, 213.33867, 101.67057, 209.47672, 100.759186, 205.52664, 99.80902, 201.49648, 98.82362, 197.39421, 97.8065, 193.22784, 96.761185, 189.0054, 95.69118, 184.73491, 94.60003, 180.42436, 93.49127, 176.08176, 92.3684, 171.7151, 91.23495, 167.33246, 90.09446, 162.94182, 88.95045, 158.55115, 87.806435, 154.16847, 86.66593, 149.80185, 85.532486, 145.45927, 84.40963, 141.14871, 83.300865, 136.87819, 82.2097, 132.65576, 81.13971, 128.48943, 80.0944, 124.387146, 79.07727, 120.35694, 78.09186, 116.406876, 77.1417, 112.54497, 76.23034, 108.779144, 75.36125, 107.17242, 75, -130, 75, -133.90181, 74.61571, -137.65367, 73.47759, -141.1114, 71.629395, -144.14214, 69.142136, -146.6294, 66.111404, -148.47758, 62.65367, -149.6157, 58.90181, -150, 55, -150, -55, -149.6157, -58.90181, -148.47758, -62.65367, -146.6294, -66.111404, -144.14214, -69.142136, -141.1114, -71.629395, -137.65367, -73.47759, -133.90181, -74.61571, -130, -75, 130, -75)
+
+[node name="ScrollingText" parent="===UI========/DriverSideDialogueArea" index="1" unique_id=644170502]
+text = "These decorations are getting in the way of celebrating our LORDs birth."
+
+[node name="PassengerSideDialogueArea" parent="===UI========" parent_id_path=PackedInt32Array(1608434002) index="5" unique_id=1703264227 node_paths=PackedStringArray("animation_player") instance=ExtResource("12_nb044")]
+visible = false
+offset_left = 14.0
+offset_top = -47.0
+offset_right = 14.0
+offset_bottom = -47.0
+text = "If you say so..."
+animation_player = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationPlayer")
+
+[node name="Tail1" parent="===UI========/PassengerSideDialogueArea/BubbleBody/Points" parent_id_path=PackedInt32Array(1703264227, 1741830826) index="0" unique_id=1382720398]
+offset_left = -210.0
+offset_top = 0.0
+offset_right = -170.0
+offset_bottom = 40.0
+
+[node name="Tail2" parent="===UI========/PassengerSideDialogueArea/BubbleBody/Points" parent_id_path=PackedInt32Array(1703264227, 1741830826) index="1" unique_id=106544719]
+offset_left = -356.0
+offset_top = 71.0
+offset_right = -316.0
+offset_bottom = 111.0
+
+[node name="Background" parent="===UI========/PassengerSideDialogueArea/BubbleBody" parent_id_path=PackedInt32Array(1703264227, 1492291815) index="1" unique_id=418647870]
+polygon = PackedVector2Array(133.90181, -74.61571, 137.65367, -73.47759, 141.1114, -71.629395, 144.14214, -69.142136, 146.6294, -66.111404, 148.47758, -62.65367, 149.6157, -58.90181, 150, -55, 150, 55, 149.6157, 58.90181, 148.47758, 62.65367, 146.6294, 66.111404, 144.14214, 69.142136, 141.1114, 71.629395, 137.65367, 73.47759, 133.90181, 74.61571, 130, 75, -114.604805, 75, -117.052574, 75.445145, -120.013, 76.01607, -123.07367, 76.63575, -126.22791, 77.300934, -129.46904, 78.00836, -132.79036, 78.7548, -136.18521, 79.53699, -139.64688, 80.35167, -143.16875, 81.19563, -146.74397, 82.06553, -150.36607, 82.95824, -154.02824, 83.87043, -157.72385, 84.798874, -161.44617, 85.74031, -165.1885, 86.69148, -168.9443, 87.64921, -172.70674, 88.61015, -176.46912, 89.57106, -180.22488, 90.52877, -183.96725, 91.479965, -187.68959, 92.4214, -191.38518, 93.349846, -195.04733, 94.262024, -198.66943, 95.15474, -202.24475, 96.02467, -205.76654, 96.86859, -209.22823, 97.68329, -212.62306, 98.46548, -215.94438, 99.21191, -219.18552, 99.91934, -222.33974, 100.58451, -225.40044, 101.20421, -228.36087, 101.77514, -231.21434, 102.294044, -233.95422, 102.75773, -238.72472, 104.2089, -242.96054, 105.400055, -246.60825, 106.30521, -249.61433, 106.898346, -251.92535, 107.153465, -253.90668, 107.24825, -256.09332, 102.75175, -254.79535, 101.25181, -253.16765, 99.59152, -250.84488, 97.59323, -247.88052, 95.28293, -244.32802, 92.68661, -240.24084, 89.830284, -238.18434, 87.961464, -236.01413, 86.03736, -233.73701, 84.06128, -231.35973, 82.03646, -228.8888, 79.96611, -226.33101, 77.85352, -223.69301, 75.70193, -220.98149, 73.51459, -218.20319, 71.294754, -215.36462, 69.04564, -212.47266, 66.77054, -209.53397, 64.47272, -206.5551, 62.155357, -203.54283, 59.821762, -200.50385, 57.47516, -197.4448, 55.118813, -194.37244, 52.75598, -191.29326, 50.389847, -188.21414, 48.02375, -185.14182, 45.660934, -182.08273, 43.304565, -179.04373, 40.95797, -176.03148, 38.624367, -173.05263, 36.307022, -170.11394, 34.009193, -167.22188, 31.734055, -164.38342, 29.484985, -161.60507, 27.265137, -158.89357, 25.077797, -156.25557, 22.926208, -153.69777, 20.813614, -151.22687, 18.743279, -150, 17.698326, -150, -55, -149.6157, -58.90181, -148.47758, -62.65367, -146.6294, -66.111404, -144.14214, -69.142136, -141.1114, -71.629395, -137.65367, -73.47759, -133.90181, -74.61571, -130, -75, 130, -75)
+
+[node name="Line" parent="===UI========/PassengerSideDialogueArea/BubbleBody" parent_id_path=PackedInt32Array(1703264227, 1492291815) index="2" unique_id=59601008]
+points = PackedVector2Array(133.90181, -74.61571, 137.65367, -73.47759, 141.1114, -71.629395, 144.14214, -69.142136, 146.6294, -66.111404, 148.47758, -62.65367, 149.6157, -58.90181, 150, -55, 150, 55, 149.6157, 58.90181, 148.47758, 62.65367, 146.6294, 66.111404, 144.14214, 69.142136, 141.1114, 71.629395, 137.65367, 73.47759, 133.90181, 74.61571, 130, 75, -114.604805, 75, -117.052574, 75.445145, -120.013, 76.01607, -123.07367, 76.63575, -126.22791, 77.300934, -129.46904, 78.00836, -132.79036, 78.7548, -136.18521, 79.53699, -139.64688, 80.35167, -143.16875, 81.19563, -146.74397, 82.06553, -150.36607, 82.95824, -154.02824, 83.87043, -157.72385, 84.798874, -161.44617, 85.74031, -165.1885, 86.69148, -168.9443, 87.64921, -172.70674, 88.61015, -176.46912, 89.57106, -180.22488, 90.52877, -183.96725, 91.479965, -187.68959, 92.4214, -191.38518, 93.349846, -195.04733, 94.262024, -198.66943, 95.15474, -202.24475, 96.02467, -205.76654, 96.86859, -209.22823, 97.68329, -212.62306, 98.46548, -215.94438, 99.21191, -219.18552, 99.91934, -222.33974, 100.58451, -225.40044, 101.20421, -228.36087, 101.77514, -231.21434, 102.294044, -233.95422, 102.75773, -238.72472, 104.2089, -242.96054, 105.400055, -246.60825, 106.30521, -249.61433, 106.898346, -251.92535, 107.153465, -253.90668, 107.24825, -256.09332, 102.75175, -254.79535, 101.25181, -253.16765, 99.59152, -250.84488, 97.59323, -247.88052, 95.28293, -244.32802, 92.68661, -240.24084, 89.830284, -238.18434, 87.961464, -236.01413, 86.03736, -233.73701, 84.06128, -231.35973, 82.03646, -228.8888, 79.96611, -226.33101, 77.85352, -223.69301, 75.70193, -220.98149, 73.51459, -218.20319, 71.294754, -215.36462, 69.04564, -212.47266, 66.77054, -209.53397, 64.47272, -206.5551, 62.155357, -203.54283, 59.821762, -200.50385, 57.47516, -197.4448, 55.118813, -194.37244, 52.75598, -191.29326, 50.389847, -188.21414, 48.02375, -185.14182, 45.660934, -182.08273, 43.304565, -179.04373, 40.95797, -176.03148, 38.624367, -173.05263, 36.307022, -170.11394, 34.009193, -167.22188, 31.734055, -164.38342, 29.484985, -161.60507, 27.265137, -158.89357, 25.077797, -156.25557, 22.926208, -153.69777, 20.813614, -151.22687, 18.743279, -150, 17.698326, -150, -55, -149.6157, -58.90181, -148.47758, -62.65367, -146.6294, -66.111404, -144.14214, -69.142136, -141.1114, -71.629395, -137.65367, -73.47759, -133.90181, -74.61571, -130, -75, 130, -75)
+
+[node name="ScrollingText" parent="===UI========/PassengerSideDialogueArea" index="1" unique_id=644170502]
+text = "If you say so..."
+
+[connection signal="on_recieved_event_signal" from="===EVENT========/ToLvlWorldChurchLobbySignalSubscriber" to="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldChurchLobby" method="transition_scene" unbinds=1]
+
+[editable path="===ACTOR========/CBJoy"]
+[editable path="===ACTOR========/CBJoy/JoyActor"]
+[editable path="===ACTOR========/CBJoy/JoyActor/Skeleton"]
+[editable path="===ACTOR========/CBJoy/JoyActor/Outfit/JoyOutfit01"]
+[editable path="===ACTOR========/CBJoy/JoyActor/Outfit/JoyOutfit02"]
+[editable path="===ACTOR========/CBJoy/JoyActor/Outfit/JoyOutfit03"]
+[editable path="===ACTOR========/CBJoy/JoyActor/Outfit/JoyOutfit04"]
+[editable path="===ACTOR========/CBJoy/JoyActor/Outfit/JoyOutfit05"]
+[editable path="===ACTOR========/CBJoy/JoyActor/Outfit/JoyOutfit06"]
+[editable path="===UI========/DialogueArea"]
+[editable path="===UI========/DriverSideDialogueArea"]
+[editable path="===UI========/PassengerSideDialogueArea"]

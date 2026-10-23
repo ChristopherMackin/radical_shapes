@@ -1,0 +1,144 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://caaq4eonfuaho"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_ig47m"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="2_ty155"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="3_uogd1"]
+[ext_resource type="Script" uid="uid://ds8uqtnt2atb2" path="res://system/script/event/task_action/wait_task_action.gd" id="4_54qbu"]
+[ext_resource type="Script" uid="uid://brh6nlas7k5uk" path="res://system/script/event/task_action/signal_task_action.gd" id="5_fcsut"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("2_ty155")
+
+[sub_resource type="Resource" id="Resource_ig47m"]
+script = ExtResource("3_uogd1")
+outputs = Array[int]([1])
+inputs = Dictionary[String, Variant]({
+"actor": "simon",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"dialogue_area_index": 1.0,
+"talk": true,
+"text": "So many decorated trees and so few Nativity scenes..."
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_ty155"]
+script = ExtResource("3_uogd1")
+outputs = Array[int]([2])
+inputs = Dictionary[String, Variant]({
+"actor": "simon",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"dialogue_area_index": 1.0,
+"talk": true,
+"text": "These decorations are getting in the way of celebrating our LORDs birth."
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_uogd1"]
+script = ExtResource("3_uogd1")
+outputs = Array[int]([3])
+inputs = Dictionary[String, Variant]({
+"actor": "samson",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"dialogue_area_index": 2.0,
+"talk": true,
+"text": "I don't think it's all that bad. It's just decorations, right?"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_54qbu"]
+script = ExtResource("3_uogd1")
+outputs = Array[int]([9])
+inputs = Dictionary[String, Variant]({
+"actor": "samson",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"dialogue_area_index": 2.0,
+"talk": true,
+"text": "We're supposed to celebrate Christ all year so having some fun once a year isn't a big deal!"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_1f63y"]
+script = ExtResource("4_54qbu")
+
+[sub_resource type="Resource" id="Resource_fcsut"]
+script = ExtResource("3_uogd1")
+outputs = Array[int]([5])
+inputs = Dictionary[String, Variant]({
+"seconds": 5.0
+})
+action = SubResource("Resource_1f63y")
+
+[sub_resource type="Resource" id="Resource_i4ypf"]
+script = ExtResource("3_uogd1")
+outputs = Array[int]([6])
+inputs = Dictionary[String, Variant]({
+"actor": "simon",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"dialogue_area_index": 1.0,
+"talk": true,
+"text": "Alright, we're here. I'll need both of you to help carrying the candles for tonight's vigil. "
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_6ew0d"]
+script = ExtResource("5_fcsut")
+metadata/_custom_type_script = "uid://brh6nlas7k5uk"
+
+[sub_resource type="Resource" id="Resource_atcon"]
+script = ExtResource("3_uogd1")
+inputs = Dictionary[String, Variant]({
+"label": "to_lvl_world_church_lobby"
+})
+action = SubResource("Resource_6ew0d")
+
+[sub_resource type="Resource" id="Resource_nvukc"]
+script = ExtResource("3_uogd1")
+outputs = Array[int]([4])
+inputs = Dictionary[String, Variant]({
+"actor": "samson",
+"await_close": true,
+"await_input": false,
+"close_timer": 1.5,
+"dialogue_area_index": 2.0,
+"talk": true,
+"text": "I guess..."
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_876ke"]
+script = ExtResource("3_uogd1")
+outputs = Array[int]([7])
+inputs = Dictionary[String, Variant]({
+"seconds": 1.5
+})
+action = SubResource("Resource_1f63y")
+
+[sub_resource type="Resource" id="Resource_14d1j"]
+script = ExtResource("3_uogd1")
+outputs = Array[int]([8])
+inputs = Dictionary[String, Variant]({
+"actor": "simon",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"dialogue_area_index": 1.0,
+"talk": true,
+"text": "But Christmas is of ill origin. Nothing good can come out of something evil."
+})
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_ig47m")
+start_task = SubResource("Resource_ig47m")
+tasks = Array[ExtResource("3_uogd1")]([SubResource("Resource_ig47m"), SubResource("Resource_ty155"), SubResource("Resource_uogd1"), SubResource("Resource_54qbu"), SubResource("Resource_fcsut"), SubResource("Resource_i4ypf"), SubResource("Resource_atcon"), SubResource("Resource_nvukc"), SubResource("Resource_876ke"), SubResource("Resource_14d1j")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

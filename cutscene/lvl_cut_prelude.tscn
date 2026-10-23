@@ -11,7 +11,7 @@
 
 [sub_resource type="Resource" id="Resource_oo0mk"]
 script = ExtResource("2_013v0")
-scene_name = "lvl_world_samsons_room"
+scene_name = "lvl_world_webber_household_samson"
 transition = ExtResource("3_m0ppm")
 metadata/_custom_type_script = "uid://c12mfuwapm0ko"
 
@@ -135,7 +135,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("===MANAGER========/ToLvlSamsonsBedroom")
+tracks/5/path = NodePath("===MANAGER========/ToLvlWorldWebberHouseholdSamson")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -162,7 +162,7 @@ script = ExtResource("1_vumy4")
 
 [node name="===MANAGER========" type="Node3D" parent="." unique_id=82324019]
 
-[node name="ToLvlSamsonsBedroom" type="Node" parent="===MANAGER========" unique_id=25660253]
+[node name="ToLvlWorldWebberHouseholdSamson" type="Node" parent="===MANAGER========" unique_id=25660253]
 script = ExtResource("1_vumy4")
 scene_change_data = SubResource("Resource_oo0mk")
 metadata/_custom_type_script = "uid://bimy1ugw1xmg0"

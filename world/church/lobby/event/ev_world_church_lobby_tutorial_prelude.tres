@@ -1,0 +1,98 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://b0ffx1125fe0j"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_23tdq"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_id5r0"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="3_id5r0"]
+[ext_resource type="Script" uid="uid://dcdcvbj01g2of" path="res://system/script/event/task_action/animation_task_action.gd" id="4_c8bpw"]
+
+[sub_resource type="Resource" id="Resource_ml60a"]
+script = ExtResource("4_c8bpw")
+
+[sub_resource type="Resource" id="Resource_c8bpw"]
+script = ExtResource("2_id5r0")
+outputs = Array[int]([1])
+inputs = Dictionary[String, Variant]({
+"actor": "",
+"await": true,
+"overwrite": false,
+"trigger": "tutorial_prelude"
+})
+action = SubResource("Resource_ml60a")
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("3_id5r0")
+
+[sub_resource type="Resource" id="Resource_elgb5"]
+script = ExtResource("2_id5r0")
+outputs = Array[int]([2])
+inputs = Dictionary[String, Variant]({
+"actor": "samson",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"dialogue_area_index": 0.0,
+"talk": true,
+"text": "Welp, I think that's the last of them!"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_x2ckw"]
+script = ExtResource("2_id5r0")
+outputs = Array[int]([3])
+inputs = Dictionary[String, Variant]({
+"actor": "samson",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"dialogue_area_index": 0.0,
+"talk": true,
+"text": "Sorry you had to carry a bunch of boxes on your birthday..."
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_a1g01"]
+script = ExtResource("2_id5r0")
+outputs = Array[int]([4])
+inputs = Dictionary[String, Variant]({
+"actor": "joy",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"dialogue_area_index": 0.0,
+"talk": true,
+"text": "It's not just my birthday though; I can participate in the community celebration!"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_21d38"]
+script = ExtResource("2_id5r0")
+outputs = Array[int]([5])
+inputs = Dictionary[String, Variant]({
+"actor": "samson",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"dialogue_area_index": 0.0,
+"talk": true,
+"text": "I know, but you should still be celebrated!"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_t6clr"]
+script = ExtResource("2_id5r0")
+inputs = Dictionary[String, Variant]({
+"actor": "samson",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"dialogue_area_index": 0.0,
+"talk": true,
+"text": "I got you a little something!"
+})
+action = SubResource("Resource_x7ur8")
+
+[resource]
+script = ExtResource("1_23tdq")
+start_task = SubResource("Resource_c8bpw")
+tasks = Array[ExtResource("2_id5r0")]([SubResource("Resource_c8bpw"), SubResource("Resource_elgb5"), SubResource("Resource_x2ckw"), SubResource("Resource_a1g01"), SubResource("Resource_21d38"), SubResource("Resource_t6clr")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

@@ -4,3 +4,4 @@
 
 [node name="SceneMain" type="Node3D" unique_id=711638830]
 script = ExtResource("1_p6sdv")
+starting_scene = 24

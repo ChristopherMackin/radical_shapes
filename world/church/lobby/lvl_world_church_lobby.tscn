@@ -1,0 +1,265 @@
+[gd_scene format=3 uid="uid://bmy28tr7crqbl"]
+
+[ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_hboyh"]
+[ext_resource type="Resource" uid="uid://b0ffx1125fe0j" path="res://world/church/lobby/event/ev_world_church_lobby_tutorial_prelude.tres" id="2_8axku"]
+[ext_resource type="Resource" uid="uid://70j4vvgyqm15" path="res://world/church/lobby/bb_world_church_lobby.tres" id="2_evebe"]
+[ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="3_t5u21"]
+[ext_resource type="PackedScene" uid="uid://dykxmmctu2emq" path="res://_asset/world/church/mod_env_world_church_lobby.glb" id="4_0xjmj"]
+[ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_skdao"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="5_4v6ql"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_skdao"]
+[ext_resource type="Script" uid="uid://dbvysemw11ei8" path="res://system/script/event_factory/single_event_factory.gd" id="6_y2kef"]
+[ext_resource type="PackedScene" uid="uid://bw7ddkhtncrrr" path="res://character/samson/act_samson.tscn" id="8_3clw5"]
+
+[sub_resource type="Resource" id="Resource_3clw5"]
+script = ExtResource("6_skdao")
+duration = 0.5
+
+[sub_resource type="Resource" id="Resource_8axku"]
+script = ExtResource("6_skdao")
+duration = 0.5
+
+[sub_resource type="Resource" id="Resource_6i84e"]
+script = ExtResource("6_y2kef")
+event = ExtResource("2_8axku")
+metadata/_custom_type_script = "uid://dbvysemw11ei8"
+
+[sub_resource type="Animation" id="Animation_3clw5"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../===ACTOR========/CBJoy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../===ACTOR========/CBJoy:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../===ACTOR========/SamsonActor:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../===ACTOR========/SamsonActor:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../===CAMERA========/SamsonCamera:priority")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_y2kef"]
+length = 0.33299999999999996
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../===CAMERA========/SamsonCamera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../===ACTOR========/CBJoy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4.7266483, -4.7683716e-07, 2.6997576)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../===ACTOR========/CBJoy:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.34190723, 2.646978e-23)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../===ACTOR========/SamsonActor:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6.0494986, -9.45858e-16, 3.338183)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../===ACTOR========/SamsonActor:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -1.2165237e-31)]
+}
+tracks/5/type = "animation"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../===UI========/CinematicBars/AnimationPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": PackedStringArray("slide_in"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2akm8"]
+_data = {
+&"RESET": SubResource("Animation_3clw5"),
+&"tutorial_prelude": SubResource("Animation_y2kef")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_1vivr"]
+size = Vector3(0.5, 0.35, 0.5)
+
+[node name="WorldLevel" unique_id=1389869900 instance=ExtResource("1_hboyh")]
+
+[node name="DebugEventManager" parent="===DEBUG========" parent_id_path=PackedInt32Array(1940565046) index="0" unique_id=1296634209]
+btn_continue = Callable()
+btn_skip = Callable()
+btn_cancel = Callable()
+event = ExtResource("2_8axku")
+btn_event_factory = Callable()
+
+[node name="MainCamera" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="0" unique_id=1922745435]
+transform = Transform3D(1, 0, 0, 0, 0.92184925, 0.3875487, 0, -0.3875487, 0.92184925, 6.0494986, 2.98, 7.918183)
+fov = 40.0
+far = 100.0
+
+[node name="JoyCamera" type="Node3D" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="1" unique_id=2001666766 node_paths=PackedStringArray("follow_target", "look_at_target")]
+transform = Transform3D(0.99711204, -0.029687284, 0.06990153, 1.8626451e-09, 0.9204298, 0.39090782, -0.075944446, -0.3897789, 0.9177717, 5.061933, 2.9799995, 7.221874)
+script = ExtResource("5_4v6ql")
+priority = 1
+follow_mode = 6
+follow_target = NodePath("../../===ACTOR========/CBJoy")
+look_at_mode = 2
+look_at_target = NodePath("../../===ACTOR========/CBJoy")
+tween_resource = SubResource("Resource_3clw5")
+tween_on_load = false
+camera_3d_resource = ExtResource("4_skdao")
+follow_offset = Vector3(0, 2.98, 3.58)
+look_at_offset = Vector3(0, 1.105, 0.12)
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="SamsonCamera" type="Node3D" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="2" unique_id=1200248090 node_paths=PackedStringArray("follow_target", "look_at_target")]
+transform = Transform3D(1, 0, 0, 0, 0.92184925, 0.3875487, 0, -0.3875487, 0.92184925, 6.0494986, 2.98, 7.918183)
+script = ExtResource("5_4v6ql")
+priority = 2
+follow_mode = 6
+follow_target = NodePath("../../===ACTOR========/SamsonActor")
+look_at_mode = 2
+look_at_target = NodePath("../../===ACTOR========/SamsonActor")
+tween_resource = SubResource("Resource_8axku")
+tween_on_load = false
+camera_3d_resource = ExtResource("4_skdao")
+follow_offset = Vector3(0, 2.98, 3.58)
+look_at_offset = Vector3(0, 1.105, 0.12)
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="0" unique_id=991142355 node_paths=PackedStringArray("character_controllers", "spawn_locations")]
+event_factory = SubResource("Resource_6i84e")
+blackboard = ExtResource("2_evebe")
+character_controllers = [NodePath("../../===ACTOR========/CBJoy")]
+spawn_locations = [NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn01")]
+
+[node name="Spawn01" type="Marker3D" parent="===SCENE_CHANGE========/SpawnLocations" parent_id_path=PackedInt32Array(369867195) index="0" unique_id=1457838509]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8, 0, 5)
+
+[node name="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator" parent_id_path=PackedInt32Array(484654225) index="1" unique_id=743721924]
+libraries/ = SubResource("AnimationLibrary_2akm8")
+
+[node name="WorldEnvironment" parent="===WORLD========" parent_id_path=PackedInt32Array(1848467908) index="0" unique_id=1940585086]
+environment = ExtResource("3_t5u21")
+
+[node name="mod_env_world_church_lobby" parent="===ENVIRONMENT========/Model" parent_id_path=PackedInt32Array(1153107026) index="0" unique_id=1904671958 instance=ExtResource("4_0xjmj")]
+
+[node name="Door_001" parent="===ENVIRONMENT========/Model/mod_env_world_church_lobby/ToAuditorium" parent_id_path=PackedInt32Array(1904671958, 671047094) index="0" unique_id=1823384318]
+visible = false
+
+[node name="BoxOfCandles" type="MeshInstance3D" parent="===ENVIRONMENT========/Model" parent_id_path=PackedInt32Array(1153107026) index="1" unique_id=408066105]
+transform = Transform3D(0.9204027, 0, 0.3909717, 0, 1, 0, -0.3909717, 0, 0.9204027, 5.1816516, 0.175, 3.5557117)
+mesh = SubResource("BoxMesh_1vivr")
+
+[node name="SamsonActor" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="1" unique_id=1017530611 instance=ExtResource("8_3clw5")]
+
+[node name="MainCamera" parent="===UI========/UiGameView/SubViewport" parent_id_path=PackedInt32Array(208854357) index="0" unique_id=807046495]
+transform = Transform3D(1, 0, 0, 0, 0.92184925, 0.3875487, 0, -0.3875487, 0.92184925, 6.0494986, 2.98, 7.918183)
+fov = 40.0
+far = 100.0
+
+[node name="DialogueArea" parent="===UI========" parent_id_path=PackedInt32Array(1608434002) index="2" unique_id=1196501776]
+text = "Welp, I think that's the last of them!"
+
+[node name="ScrollingText" parent="===UI========/DialogueArea" index="1" unique_id=644170502]
+text = "Welp, I think that's the last of them!"
+
+[node name="PortraitCamera" parent="===UI========/DialogueArea/Portrait/SubViewport" parent_id_path=PackedInt32Array(264276467) index="0" unique_id=1879654437]
+physics_interpolation_mode = 0
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 6.061707, 1.6233592, 5.57444)
+
+[editable path="===ENVIRONMENT========/Model/mod_env_world_church_lobby"]
+[editable path="===UI========/DialogueArea"]

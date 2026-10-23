@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://st0he0jdt18y"]
+
+[ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_vu6a7"]
+[ext_resource type="Resource" uid="uid://dw3cmbodfldg5" path="res://world/appartment/lobby/bb_world_appartment_lobby.tres" id="2_o2ehc"]
+[ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://system/script/save/save_data.gd" id="2_rsnrf"]
+
+[sub_resource type="Resource" id="Resource_lyadc"]
+script = ExtResource("2_rsnrf")
+should_save_data = false
+should_load_data = false
+path = "world/appartment_complex/bb_world_lobby.res"
+resource = ExtResource("2_o2ehc")
+metadata/_custom_type_script = "uid://dcyrmp3ja8f55"
+
+[node name="WorldLevel" unique_id=814062495 instance=ExtResource("1_vu6a7")]
+
+[node name="SaveManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="0" unique_id=1041070775]
+save_data_list = Array[ExtResource("2_rsnrf")]([SubResource("Resource_lyadc")])
+
+[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355]
+blackboard = ExtResource("2_o2ehc")
+
+[editable path="===UI========/DialogueArea"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bw7ddkhtncrrr"]
 
 [ext_resource type="PackedScene" uid="uid://ncpnghqpw8tc" path="res://character/character_actor.tscn" id="1_pwg8x"]
-[ext_resource type="Texture2D" uid="uid://gph2bdx07vrf" path="res://_asset/character/samson/t_samson_concept.jpg" id="2_0vbsp"]
+[ext_resource type="Texture2D" uid="uid://mkt3dg6ww6vs" path="res://_asset/character/samson/t_samson_concept.png" id="2_0vbsp"]
 
 [node name="SamsonActor" unique_id=1017530611 node_paths=PackedStringArray("_layer_mask") instance=ExtResource("1_pwg8x")]
 _layer_mask = NodePath("LayerMask")

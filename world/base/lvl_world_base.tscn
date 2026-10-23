@@ -268,9 +268,10 @@ scene_animator = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationPlay
 script = ExtResource("2_8d011")
 active_handler = ExtResource("5_ot6eh")
 
-[node name="SceneEventManager" type="Node" parent="===MANAGER========" unique_id=333180430 node_paths=PackedStringArray("scene_animator_handler", "input_manager")]
+[node name="SceneEventManager" type="Node" parent="===MANAGER========" unique_id=333180430 node_paths=PackedStringArray("scene_animator_handler", "dialogue_areas", "input_manager")]
 script = ExtResource("2_t3rax")
 scene_animator_handler = NodePath("../../===CUTSCENE========/SceneAnimator/AnimationHandler")
+dialogue_areas = [NodePath("../../===UI========/DialogueArea")]
 input_manager = NodePath("../InputManager")
 dialogue_input_handler = ExtResource("6_ilpj6")
 manager = ExtResource("4_f2xca")

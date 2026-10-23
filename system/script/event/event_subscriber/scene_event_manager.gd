@@ -18,7 +18,6 @@ signal skip
 
 func _ready():
 	super._ready()
-	if Engine.is_editor_hint(): return
 	_dialogue_setup()
 
 func _dialogue_setup():
@@ -38,18 +37,17 @@ func _handle_input(_delta, input):
 		skip.emit()
 
 func _start_event(event: Event):
-	if Engine.is_editor_hint():
-		_dialogue_setup()
-	
 	await_event = event.await_event
 	if !await_event: return
 	
+	if Engine.is_editor_hint(): return
 	replaced_input_handler = input_manager.active_handler
 	input_manager.active_handler = dialogue_input_handler
 
 func _end_event(event: Event):
 	if !await_event: return
 	
+	if Engine.is_editor_hint(): return
 	input_manager.active_handler = replaced_input_handler
 
 func display_dialogue(dp: DialoguePayload):

@@ -13,7 +13,6 @@ signal on_scene_load
 @export var blackboard: Blackboard
 @export_group("Scene State")
 @export var scene_animator: AnimationPlayer
-@export var scene_state_nodes: Array[StateNode]
 @export_group("Character Spawn")
 @export var character_controllers: Array[CharacterBody3D]
 @export var spawn_locations: Array[Node3D]

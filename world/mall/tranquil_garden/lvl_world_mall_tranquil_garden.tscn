@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dw0eyofd64xcg"]
+
+[ext_resource type="PackedScene" uid="uid://bjv4hqyvjwdsh" path="res://world/base/lvl_world_base.tscn" id="1_ovoti"]
+[ext_resource type="Script" uid="uid://dcyrmp3ja8f55" path="res://system/script/save/save_data.gd" id="2_an6ox"]
+[ext_resource type="Resource" uid="uid://doanagg2dl7d6" path="res://world/mall/tranquil_garden/bb_world_mall_tranquil_garden.tres" id="2_q4o14"]
+
+[sub_resource type="Resource" id="Resource_6jg01"]
+script = ExtResource("2_an6ox")
+should_save_data = false
+should_load_data = false
+path = "world/mall/bb_world_tranquil_garden.res"
+resource = ExtResource("2_q4o14")
+metadata/_custom_type_script = "uid://dcyrmp3ja8f55"
+
+[node name="WorldLevel" unique_id=882313020 instance=ExtResource("1_ovoti")]
+
+[node name="SaveManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="0" unique_id=1041070775]
+save_data_list = Array[ExtResource("2_an6ox")]([SubResource("Resource_6jg01")])
+
+[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="1" unique_id=991142355]
+blackboard = ExtResource("2_q4o14")
+
+[editable path="===UI========/DialogueArea"]
