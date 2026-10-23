@@ -1,8 +1,16 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://bc7p0mjt75pco"]
 
 [ext_resource type="Script" uid="uid://b0gx18dmx3sv3" path="res://character/script/character.gd" id="1_dgeyy"]
+[ext_resource type="Script" uid="uid://2hwgbl7c4ebq" path="res://character/script/brain/simple_ai_brain.gd" id="1_glu2a"]
+[ext_resource type="Resource" uid="uid://2ck3c4aeaqbv" path="res://debate/opal/db_02/dk_db_opal_02.tres" id="2_oespp"]
 [ext_resource type="Script" uid="uid://bkr7ctg24gqrv" path="res://character/script/contestant_status_effect.gd" id="2_pj6hy"]
+
+[sub_resource type="Resource" id="Resource_kvyar"]
+script = ExtResource("1_glu2a")
+metadata/_custom_type_script = "uid://2hwgbl7c4ebq"
 
 [resource]
 script = ExtResource("1_dgeyy")
 name = "Opal"
+brain = SubResource("Resource_kvyar")
+deck = ExtResource("2_oespp")

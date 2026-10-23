@@ -16,6 +16,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": true,
 "await_input": false,
 "close_timer": 1.2,
+"dialogue_area_index": 1.0,
 "talk": true,
 "text": "Are you okay?"
 })
@@ -29,6 +30,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": false,
 "await_input": false,
 "close_timer": 1.5,
+"dialogue_area_index": 2.0,
 "talk": true,
 "text": "[shake rate=20
 .0 level=10 connected=1]You're empty without them[/shake]"
@@ -43,6 +45,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": false,
 "await_input": false,
 "close_timer": 1.5,
+"dialogue_area_index": 3.0,
 "talk": true,
 "text": "[shake rate=20
 .0 level=10 connected=1]They were right about you[/shake]"
@@ -68,6 +71,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": false,
 "await_input": false,
 "close_timer": 1.5,
+"dialogue_area_index": 4.0,
 "talk": true,
 "text": "[shake rate=20
 .0 level=10 connected=1]You can’t make it on your own[/shake]"
@@ -81,6 +85,7 @@ inputs = Dictionary[String, Variant]({
 "await_close": false,
 "await_input": false,
 "close_timer": 2.0,
+"dialogue_area_index": 0.0,
 "talk": false,
 "text": "..."
 })
@@ -105,7 +110,6 @@ action = SubResource("Resource_1f63y")
 [resource]
 script = ExtResource("1_k5emj")
 can_interupt = true
-await_event = true
 frequency = 1
 start_task = SubResource("Resource_k5emj")
 tasks = Array[ExtResource("3_4ilmc")]([SubResource("Resource_dltyw"), SubResource("Resource_4ilmc"), SubResource("Resource_727t4"), SubResource("Resource_k5emj"), SubResource("Resource_36w84"), SubResource("Resource_ue1g7"), SubResource("Resource_jctf6"), SubResource("Resource_1w3to")])

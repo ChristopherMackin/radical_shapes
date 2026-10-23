@@ -2,6 +2,22 @@
 
 [ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="1_65fn2"]
 [ext_resource type="Script" uid="uid://bkpc76nqmkxc2" path="res://system/script/event_factory/bucket_event_factory.gd" id="2_65fn2"]
+[ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/rule/concept_rule.gd" id="3_i0cw1"]
+[ext_resource type="Script" uid="uid://c2ote8d3tq7pk" path="res://system/script/event_factory/rule_event_factory.gd" id="4_8p8g2"]
+[ext_resource type="Resource" uid="uid://chqe2n2s0ukox" path="res://debate/opal/db_02/event/ev_db_opal_02_p1_turn_01.tres" id="5_fayrp"]
+
+[sub_resource type="Resource" id="Resource_48qao"]
+resource_name = "RU: ON_DEBATE_START"
+script = ExtResource("3_i0cw1")
+concept = 8
+metadata/_custom_type_script = "uid://fnphjbccs4gy"
+
+[sub_resource type="Resource" id="Resource_pks5q"]
+script = ExtResource("4_8p8g2")
+rule = SubResource("Resource_48qao")
+event = ExtResource("5_fayrp")
+metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
 
 [resource]
 script = ExtResource("2_65fn2")
+buckets = Array[ExtResource("1_65fn2")]([SubResource("Resource_pks5q")])

@@ -34,7 +34,6 @@ action = SubResource("Resource_x7ur8")
 
 [resource]
 script = ExtResource("1_y7rtr")
-await_event = true
 start_task = SubResource("Resource_y7rtr")
 tasks = Array[ExtResource("3_8vrha")]([SubResource("Resource_y7rtr"), SubResource("Resource_au5dw")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"
