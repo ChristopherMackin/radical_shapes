@@ -2,7 +2,7 @@ class_name Flag
 extends Object
 
 enum {
-CONCEPT = 0,
+	CONCEPT = 0,
 	PLAYER = 1,
 	COMPUTER = 2,
 	CURRENT_TURN = 3,
@@ -40,6 +40,7 @@ CONCEPT = 0,
 	#System Flags
 	STORY_PROGRESS = 30,
 	CURRENT_LOCATION = 32,
+	SAVED_LOCATION = 34,
 	
 	#Story Flags
 	A1_WAITING_ON_JOY = 31,
@@ -85,6 +86,7 @@ enum Flag{
 	#System Flags
 	STORY_PROGRESS = 30,
 	CURRENT_LOCATION = 32,
+	SAVED_LOCATION = 34,
 	
 	#Story Flags
 	A1_WAITING_ON_JOY = 31,

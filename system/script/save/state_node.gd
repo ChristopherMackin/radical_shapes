@@ -21,6 +21,7 @@ func load_state():
 		_load_node_from_global_blackboard(node)
 
 func _save_node_in_global_blackboard(node: Node):
+	if !node: return
 	var dictionary = {}
 	
 	for property in properties:

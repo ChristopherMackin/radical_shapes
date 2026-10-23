@@ -1,5 +1,31 @@
 [gd_scene format=3 uid="uid://bi8ntyxb64qs6"]
 
 [ext_resource type="PackedScene" uid="uid://da4quimbac65g" path="res://_debug/lvl_db_debug_base.tscn" id="1_4t7fs"]
+[ext_resource type="Resource" uid="uid://clb2bpkwmdhhu" path="res://debate/samson/db_01/ef_db_samson_01.tres" id="2_htg24"]
+[ext_resource type="Resource" uid="uid://c5wf0i7el2cq3" path="res://debate/samson/db_01/bb_db_samson_01.tres" id="2_xubtb"]
+[ext_resource type="Resource" uid="uid://b6qml2f7rxk48" path="res://debate/samson/db_01/char_db_samson_01.tres" id="3_htg24"]
+[ext_resource type="Resource" uid="uid://b60sww3o8d3g7" path="res://debate/samson/db_01/char_db_samson_01_joy.tres" id="4_ws8u2"]
 
-[node name="LvlDbDebugBase" instance=ExtResource("1_4t7fs")]
+[node name="LvlDbDebugBase" unique_id=2044431734 instance=ExtResource("1_4t7fs")]
+
+[node name="DebugEventManager" parent="===DEBUG========" parent_id_path=PackedInt32Array(801987926) index="0" unique_id=1676246633]
+btn_continue = Callable()
+btn_skip = Callable()
+btn_cancel = Callable()
+btn_event_factory = Callable()
+
+[node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="0" unique_id=4102704]
+event_factory = ExtResource("2_htg24")
+blackboard = ExtResource("2_xubtb")
+
+[node name="DebateInitiator" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="1" unique_id=267756503]
+blackboard = ExtResource("2_xubtb")
+player = ExtResource("3_htg24")
+computer = ExtResource("4_ws8u2")
+
+[node name="EventQueryManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="2" unique_id=1646962725]
+event_factory = ExtResource("2_htg24")
+blackboard = ExtResource("2_xubtb")
+
+[node name="SaveManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="6" unique_id=982282546]
+process_mode = 3

@@ -44,7 +44,9 @@ func _ready() -> void:
 
 func replace_scene_async(scene_name: String, transition: PackedScene = null) -> bool:
 	var scene_index = _scene_list.find_custom(func(x): return Util.get_file_name(x) == scene_name)
-	if scene_index == -1: return false
+	if scene_index == -1: 
+		push_error("ERROR: SCENE NOT REGISTERED IN SCENE MANAGER")
+		return false
 	
 	return await replace_scene_by_index_async(scene_index, transition)
 
