@@ -192,12 +192,12 @@ event = ExtResource("2_8axku")
 btn_event_factory = Callable()
 
 [node name="MainCamera" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="0" unique_id=1922745435]
-transform = Transform3D(1, 0, 0, 0, 0.92184925, 0.3875487, 0, -0.3875487, 0.92184925, 6.0494986, 2.98, 7.918183)
+transform = Transform3D(1, -3.0298263e-17, 7.2069474e-17, 1.6543612e-24, 0.92184925, 0.3875487, -7.817924e-17, -0.3875487, 0.92184925, 2.0819986e-12, 2.98, 4.58)
 fov = 40.0
 far = 100.0
 
 [node name="JoyCamera" type="Node3D" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="1" unique_id=2001666766 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(0.99711204, -0.029687284, 0.06990153, 1.8626451e-09, 0.9204298, 0.39090782, -0.075944446, -0.3897789, 0.9177717, 5.061933, 2.9799995, 7.221874)
+transform = Transform3D(1, -3.0298263e-17, 7.2069474e-17, 1.6543612e-24, 0.92184925, 0.3875487, -7.817924e-17, -0.3875487, 0.92184925, 2.0819986e-12, 2.98, 4.58)
 script = ExtResource("5_4v6ql")
 priority = 1
 follow_mode = 6
@@ -215,7 +215,7 @@ align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="SamsonCamera" type="Node3D" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="2" unique_id=1200248090 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(1, 0, 0, 0, 0.92184925, 0.3875487, 0, -0.3875487, 0.92184925, 6.0494986, 2.98, 7.918183)
+transform = Transform3D(1, -3.0298263e-17, 7.2069474e-17, 1.6543612e-24, 0.92184925, 0.3875487, -7.817924e-17, -0.3875487, 0.92184925, 2.0819986e-12, 2.98, 4.58)
 script = ExtResource("5_4v6ql")
 priority = 2
 follow_mode = 6
@@ -260,7 +260,7 @@ environment = ExtResource("3_t5u21")
 
 [node name="mod_env_world_church_lobby" parent="===ENVIRONMENT========/Model" parent_id_path=PackedInt32Array(1153107026) index="0" unique_id=1904671958 instance=ExtResource("4_0xjmj")]
 
-[node name="Door_001" parent="===ENVIRONMENT========/Model/mod_env_world_church_lobby/ToAuditorium" parent_id_path=PackedInt32Array(1904671958, 671047094) index="0" unique_id=1823384318]
+[node name="Door_001" parent="===ENVIRONMENT========/Model/mod_env_world_church_lobby/ToAuditorium" parent_id_path=PackedInt32Array(1904671958, 493256510) index="0" unique_id=558906955]
 visible = false
 
 [node name="BoxOfCandles" type="MeshInstance3D" parent="===ENVIRONMENT========/Model" parent_id_path=PackedInt32Array(1153107026) index="1" unique_id=408066105]
@@ -270,7 +270,7 @@ mesh = SubResource("BoxMesh_1vivr")
 [node name="SamsonActor" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="1" unique_id=1017530611 instance=ExtResource("8_3clw5")]
 
 [node name="MainCamera" parent="===UI========/UiGameView/SubViewport" parent_id_path=PackedInt32Array(208854357) index="0" unique_id=807046495]
-transform = Transform3D(1, 0, 0, 0, 0.92184925, 0.3875487, 0, -0.3875487, 0.92184925, 6.0494986, 2.98, 7.918183)
+transform = Transform3D(1, -3.0298263e-17, 7.2069474e-17, 1.6543612e-24, 0.92184925, 0.3875487, -7.817924e-17, -0.3875487, 0.92184925, 2.0819986e-12, 2.98, 4.58)
 fov = 40.0
 far = 100.0
 
@@ -282,7 +282,7 @@ text = "You know it! Let's go!"
 
 [node name="PortraitCamera" parent="===UI========/DialogueArea/Portrait/SubViewport" parent_id_path=PackedInt32Array(264276467) index="0" unique_id=1879654437]
 physics_interpolation_mode = 0
-transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 6.061707, 1.6233592, 5.57444)
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0.0122085, 1.6233592, 2.2362573)
 
 [connection signal="on_recieved_event_signal" from="===EVENT========/ToLvlDbSamson01SignalSubscriber" to="===SCENE_CHANGE========/SceneChangeNodes/ToLvlDbSamson01" method="transition_scene" unbinds=1]
 

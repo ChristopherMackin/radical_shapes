@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://c0jua2cphnqw6" path="res://system/blackboard/bb_global.tres" id="4_dip4l"]
 [ext_resource type="Script" uid="uid://b5po407txa222" path="res://scene_management/_script/scene_loader/rule_scene_loader.gd" id="5_kke1r"]
 [ext_resource type="Script" uid="uid://bos07o5vwd6ow" path="res://scene_management/_script/scene_loader/animation_scene_loader.gd" id="6_j46gt"]
-[ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change_trigger.gd" id="7_7ragd"]
+[ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change/scene_change_trigger.gd" id="7_7ragd"]
 [ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="8_lu5yt"]
 [ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="9_j46gt"]
 

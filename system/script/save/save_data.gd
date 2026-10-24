@@ -15,6 +15,8 @@ var full_path:
 @export var resource : Resource
 
 func save_data():
+	if !ResourceLoader.exists(full_path):
+		DirAccess.make_dir_recursive_absolute(full_path.get_base_dir()) 
 	ResourceSaver.save(resource, full_path)
 
 func load_data():

@@ -2,6 +2,22 @@
 
 [ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="1_uce2i"]
 [ext_resource type="Script" uid="uid://bkpc76nqmkxc2" path="res://system/script/event_factory/bucket_event_factory.gd" id="2_884dv"]
+[ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/rule/concept_rule.gd" id="2_i6qth"]
+[ext_resource type="Resource" uid="uid://2hcjd4buye7y" path="res://debate/samson/db_01/event/ev_db_samson_01_debate_end.tres" id="2_ykw5y"]
+[ext_resource type="Script" uid="uid://c2ote8d3tq7pk" path="res://system/script/event_factory/rule_event_factory.gd" id="3_ykw5y"]
+
+[sub_resource type="Resource" id="Resource_2elqd"]
+resource_name = "RU: ON_DEBATE_END"
+script = ExtResource("2_i6qth")
+concept = 9
+metadata/_custom_type_script = "uid://fnphjbccs4gy"
+
+[sub_resource type="Resource" id="Resource_vsmii"]
+script = ExtResource("3_ykw5y")
+rule = SubResource("Resource_2elqd")
+event = ExtResource("2_ykw5y")
+metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
 
 [resource]
 script = ExtResource("2_884dv")
+buckets = Array[ExtResource("1_uce2i")]([SubResource("Resource_vsmii")])

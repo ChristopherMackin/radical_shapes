@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://scene_management/_script/scene_change/scene_change_node.gd" id="11_vu58g"]
 [ext_resource type="Script" uid="uid://dhx7e8wrgceej" path="res://system/script/global_timer_watcher.gd" id="12_at566"]
 [ext_resource type="Material" uid="uid://denlclmvv4lmo" path="res://_asset/_general/material/m_cardboard.tres" id="12_gj0p4"]
-[ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change_trigger.gd" id="12_hl6u8"]
+[ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change/scene_change_trigger.gd" id="12_hl6u8"]
 [ext_resource type="Script" uid="uid://i1rx170t4865" path="res://_debug/world/conditional_node.gd" id="13_d2psw"]
 [ext_resource type="PackedScene" uid="uid://clwowgg135cqd" path="res://player/cb_samson.tscn" id="13_gj0p4"]
 [ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="13_msuer"]

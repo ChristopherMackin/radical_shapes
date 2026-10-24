@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Event" format=3 uid="uid://2hcjd4buye7y"]
+
+[ext_resource type="Script" uid="uid://ce1vejtu0bdfn" path="res://system/script/event/event.gd" id="1_bgkoe"]
+[ext_resource type="Script" uid="uid://dpd7dvn4mjmor" path="res://system/script/event/task.gd" id="2_c05sn"]
+[ext_resource type="Script" uid="uid://c0n61d76glcim" path="res://system/script/event/task_action/dialogue_task_action.gd" id="3_c05sn"]
+[ext_resource type="Script" uid="uid://brh6nlas7k5uk" path="res://system/script/event/task_action/signal_task_action.gd" id="4_l1aqr"]
+
+[sub_resource type="Resource" id="Resource_x7ur8"]
+script = ExtResource("3_c05sn")
+
+[sub_resource type="Resource" id="Resource_l1aqr"]
+script = ExtResource("2_c05sn")
+outputs = Array[int]([1])
+inputs = Dictionary[String, Variant]({
+"actor": "samson",
+"await_close": true,
+"await_input": false,
+"close_timer": 2.0,
+"dialogue_area_index": 0.0,
+"talk": true,
+"text": "That's the end!"
+})
+action = SubResource("Resource_x7ur8")
+
+[sub_resource type="Resource" id="Resource_6ew0d"]
+script = ExtResource("4_l1aqr")
+metadata/_custom_type_script = "uid://brh6nlas7k5uk"
+
+[sub_resource type="Resource" id="Resource_x6d06"]
+script = ExtResource("2_c05sn")
+inputs = Dictionary[String, Variant]({
+"label": "return_to_previous_scene"
+})
+action = SubResource("Resource_6ew0d")
+
+[resource]
+script = ExtResource("1_bgkoe")
+can_interupt = true
+start_task = SubResource("Resource_l1aqr")
+tasks = Array[ExtResource("2_c05sn")]([SubResource("Resource_l1aqr"), SubResource("Resource_x6d06")])
+metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

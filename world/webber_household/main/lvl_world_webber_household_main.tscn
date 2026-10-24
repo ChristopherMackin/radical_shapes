@@ -8,8 +8,7 @@
 [ext_resource type="Script" uid="uid://i1rx170t4865" path="res://_debug/world/conditional_node.gd" id="6_v5byg"]
 [ext_resource type="Script" uid="uid://76yu5gwmebt5" path="res://system/script/rule/flag_value_rule.gd" id="7_vhoc0"]
 [ext_resource type="Resource" uid="uid://clp4uto2bjojd" path="res://world/webber_household/main/ef_world_webber_household_main.tres" id="8_rlww6"]
-[ext_resource type="Resource" uid="uid://bqt4iy0uptjvr" path="res://world/webber_household/main/bb_world_webber_household_main.tres" id="9_iqpuy"]
-[ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change_trigger.gd" id="10_x4uyu"]
+[ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change/scene_change_trigger.gd" id="10_x4uyu"]
 [ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="11_vbt8x"]
 [ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="12_k4x0o"]
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://scene_management/_script/scene_change/scene_change_node.gd" id="13_six40"]
@@ -21,7 +20,7 @@
 [ext_resource type="Script" uid="uid://dhx7e8wrgceej" path="res://system/script/global_timer_watcher.gd" id="19_m7qu8"]
 [ext_resource type="Script" uid="uid://bexeevctdvv0t" path="res://system/script/event/event_trigger.gd" id="20_83hvj"]
 [ext_resource type="Resource" uid="uid://dr1b06clryio5" path="res://world/webber_household/main/event/ev_world_webber_household_main_joy_intro.tres" id="21_6qobt"]
-[ext_resource type="Resource" path="res://_save/world/webber_household/bb_world_main_room.res" id="22_cnvsc"]
+[ext_resource type="Resource" uid="uid://bqt4iy0uptjvr" path="res://world/webber_household/main/bb_world_webber_household_main.tres" id="22_cnvsc"]
 [ext_resource type="PackedScene" uid="uid://bgxyjg7p6d1iu" path="res://_general/packed_scene/simple_dynamic_speech_bubble.tscn" id="23_euhvp"]
 [ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="24_aewww"]
 [ext_resource type="PackedScene" uid="uid://diji74lby6hok" path="res://_asset/world/webber_household/main_room/mod_env_world_main_room.glb" id="25_gl4cb"]
@@ -358,12 +357,9 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="0" unique_id=991142355 node_paths=PackedStringArray("character_controllers", "spawn_locations")]
 event_factory = ExtResource("8_rlww6")
-blackboard = ExtResource("9_iqpuy")
+blackboard = ExtResource("22_cnvsc")
 character_controllers = [NodePath("../../===ACTOR========/CBJoy"), NodePath("../../===ACTOR========/CbSamson")]
 spawn_locations = [NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn01"), NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn02"), NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn03")]
-
-[node name="SceneEventManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="2" unique_id=333180430 node_paths=PackedStringArray("dialogue_areas")]
-dialogue_areas = [NodePath("../../===UI========/DialogueArea")]
 
 [node name="Spawn01" type="Marker3D" parent="===SCENE_CHANGE========/SpawnLocations" parent_id_path=PackedInt32Array(369867195) index="0" unique_id=1039219586]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.481799, 0, 0.9659857)
@@ -474,28 +470,28 @@ environment = ExtResource("24_aewww")
 
 [node name="ModEnvWorldMainRoom" parent="===ENVIRONMENT========/Model" parent_id_path=PackedInt32Array(1153107026) index="0" unique_id=1146796348 instance=ExtResource("25_gl4cb")]
 
-[node name="Collision" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="2" unique_id=718169619]
+[node name="Collision" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="2" unique_id=1846456886]
 visible = false
 
-[node name="Door_003" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="5" unique_id=661250998]
+[node name="Door_003" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="5" unique_id=1707567680]
 surface_material_override/0 = ExtResource("26_73i0a")
 
-[node name="Door_004" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="6" unique_id=1735670205]
+[node name="Door_004" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="6" unique_id=1743123992]
 surface_material_override/0 = ExtResource("26_73i0a")
 
-[node name="DoorFrame_004" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="10" unique_id=1764594975]
+[node name="DoorFrame_004" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="10" unique_id=1746234184]
 surface_material_override/0 = ExtResource("26_73i0a")
 
-[node name="DoorFrame_005" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="11" unique_id=740206990]
+[node name="DoorFrame_005" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="11" unique_id=1030947934]
 surface_material_override/0 = ExtResource("26_73i0a")
 
-[node name="Floor" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="13" unique_id=1879813913]
+[node name="Floor" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="13" unique_id=420899185]
 surface_material_override/0 = ExtResource("27_wca11")
 
-[node name="WallFrame" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="16" unique_id=1297960280]
+[node name="WallFrame" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="16" unique_id=1227808079]
 surface_material_override/0 = ExtResource("26_73i0a")
 
-[node name="Walls" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="17" unique_id=1322368166]
+[node name="Walls" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="17" unique_id=529113429]
 surface_material_override/0 = ExtResource("28_j2inn")
 
 [node name="MeshCollisionShape" type="CollisionShape3D" parent="===ENVIRONMENT========/Collision" parent_id_path=PackedInt32Array(1817161414) index="1" unique_id=1588986972]

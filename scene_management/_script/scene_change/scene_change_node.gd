@@ -4,9 +4,12 @@ class_name SceneChangeNode
 @export var scene_change_data: SceneChangeData
 
 func transition_scene():
+	_save_scene_state()
+	Global.blackboard.add_flag(Flag.SPAWN_INDEX, scene_change_data.next_scene_spawn_index)
+	SceneManager.replace_scene_async(scene_change_data.scene_name, scene_change_data.transition)
+
+func _save_scene_state():
 	if scene_change_data.save_state:
 		for node in Global.state_nodes:
 			node.save_state()
 		Global.blackboard.add_flag(Flag.SAVED_LOCATION, Global.blackboard.get_flag_value(Flag.CURRENT_LOCATION), Blackboard.ExpirationToken.ON_VALUE_ACCESSED)
-	Global.blackboard.add_flag(Flag.SPAWN_INDEX, scene_change_data.next_scene_spawn_index)
-	SceneManager.replace_scene_async(scene_change_data.scene_name, scene_change_data.transition)

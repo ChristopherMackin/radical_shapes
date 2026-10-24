@@ -5,6 +5,17 @@
 [ext_resource type="Resource" uid="uid://c5wf0i7el2cq3" path="res://debate/samson/db_01/bb_db_samson_01.tres" id="2_xubtb"]
 [ext_resource type="Resource" uid="uid://b6qml2f7rxk48" path="res://debate/samson/db_01/char_db_samson_01.tres" id="3_htg24"]
 [ext_resource type="Resource" uid="uid://b60sww3o8d3g7" path="res://debate/samson/db_01/char_db_samson_01_joy.tres" id="4_ws8u2"]
+[ext_resource type="Script" uid="uid://bs3w0u36gnbxi" path="res://system/script/event/event_subscriber/signal_event_subscriber.gd" id="6_d83di"]
+[ext_resource type="Script" uid="uid://bd3oks58qhthq" path="res://scene_management/_script/scene_change/return_to_scene_change_node.gd" id="6_xfqe2"]
+[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="7_qdepx"]
+[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="7_xfqe2"]
+[ext_resource type="PackedScene" uid="uid://deqrvxx6rp2vl" path="res://scene_management/screen_transition/st_screen_wipe.tscn" id="8_tcs5s"]
+
+[sub_resource type="Resource" id="Resource_qdepx"]
+script = ExtResource("7_qdepx")
+scene_name = "lvl_world_church_lobby"
+transition = ExtResource("8_tcs5s")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
 
 [node name="LvlDbDebugBase" unique_id=2044431734 instance=ExtResource("1_4t7fs")]
 
@@ -27,5 +38,15 @@ computer = ExtResource("4_ws8u2")
 event_factory = ExtResource("2_htg24")
 blackboard = ExtResource("2_xubtb")
 
-[node name="SaveManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1441557243) index="6" unique_id=982282546]
-process_mode = 3
+[node name="ReturnToSceneChangeNode" type="Node" parent="===SCENE_CHANGE========/SceneChangeNodes" parent_id_path=PackedInt32Array(307202293) index="0" unique_id=1247187333]
+script = ExtResource("6_xfqe2")
+scene_change_data = SubResource("Resource_qdepx")
+metadata/_custom_type_script = "uid://bd3oks58qhthq"
+
+[node name="ReturnToPreviousSceneSignalSubscriber" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1078741490) index="0" unique_id=1766234199]
+script = ExtResource("6_d83di")
+filter = Array[String](["return_to_previous_scene"])
+manager = ExtResource("7_xfqe2")
+metadata/_custom_type_script = "uid://bs3w0u36gnbxi"
+
+[connection signal="on_recieved_event_signal" from="===EVENT========/ReturnToPreviousSceneSignalSubscriber" to="===SCENE_CHANGE========/SceneChangeNodes/ReturnToSceneChangeNode" method="transition_scene" unbinds=1]

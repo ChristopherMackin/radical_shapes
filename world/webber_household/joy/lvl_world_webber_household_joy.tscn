@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_e4xpx"]
 [ext_resource type="PackedScene" uid="uid://be76871vkp6ce" path="res://_asset/world/webber_household/joys_room/mod_env_world_joys_room.glb" id="3_rspw4"]
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_lumdv"]
-[ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change_trigger.gd" id="5_bx7er"]
+[ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change/scene_change_trigger.gd" id="5_bx7er"]
 [ext_resource type="Resource" uid="uid://tffp4suvbq3u" path="res://world/webber_household/joy/bb_world_webber_household_joy.tres" id="5_tpkmb"]
 [ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="6_tpkmb"]
 [ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="7_6jg01"]
