@@ -260,7 +260,7 @@ environment = ExtResource("3_t5u21")
 
 [node name="mod_env_world_church_lobby" parent="===ENVIRONMENT========/Model" parent_id_path=PackedInt32Array(1153107026) index="0" unique_id=1904671958 instance=ExtResource("4_0xjmj")]
 
-[node name="Door_001" parent="===ENVIRONMENT========/Model/mod_env_world_church_lobby/ToAuditorium" parent_id_path=PackedInt32Array(1904671958, 493256510) index="0" unique_id=558906955]
+[node name="Door_001" parent="===ENVIRONMENT========/Model/mod_env_world_church_lobby/ToAuditorium" parent_id_path=PackedInt32Array(1904671958, 671047094) index="0" unique_id=1823384318]
 visible = false
 
 [node name="BoxOfCandles" type="MeshInstance3D" parent="===ENVIRONMENT========/Model" parent_id_path=PackedInt32Array(1153107026) index="1" unique_id=408066105]

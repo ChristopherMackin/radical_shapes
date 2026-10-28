@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dke2uxx0r453j" path="res://debate/_script/ui/card_ui_factory/has_cse_card_ui_packed_scene_factory.gd" id="5_xsdac"]
 [ext_resource type="Script" uid="uid://3ajnh5fdykvx" path="res://debate/_script/ui/card_ui_factory/bucket_card_ui_packed_scene_factory.gd" id="6_vxijh"]
 [ext_resource type="PackedScene" uid="uid://7f3cslp40a4q" path="res://debate/_packed_scene/card_ui/card_ui.tscn" id="7_grrmn"]
-[ext_resource type="Script" uid="uid://dihfjebrr452i" path="res://debate/_script/ui/card_ui_factory/card_ui_factory.gd" id="8_gsmyj"]
+[ext_resource type="Script" uid="uid://b8uvgvpddrpfw" path="res://debate/_script/ui/card_ui_factory/card_ui_factory.gd" id="8_gsmyj"]
 
 [sub_resource type="Resource" id="Resource_sinnq"]
 script = ExtResource("4_fouwn")
@@ -20,13 +20,17 @@ card_status_effect = ExtResource("2_8r40s")
 card_ui_packed_scene_factory = SubResource("Resource_sinnq")
 metadata/_custom_type_script = "uid://dke2uxx0r453j"
 
+[sub_resource type="Resource" id="Resource_tnxy5"]
+script = ExtResource("4_fouwn")
+card_ui = ExtResource("7_grrmn")
+metadata/_custom_type_script = "uid://d4fneioflw7dl"
+
 [sub_resource type="Resource" id="Resource_yavpi"]
 script = ExtResource("6_vxijh")
-buckets = Array[ExtResource("1_pvd7y")]([SubResource("Resource_vvsem")])
+buckets = Array[ExtResource("1_pvd7y")]([SubResource("Resource_vvsem"), SubResource("Resource_tnxy5")])
 metadata/_custom_type_script = "uid://3ajnh5fdykvx"
 
 [resource]
 script = ExtResource("8_gsmyj")
 card_ui_packed_scene_factory = SubResource("Resource_yavpi")
 default_scene = ExtResource("7_grrmn")
-metadata/_custom_type_script = "uid://dihfjebrr452i"
