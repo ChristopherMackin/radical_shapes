@@ -74,5 +74,4 @@ func handle_movement(delta, input):
 
 func handle_interaction(delta, input):
 	if input.is_action_just_pressed("action_1"):
-		if interaction_area.focused_interactable:
-			interaction_area.focused_interactable.invoke()
+			interaction_area.invoke()

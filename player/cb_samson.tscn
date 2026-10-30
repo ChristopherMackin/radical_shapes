@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://4fyxges65twa" path="res://character/character_body_3d.tscn" id="1_8xmmp"]
 [ext_resource type="PackedScene" uid="uid://bw7ddkhtncrrr" path="res://character/samson/act_samson.tscn" id="2_k7tnd"]
 [ext_resource type="Script" uid="uid://btmrfolkq1aj5" path="res://character/script/interaction_area.gd" id="3_k7tnd"]
+[ext_resource type="PackedScene" uid="uid://cap77hpabdbj0" path="res://_asset/_general/model/mod_interaction_marker.glb" id="4_xbb8g"]
+[ext_resource type="Script" uid="uid://cwf17bs4fb3le" path="res://system/script/event/hide_durring_event.gd" id="5_8g6mc"]
+[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="6_s0x88"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lrl4d"]
 size = Vector3(2, 3, 1.75)
@@ -26,6 +29,15 @@ script = ExtResource("3_k7tnd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.625)
 shape = SubResource("BoxShape3D_lrl4d")
 
+[node name="InteractionMarker" parent="." index="2" unique_id=2075054482 instance=ExtResource("4_xbb8g")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.9369006, 0)
+visible = false
+
+[node name="HideDurringEvent" type="Node" parent="InteractionMarker" index="1" unique_id=445405097 node_paths=PackedStringArray("node")]
+script = ExtResource("5_8g6mc")
+node = NodePath("..")
+manager = ExtResource("6_s0x88")
+
 [connection signal="area_entered" from="SamsonActor/InteractionArea" to="SamsonActor/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="SamsonActor/InteractionArea" to="SamsonActor/InteractionArea" method="_on_area_exited"]
 [connection signal="area_shape_entered" from="SamsonActor/InteractionArea" to="SamsonActor/InteractionArea" method="_on_area_shape_entered"]
@@ -34,5 +46,7 @@ shape = SubResource("BoxShape3D_lrl4d")
 [connection signal="body_exited" from="SamsonActor/InteractionArea" to="SamsonActor/InteractionArea" method="_on_body_exited"]
 [connection signal="body_shape_entered" from="SamsonActor/InteractionArea" to="SamsonActor/InteractionArea" method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="SamsonActor/InteractionArea" to="SamsonActor/InteractionArea" method="_on_body_shape_exited"]
+[connection signal="interactable_focused" from="SamsonActor/InteractionArea" to="InteractionMarker" method="set_visible" binds= [true]]
+[connection signal="interactable_unfocused" from="SamsonActor/InteractionArea" to="InteractionMarker" method="set_visible" binds= [false]]
 
 [editable path="SamsonActor"]
