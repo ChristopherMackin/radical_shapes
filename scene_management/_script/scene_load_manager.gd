@@ -31,7 +31,7 @@ func _scene_added():
 	for rsl in rule_scene_loaders:
 		if !rsl.rule || rsl.rule.check(Global.blackboard.get_query()): scene_loader = rsl.scene_loader
 	
-	scene_loader.set_scene_state(self)
+	await scene_loader.set_scene_state(self)
 	
 	await query_event()
 	

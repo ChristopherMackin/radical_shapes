@@ -2,8 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://ncpnghqpw8tc" path="res://character/character_actor.tscn" id="1_bqx43"]
 [ext_resource type="PackedScene" uid="uid://dnn3ds52fs6oy" path="res://_asset/character/general_woman/sk_general_woman.glb" id="2_rnyhr"]
-[ext_resource type="PackedScene" uid="uid://cbnwicyrjgp7d" path="res://_asset/character/general_woman/outfit/mod_general_woman_outfit_01.glb" id="3_4h6cd"]
-[ext_resource type="Script" uid="uid://uof5fhcqdag3" path="res://character/script/follow_skeleton.gd" id="4_f7tn7"]
 [ext_resource type="Animation" uid="uid://bv341y1metu2d" path="res://character/general_woman/animation/anim_general_woman_idle_01.res" id="5_tw5gy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bqx43"]
@@ -14,13 +12,14 @@ _data = {
 &"anim_general_woman_idle_01": ExtResource("5_tw5gy")
 }
 
-[node name="ActGeneralWoman" unique_id=1017530611 node_paths=PackedStringArray("_layer_mask", "_look_at_modifier") instance=ExtResource("1_bqx43")]
+[node name="GeneralWomanActor" unique_id=1017530611 node_paths=PackedStringArray("_layer_mask", "_look_at_modifier") instance=ExtResource("1_bqx43")]
 _layer_mask = NodePath("LayerMask")
 _look_at_modifier = NodePath("Skeleton/root/Skeleton3D/LookAtModifier3D")
+display_name = "Woman"
 
 [node name="Skeleton" parent="." index="0" unique_id=124595082 instance=ExtResource("2_rnyhr")]
 
-[node name="Skeleton3D" parent="Skeleton/root" parent_id_path=PackedInt32Array(124595082, 393726020) index="0" unique_id=1015540764]
+[node name="Skeleton3D" parent="Skeleton/root" parent_id_path=PackedInt32Array(124595082, 881258743) index="0" unique_id=1433125724]
 bones/1/position = Vector3(0.70251924, 2.5755637, 0.023947109)
 bones/1/rotation = Quaternion(-4.8676796e-08, -1.3113416e-07, 2.6062569e-16, 1)
 bones/2/position = Vector3(0.13033777, 9.216805e-11, -2.8481786e-09)
@@ -252,10 +251,6 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton/root/Skeleton3D/BoneAttachment3D/Area3D" index="0" unique_id=1686173388]
 transform = Transform3D(1, 0, -3.3881318e-21, 2.1175824e-22, 1.0000002, 3.7252903e-09, 0, 0, 1.0000002, -7.375097e-15, 0.13551593, 0.17596069)
 shape = SubResource("SphereShape3D_bqx43")
-
-[node name="mod_general_woman_outfit_01" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="0" unique_id=858485464 node_paths=PackedStringArray("target") instance=ExtResource("3_4h6cd")]
-script = ExtResource("4_f7tn7")
-target = NodePath("../../Skeleton/root/Skeleton3D")
 
 [node name="AnimationPlayer" parent="." index="3" unique_id=99323753]
 root_node = NodePath("../Skeleton")

@@ -12,7 +12,9 @@ func _ready():
 	
 	node.visibility_changed.connect(_on_visibility_changed)
 
-func _on_visibility_changed(val: bool):
+func _on_visibility_changed():
+	var val = node.visible
+	
 	if _just_changed:
 		_just_changed = false
 		return

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cgpaubo15kslm"]
+
+[ext_resource type="PackedScene" uid="uid://drhxr0csw1o3e" path="res://character/general_woman/act_general_woman.tscn" id="1_08blc"]
+[ext_resource type="PackedScene" uid="uid://cbnwicyrjgp7d" path="res://_asset/character/general_woman/outfit/mod_general_woman_outfit_01.glb" id="2_fomhq"]
+[ext_resource type="Script" uid="uid://uof5fhcqdag3" path="res://character/script/follow_skeleton.gd" id="3_sfunf"]
+
+[node name="WomanExtra01Actor" unique_id=1017530611 instance=ExtResource("1_08blc")]
+
+[node name="mod_general_woman_outfit_01" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="0" unique_id=181575556 node_paths=PackedStringArray("target") instance=ExtResource("2_fomhq")]
+script = ExtResource("3_sfunf")
+target = NodePath("../../Skeleton/root/Skeleton3D")
+
+[editable path="Skeleton"]
