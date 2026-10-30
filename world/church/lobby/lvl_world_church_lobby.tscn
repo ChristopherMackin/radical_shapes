@@ -7,14 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://dykxmmctu2emq" path="res://_asset/world/church/mod_env_world_church_lobby.glb" id="4_0xjmj"]
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_skdao"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="5_4v6ql"]
+[ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="6_6pljw"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_skdao"]
+[ext_resource type="Script" uid="uid://dbc7x0jhylxhr" path="res://_general/script/camera_capture.gd" id="6_v46sg"]
 [ext_resource type="Script" uid="uid://dbvysemw11ei8" path="res://system/script/event_factory/single_event_factory.gd" id="6_y2kef"]
 [ext_resource type="PackedScene" uid="uid://bw7ddkhtncrrr" path="res://character/samson/act_samson.tscn" id="8_3clw5"]
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://scene_management/_script/scene_change/scene_change_node.gd" id="8_5njgo"]
+[ext_resource type="Resource" uid="uid://cj6cftma342ds" path="res://world/church/lobby/event/ev_world_church_lobby_tutorial_end.tres" id="8_6pljw"]
 [ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="9_iw0oo"]
+[ext_resource type="Script" uid="uid://bkpc76nqmkxc2" path="res://system/script/event_factory/bucket_event_factory.gd" id="9_qgmh6"]
 [ext_resource type="PackedScene" uid="uid://deqrvxx6rp2vl" path="res://scene_management/screen_transition/st_screen_wipe.tscn" id="10_pi1af"]
 [ext_resource type="Script" uid="uid://bs3w0u36gnbxi" path="res://system/script/event/event_subscriber/signal_event_subscriber.gd" id="11_pi1af"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="12_v46sg"]
+[ext_resource type="PackedScene" uid="uid://drhxr0csw1o3e" path="res://character/general_woman/act_general_woman.tscn" id="20_hftgo"]
 
 [sub_resource type="Resource" id="Resource_3clw5"]
 script = ExtResource("6_skdao")
@@ -24,10 +29,20 @@ duration = 0.5
 script = ExtResource("6_skdao")
 duration = 0.5
 
-[sub_resource type="Resource" id="Resource_6i84e"]
+[sub_resource type="Resource" id="Resource_ssj43"]
 script = ExtResource("6_y2kef")
 event = ExtResource("2_8axku")
 metadata/_custom_type_script = "uid://dbvysemw11ei8"
+
+[sub_resource type="Resource" id="Resource_nmh5k"]
+script = ExtResource("6_y2kef")
+event = ExtResource("8_6pljw")
+metadata/_custom_type_script = "uid://dbvysemw11ei8"
+
+[sub_resource type="Resource" id="Resource_fevrk"]
+script = ExtResource("9_qgmh6")
+buckets = Array[ExtResource("6_6pljw")]([SubResource("Resource_ssj43"), SubResource("Resource_nmh5k")])
+metadata/_custom_type_script = "uid://bkpc76nqmkxc2"
 
 [sub_resource type="Resource" id="Resource_1vivr"]
 script = ExtResource("9_iw0oo")
@@ -97,7 +112,81 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [2]
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rlsgn"]
+resource_name = "tutorial_end"
+length = 0.33299999999999996
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../===CAMERA========/SamsonCamera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../===ACTOR========/CBJoy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4.7266483, -4.7683716e-07, 2.6997576)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../===ACTOR========/CBJoy:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.34190723, 2.646978e-23)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../===ACTOR========/SamsonActor:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6.0494986, -9.45858e-16, 3.338183)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../===ACTOR========/SamsonActor:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -1.2165237e-31)]
+}
+tracks/5/type = "animation"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../===UI========/CinematicBars/AnimationPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": PackedStringArray("slide_in"),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_y2kef"]
@@ -176,11 +265,15 @@ tracks/5/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2akm8"]
 _data = {
 &"RESET": SubResource("Animation_3clw5"),
+&"tutorial_end": SubResource("Animation_rlsgn"),
 &"tutorial_prelude": SubResource("Animation_y2kef")
 }
 
 [sub_resource type="BoxMesh" id="BoxMesh_1vivr"]
 size = Vector3(0.5, 0.35, 0.5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1vivr"]
+radius = 1.8
 
 [node name="WorldLevel" unique_id=1389869900 instance=ExtResource("1_hboyh")]
 
@@ -192,12 +285,13 @@ event = ExtResource("2_8axku")
 btn_event_factory = Callable()
 
 [node name="MainCamera" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="0" unique_id=1922745435]
-transform = Transform3D(1, -3.0298263e-17, 7.2069474e-17, 1.6543612e-24, 0.92184925, 0.3875487, -7.817924e-17, -0.3875487, 0.92184925, 2.0819986e-12, 2.98, 4.58)
+physics_interpolation_mode = 1
+transform = Transform3D(1, -1.8141285e-17, 5.598286e-17, -8.271806e-25, 0.9512992, 0.3082691, -5.884885e-17, -0.3082691, 0.9512992, 2.0819986e-12, 3.025, 6.045)
 fov = 40.0
 far = 100.0
 
 [node name="JoyCamera" type="Node3D" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="1" unique_id=2001666766 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(1, -3.0298263e-17, 7.2069474e-17, 1.6543612e-24, 0.92184925, 0.3875487, -7.817924e-17, -0.3875487, 0.92184925, 2.0819986e-12, 2.98, 4.58)
+transform = Transform3D(1, -1.8141285e-17, 5.598286e-17, -8.271806e-25, 0.9512992, 0.3082691, -5.884885e-17, -0.3082691, 0.9512992, 2.0819986e-12, 3.025, 6.045)
 script = ExtResource("5_4v6ql")
 priority = 1
 follow_mode = 6
@@ -207,7 +301,7 @@ look_at_target = NodePath("../../===ACTOR========/CBJoy")
 tween_resource = SubResource("Resource_3clw5")
 tween_on_load = false
 camera_3d_resource = ExtResource("4_skdao")
-follow_offset = Vector3(0, 2.98, 3.58)
+follow_offset = Vector3(0, 3.025, 5.045)
 look_at_offset = Vector3(0, 1.105, 0.12)
 align_transform_with_view = Callable()
 align_position_with_view = Callable()
@@ -215,9 +309,8 @@ align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="SamsonCamera" type="Node3D" parent="===CAMERA========" parent_id_path=PackedInt32Array(1477970177) index="2" unique_id=1200248090 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(1, -3.0298263e-17, 7.2069474e-17, 1.6543612e-24, 0.92184925, 0.3875487, -7.817924e-17, -0.3875487, 0.92184925, 2.0819986e-12, 2.98, 4.58)
+transform = Transform3D(1, -2.241232e-17, 5.6573833e-17, 8.271806e-25, 0.92970246, 0.3683114, -6.085155e-17, -0.3683114, 0.92970246, 2.0819986e-12, 3.375, 5.85)
 script = ExtResource("5_4v6ql")
-priority = 2
 follow_mode = 6
 follow_target = NodePath("../../===ACTOR========/SamsonActor")
 look_at_mode = 2
@@ -225,7 +318,7 @@ look_at_target = NodePath("../../===ACTOR========/SamsonActor")
 tween_resource = SubResource("Resource_8axku")
 tween_on_load = false
 camera_3d_resource = ExtResource("4_skdao")
-follow_offset = Vector3(0, 2.98, 3.58)
+follow_offset = Vector3(0, 3.375, 4.85)
 look_at_offset = Vector3(0, 1.105, 0.12)
 align_transform_with_view = Callable()
 align_position_with_view = Callable()
@@ -233,7 +326,7 @@ align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="0" unique_id=991142355 node_paths=PackedStringArray("character_controllers", "spawn_locations")]
-event_factory = SubResource("Resource_6i84e")
+event_factory = SubResource("Resource_fevrk")
 blackboard = ExtResource("2_evebe")
 character_controllers = [NodePath("../../===ACTOR========/CBJoy")]
 spawn_locations = [NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn01")]
@@ -260,17 +353,27 @@ environment = ExtResource("3_t5u21")
 
 [node name="mod_env_world_church_lobby" parent="===ENVIRONMENT========/Model" parent_id_path=PackedInt32Array(1153107026) index="0" unique_id=1904671958 instance=ExtResource("4_0xjmj")]
 
-[node name="Door_001" parent="===ENVIRONMENT========/Model/mod_env_world_church_lobby/ToAuditorium" parent_id_path=PackedInt32Array(1904671958, 671047094) index="0" unique_id=1823384318]
-visible = false
-
 [node name="BoxOfCandles" type="MeshInstance3D" parent="===ENVIRONMENT========/Model" parent_id_path=PackedInt32Array(1153107026) index="1" unique_id=408066105]
 transform = Transform3D(0.9204027, 0, 0.3909717, 0, 1, 0, -0.3909717, 0, 0.9204027, 5.1816516, 0.175, 3.5557117)
 mesh = SubResource("BoxMesh_1vivr")
 
 [node name="SamsonActor" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="1" unique_id=1017530611 instance=ExtResource("8_3clw5")]
 
+[node name="CameraCapture" type="Area3D" parent="===ACTOR========/SamsonActor" index="8" unique_id=1462667535 node_paths=PackedStringArray("phantom_camera", "target")]
+script = ExtResource("6_v46sg")
+phantom_camera = NodePath("../../../===CAMERA========/SamsonCamera")
+target = NodePath("../../CBJoy")
+metadata/_custom_type_script = "uid://dbc7x0jhylxhr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="===ACTOR========/SamsonActor/CameraCapture" index="0" unique_id=1301852610]
+shape = SubResource("SphereShape3D_1vivr")
+
+[node name="ActGeneralWoman" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="2" unique_id=1635829702 instance=ExtResource("20_hftgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6776977, -8.031966e-16, 0.37486935)
+
 [node name="MainCamera" parent="===UI========/UiGameView/SubViewport" parent_id_path=PackedInt32Array(208854357) index="0" unique_id=807046495]
-transform = Transform3D(1, -3.0298263e-17, 7.2069474e-17, 1.6543612e-24, 0.92184925, 0.3875487, -7.817924e-17, -0.3875487, 0.92184925, 2.0819986e-12, 2.98, 4.58)
+physics_interpolation_mode = 1
+transform = Transform3D(1, -1.8141285e-17, 5.598286e-17, -8.271806e-25, 0.9512992, 0.3082691, -5.884885e-17, -0.3082691, 0.9512992, 2.0819986e-12, 3.025, 6.045)
 fov = 40.0
 far = 100.0
 
@@ -282,7 +385,7 @@ text = "You know it! Let's go!"
 
 [node name="PortraitCamera" parent="===UI========/DialogueArea/Portrait/SubViewport" parent_id_path=PackedInt32Array(264276467) index="0" unique_id=1879654437]
 physics_interpolation_mode = 0
-transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0.0122085, 1.6233592, 2.2362573)
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.6899061, 1.4392755, 2.3574355)
 
 [connection signal="on_recieved_event_signal" from="===EVENT========/ToLvlDbSamson01SignalSubscriber" to="===SCENE_CHANGE========/SceneChangeNodes/ToLvlDbSamson01" method="transition_scene" unbinds=1]
 

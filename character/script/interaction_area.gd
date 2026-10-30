@@ -9,7 +9,7 @@ func _ready():
 	area_exited.connect(unfocus_interactable)
 
 func focus_interactable(area):
-	if not area is Interactable: return
+	if not area is Interactable || !area.query_returns_event: return
 	focused_interactable = area
 
 func unfocus_interactable(area):

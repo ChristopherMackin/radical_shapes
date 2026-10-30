@@ -134,7 +134,6 @@ physics_interpolation_mode = 1
 
 [node name="AnimationHandler" parent="JoyActor" index="10" unique_id=184546045 node_paths=PackedStringArray("animation_tree")]
 animation_tree = NodePath("../CharacterAnimationTree")
-animation = null
 
 [node name="StateNode" type="Node" parent="." index="2" unique_id=1855506803 node_paths=PackedStringArray("node_list")]
 script = ExtResource("5_2tihb")

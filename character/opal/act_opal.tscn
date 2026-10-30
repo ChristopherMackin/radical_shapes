@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bpaim2pre43w5" path="res://_asset/character/opal/outfit/mod_opal_outfit_01.glb" id="3_f4ogg"]
 [ext_resource type="Script" uid="uid://uof5fhcqdag3" path="res://character/script/follow_skeleton.gd" id="4_c8hue"]
 [ext_resource type="Animation" uid="uid://cwcoji1l7away" path="res://character/opal/animation/anim_opal_RESET.res" id="5_c8hue"]
-[ext_resource type="Material" uid="uid://0rwlfq5iuit6" path="res://_asset/character/opal/material/m_unknown_base.tres" id="5_un4f6"]
+[ext_resource type="Material" uid="uid://0rwlfq5iuit6" path="res://_asset/character/_general/m_unknown_base.tres" id="5_un4f6"]
 [ext_resource type="Script" uid="uid://i1rx170t4865" path="res://_debug/world/conditional_node.gd" id="6_t7n0b"]
 [ext_resource type="Script" uid="uid://cgsr0p1sth0wy" path="res://system/script/rule/expression_rule.gd" id="7_fwl6l"]
 [ext_resource type="Animation" uid="uid://b6oucb7d3rqsj" path="res://character/opal/animation/db_opal_02/anim_opal_blink.res" id="7_oqe67"]
@@ -294,10 +294,9 @@ collision_mask = 0
 transform = Transform3D(1, 0, -3.3881318e-21, 2.1175824e-22, 1.0000002, 3.7252903e-09, 0, 0, 1.0000002, -7.375097e-15, 0.13551593, 0.17596069)
 shape = SubResource("SphereShape3D_oqe67")
 
-[node name="OpalUnknown" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="0" unique_id=1527281418 node_paths=PackedStringArray("target", "modifiers") instance=ExtResource("3_f4ogg")]
+[node name="OpalUnknown" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="0" unique_id=1527281418 node_paths=PackedStringArray("target") instance=ExtResource("3_f4ogg")]
 script = ExtResource("4_c8hue")
 target = NodePath("../../Skeleton/root/Skeleton3D")
-modifiers = [NodePath("../../Skeleton/root/Skeleton3D/LookAtModifier3D")]
 
 [node name="root" parent="Outfit/OpalUnknown" index="0" unique_id=864844388]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559022e-10, -3.0559022e-10, -3.0559022e-10)
@@ -553,17 +552,15 @@ surface_material_override/0 = ExtResource("5_un4f6")
 [node name="Opal_Outfit_01_Sweater" parent="Outfit/OpalUnknown/root/Skeleton3D" index="13" unique_id=1295331113]
 surface_material_override/0 = ExtResource("5_un4f6")
 
-[node name="ConditionalNode" type="Node" parent="Outfit/OpalUnknown" index="1" unique_id=1249844267 node_paths=PackedStringArray("root")]
+[node name="ConditionalNode" type="Node" parent="Outfit/OpalUnknown" index="1" unique_id=1249844267]
 script = ExtResource("6_t7n0b")
-root = NodePath("..")
 rule = SubResource("Resource_t7n0b")
 mode = 1
 metadata/_custom_type_script = "uid://i1rx170t4865"
 
-[node name="OpalOutfit01" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="1" unique_id=1166874626 node_paths=PackedStringArray("target", "modifiers") instance=ExtResource("3_f4ogg")]
+[node name="OpalOutfit01" parent="Outfit" parent_id_path=PackedInt32Array(216209769) index="1" unique_id=1166874626 node_paths=PackedStringArray("target") instance=ExtResource("3_f4ogg")]
 script = ExtResource("4_c8hue")
 target = NodePath("../../Skeleton/root/Skeleton3D")
-modifiers = [NodePath("../../Skeleton/root/Skeleton3D/LookAtModifier3D")]
 
 [node name="root" parent="Outfit/OpalOutfit01" index="0" unique_id=864844388]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559022e-10, -3.0559022e-10, -3.0559022e-10)
@@ -782,9 +779,8 @@ instance_shader_parameters/uv_offset = Vector2(0, 0)
 [node name="Opal_Base_Face_001" parent="Outfit/OpalOutfit01/root/Skeleton3D" index="2" unique_id=163223304]
 sorting_offset = 1.0
 
-[node name="ConditionalNode" type="Node" parent="Outfit/OpalOutfit01" index="1" unique_id=649584066 node_paths=PackedStringArray("root")]
+[node name="ConditionalNode" type="Node" parent="Outfit/OpalOutfit01" index="1" unique_id=649584066]
 script = ExtResource("6_t7n0b")
-root = NodePath("..")
 rule = SubResource("Resource_1vivr")
 mode = 1
 metadata/_custom_type_script = "uid://i1rx170t4865"

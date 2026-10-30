@@ -6,6 +6,17 @@ class_name Interactable
 @export var event_factory: EventFactory
 @export var event_manager: EventManager
 @export var blackboard: Blackboard
+var query_returns_event: bool:
+	get():
+		var bb = blackboard if blackboard else Global.blackboard
+	
+		var query : Dictionary
+		query[Flag.name(Flag.CONCEPT)] = Const.Concept.ON_EVENT_TRIGGER_INVOKED
+		query.merge(bb.get_query())
+		
+		var event = event_factory.get_event(query)
+		
+		return event != null
 
 func _ready():
 	collision_layer |= 1 << 14
