@@ -16,6 +16,9 @@ enum ExpirationToken {
 	ON_VALUE_ACCESSED = 1 << 7,
 }
 
+func _init():
+	expire.call_deferred(ExpirationToken.ON_GAME_RESET)
+
 @export var _entries : Array[BlackboardEntry]:
 	set(val):
 		_entries = Util.auto_populate_resource_array(_entries, val, BlackboardEntry, "New Entry")

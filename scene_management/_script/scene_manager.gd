@@ -6,6 +6,7 @@ signal on_scene_loaded
 
 var loaded_scenes: Dictionary[int, Array]
 var canvas: CanvasLayer
+var dont_destroy_on_load: Node3D
 
 @export_global_file("*.tscn") var _scene_list: Array[String]
 var scene_list: Array[String]:
@@ -21,9 +22,14 @@ func _ready() -> void:
 	
 	canvas = CanvasLayer.new()
 	canvas.layer = 10
+	canvas.name = "GlobalCanvas"
+
+	dont_destroy_on_load = Node3D.new()
+	dont_destroy_on_load.name = "DontDestroyOnLoad"
 	
 	get_tree().current_scene = self
 	add_child(canvas)
+	add_child(dont_destroy_on_load)
 	
 	if node is Control:
 		node.reparent.call_deferred(canvas)
@@ -120,3 +126,6 @@ func instantiate_scene_by_index(scene_index: int):
 	
 	if !loaded_scenes.has(scene_index): loaded_scenes[scene_index] = []
 	loaded_scenes[scene_index].append(instance)
+
+func add_dont_destroy_on_load(node: Node) -> void:
+	Util.set_parent(node, dont_destroy_on_load)

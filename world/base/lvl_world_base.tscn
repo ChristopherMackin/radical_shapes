@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://4avsth0e8b0u" path="res://system/input/ih_player_movement.tres" id="5_ot6eh"]
 [ext_resource type="Script" uid="uid://doej6p2kh7fjv" path="res://system/script/animation/animation_player_handler.gd" id="5_t3rax"]
 [ext_resource type="Resource" uid="uid://b8k75f7jcqxj5" path="res://system/input/ih_dialogue_action.tres" id="6_ilpj6"]
+[ext_resource type="Script" uid="uid://dn0p0uwetsyd" path="res://world/base/dont_destroy_on_load.gd" id="9_eto5s"]
 [ext_resource type="PackedScene" uid="uid://bpxkmt2cdyvqw" path="res://player/cb_joy.tscn" id="10_ilpj6"]
 [ext_resource type="Script" uid="uid://i1rx170t4865" path="res://_debug/world/conditional_node.gd" id="11_85jcy"]
 [ext_resource type="Texture2D" uid="uid://td6xb5xantxy" path="res://_asset/_general/texture/dialogue_background.png" id="11_f2xca"]
@@ -275,6 +276,9 @@ dialogue_areas = [NodePath("../../===UI========/DialogueArea")]
 input_manager = NodePath("../InputManager")
 dialogue_input_handler = ExtResource("6_ilpj6")
 manager = ExtResource("4_f2xca")
+
+[node name="===DONT_DESTROY_ON_LOAD========" type="Node3D" parent="." unique_id=1517020527]
+script = ExtResource("9_eto5s")
 
 [node name="===SCENE_CHANGE========" type="Node3D" parent="." unique_id=288681498]
 

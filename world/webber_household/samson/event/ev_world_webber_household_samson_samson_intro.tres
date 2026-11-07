@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_ml60a"]
 script = ExtResource("2_hqru6")
 
-[sub_resource type="Resource" id="Resource_bigp7"]
+[sub_resource type="Resource" id="Resource_mr1fp"]
 script = ExtResource("3_d28fa")
 outputs = Array[int]([1])
 inputs = Dictionary[String, Variant]({
@@ -20,25 +20,13 @@ inputs = Dictionary[String, Variant]({
 })
 action = SubResource("Resource_ml60a")
 
-[sub_resource type="Resource" id="Resource_2lo4u"]
-script = ExtResource("4_y3v40")
-metadata/_custom_type_script = "uid://dl7bhixloptqr"
-
-[sub_resource type="Resource" id="Resource_hqru6"]
-script = ExtResource("3_d28fa")
-outputs = Array[int]([2])
-inputs = Dictionary[String, Variant]({
-"name": "wait_for_joy",
-"seconds": 30.0
-})
-action = SubResource("Resource_2lo4u")
-
 [sub_resource type="Resource" id="Resource_idxig"]
 script = ExtResource("5_4en01")
 metadata/_custom_type_script = "uid://ct6mmwislthn4"
 
-[sub_resource type="Resource" id="Resource_d28fa"]
+[sub_resource type="Resource" id="Resource_l4fg3"]
 script = ExtResource("3_d28fa")
+outputs = Array[int]([2])
 inputs = Dictionary[String, Variant]({
 "expiration_index": 1,
 "flag_index": 31,
@@ -46,8 +34,20 @@ inputs = Dictionary[String, Variant]({
 })
 action = SubResource("Resource_idxig")
 
+[sub_resource type="Resource" id="Resource_2lo4u"]
+script = ExtResource("4_y3v40")
+metadata/_custom_type_script = "uid://dl7bhixloptqr"
+
+[sub_resource type="Resource" id="Resource_ps0us"]
+script = ExtResource("3_d28fa")
+inputs = Dictionary[String, Variant]({
+"name": "wait_for_joy",
+"seconds": 5.0
+})
+action = SubResource("Resource_2lo4u")
+
 [resource]
 script = ExtResource("1_bigp7")
-start_task = SubResource("Resource_bigp7")
-tasks = Array[ExtResource("3_d28fa")]([SubResource("Resource_bigp7"), SubResource("Resource_hqru6"), SubResource("Resource_d28fa")])
+start_task = SubResource("Resource_mr1fp")
+tasks = Array[ExtResource("3_d28fa")]([SubResource("Resource_mr1fp"), SubResource("Resource_l4fg3"), SubResource("Resource_ps0us")])
 metadata/_custom_type_script = "uid://ce1vejtu0bdfn"

@@ -30,7 +30,7 @@ func _set_state():
 	if !root: return
 	
 	if Engine.is_editor_hint() and run_in_editor:
-		root.visible = true
+		if "visible" in root: root.visible = true
 		root.process_mode = Node.PROCESS_MODE_INHERIT
 		return
 	
@@ -38,15 +38,15 @@ func _set_state():
 	
 	if val:
 		root.process_mode = Node.PROCESS_MODE_INHERIT
-		if mode == 0 or mode == 2: root.visible = true
+		if "visible" in root and (mode == 0 or mode == 2): root.visible = true
 	
 	else:
 		root.process_mode = Node.PROCESS_MODE_DISABLED
 		match mode:
 			0:
-				root.visible = false
+				if "visible" in root: root.visible = false
 				if Engine.is_editor_hint(): return
 				root.queue_free()
 				queue_free()
 			_:
-				root.visible = false
+				if "visible" in root: root.visible = false

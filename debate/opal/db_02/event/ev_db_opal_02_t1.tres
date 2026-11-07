@@ -237,7 +237,6 @@ action = SubResource("Resource_ml60a")
 [resource]
 script = ExtResource("1_a8wkq")
 can_interupt = true
-await_event = true
 frequency = 1
 start_task = SubResource("Resource_j3lgx")
 tasks = Array[ExtResource("3_gm0ne")]([SubResource("Resource_u7bfm"), SubResource("Resource_j3lgx"), SubResource("Resource_aph4q"), SubResource("Resource_hxj15"), SubResource("Resource_ri0cg"), SubResource("Resource_eqrqm"), SubResource("Resource_v04g4"), SubResource("Resource_ek5gu"), SubResource("Resource_012t7"), SubResource("Resource_wibeb"), SubResource("Resource_5awii"), SubResource("Resource_piywt"), SubResource("Resource_clen3"), SubResource("Resource_kwvd2"), SubResource("Resource_fxpvu"), SubResource("Resource_0ruxp"), SubResource("Resource_b5duy"), SubResource("Resource_wuxyr"), SubResource("Resource_rqcry")])

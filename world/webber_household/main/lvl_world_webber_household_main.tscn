@@ -17,7 +17,6 @@
 [ext_resource type="Resource" uid="uid://cq52a8sicnr4y" path="res://world/webber_household/main/event/ev_world_webber_household_main_inspect_oven_01.tres" id="16_enxrw"]
 [ext_resource type="Script" uid="uid://dbvysemw11ei8" path="res://system/script/event_factory/single_event_factory.gd" id="17_a34tk"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="18_d3ujc"]
-[ext_resource type="Script" uid="uid://dhx7e8wrgceej" path="res://system/script/global_timer_watcher.gd" id="19_m7qu8"]
 [ext_resource type="Script" uid="uid://bexeevctdvv0t" path="res://system/script/event/event_trigger.gd" id="20_83hvj"]
 [ext_resource type="Resource" uid="uid://dr1b06clryio5" path="res://world/webber_household/main/event/ev_world_webber_household_main_joy_intro.tres" id="21_6qobt"]
 [ext_resource type="Resource" uid="uid://bqt4iy0uptjvr" path="res://world/webber_household/main/bb_world_webber_household_main.tres" id="22_cnvsc"]
@@ -407,12 +406,7 @@ metadata/_custom_type_script = "uid://dd6d8mjib2ks"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.852905, 0.42123032, 1.4392517)
 shape = SubResource("BoxShape3D_qbdty")
 
-[node name="WaitForJoyTimerWatcher" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="1" unique_id=172463479]
-script = ExtResource("19_m7qu8")
-filter = Array[String](["wait_for_joy"])
-metadata/_custom_type_script = "uid://dhx7e8wrgceej"
-
-[node name="JoyIntro" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="2" unique_id=1076062269]
+[node name="JoyIntro" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="1" unique_id=1076062269]
 script = ExtResource("20_83hvj")
 event_manager = ExtResource("18_d3ujc")
 event_factory = SubResource("Resource_v5gy4")
@@ -557,8 +551,6 @@ text = "Good morning, Samson."
 [node name="PortraitCamera" parent="===UI========/DialogueArea/Portrait/SubViewport" parent_id_path=PackedInt32Array(264276467) index="0" unique_id=1879654437]
 physics_interpolation_mode = 0
 transform = Transform3D(-0.101244174, -3.48787e-16, -0.9948616, -3.8230742e-16, 1, -3.1168213e-16, 0.9948616, 3.48787e-16, -0.101244174, 21.087517, 1.5731379, 4.6570845)
-
-[connection signal="on_global_timer_timeout" from="===EVENT========/WaitForJoyTimerWatcher" to="===EVENT========/JoyIntro" method="query_event" unbinds=1]
 
 [editable path="===CUTSCENE========/CutsceneCanvas/JoyIntro/SpeechBubble"]
 [editable path="===ENVIRONMENT========/Model/ModEnvWorldMainRoom"]

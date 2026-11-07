@@ -10,6 +10,8 @@ extends Node
 signal blackboard_updated
 signal on_global_timer_timeout(name: String)
 
+var global_timers: Dictionary[String, Dictionary]
+
 func _on_blackboard_updated():
 	blackboard_updated.emit()
 
@@ -30,9 +32,36 @@ var state_nodes: Array[StateNode]:
 func create_timer(seconds : float):
 	await get_tree().create_timer(seconds).timeout
 
-func create_global_timer(seconds: float, name: String = "global_timer"):
-	await get_tree().create_timer(seconds).timeout
+func create_global_timer(seconds: float, name: String = "global_timer", overwrite: bool = true):
+	if global_timers.has(name):
+		if overwrite:
+			var timer = global_timers[name]["timer"]
+			global_timers.erase(name)
+			timer.timeout.emit()
+		else:
+			return
+	
+	var timer = get_tree().create_timer(seconds)
+	
+	global_timers[name] = {}
+	global_timers[name]["timer"] = timer
+	global_timers[name]["durration"] = seconds
+	await timer.timeout
+	
+	if !global_timers.has(name): return
+	
+	global_timers.erase(name)
+	
 	on_global_timer_timeout.emit(name)
+
+func get_global_timer_normalized_time(name: String = "global_timer") -> float:
+	if !global_timers.has(name): return -1
+	
+	var timer_object = global_timers[name]
+	var durration: float = timer_object["durration"]
+	var time_left = timer_object["timer"].time_left
+	
+	return (durration - time_left) / durration
 
 func process_frame():
 	await get_tree().process_frame
