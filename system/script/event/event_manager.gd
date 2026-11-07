@@ -11,6 +11,12 @@ var current_event : Event
 
 var event_queue: Queue = Queue.new()
 
+func wait_for_no_events():
+	if !current_event && event_queue.size() <= 0:
+		return
+	
+	await queue_empty
+
 func subscribe(subscriber : EventSubscriber):
 	var index = subscribers.find(subscriber)
 	if index <= 0:
@@ -138,6 +144,3 @@ func emit_event_signal(label: String):
 	await Util.await_all(
 		callables
 	)
-
-func queue_event(event: Event):
-	pass

@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://dhx7e8wrgceej" path="res://system/script/global_timer_watcher.gd" id="12_at566"]
 [ext_resource type="Material" uid="uid://denlclmvv4lmo" path="res://_asset/_general/material/m_cardboard.tres" id="12_gj0p4"]
 [ext_resource type="Script" uid="uid://cvvof6xkg7iys" path="res://scene_management/_script/scene_change/scene_change_trigger.gd" id="12_hl6u8"]
+[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="12_vnnbi"]
 [ext_resource type="Script" uid="uid://i1rx170t4865" path="res://_debug/world/conditional_node.gd" id="13_d2psw"]
 [ext_resource type="PackedScene" uid="uid://clwowgg135cqd" path="res://player/cb_samson.tscn" id="13_gj0p4"]
 [ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="13_msuer"]
@@ -27,6 +28,19 @@
 script = ExtResource("3_nacv3")
 duration = 0.0
 
+[sub_resource type="Resource" id="Resource_efa3k"]
+script = ExtResource("13_msuer")
+scene_name = "lvl_world_webber_household_main"
+transition = ExtResource("11_wit78")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="Resource" id="Resource_vnnbi"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("14_c7ag6")
+flag = 33
+value = false
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
+
 [sub_resource type="Resource" id="Resource_1vivr"]
 script = ExtResource("13_msuer")
 scene_name = "lvl_world_webber_household_main"
@@ -36,12 +50,6 @@ metadata/_custom_type_script = "uid://c12mfuwapm0ko"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v5gy4"]
 size = Vector3(1.955, 4, 1)
-
-[sub_resource type="Resource" id="Resource_efa3k"]
-script = ExtResource("13_msuer")
-scene_name = "lvl_world_webber_household_main"
-transition = ExtResource("11_wit78")
-metadata/_custom_type_script = "uid://c12mfuwapm0ko"
 
 [sub_resource type="Animation" id="Animation_trqci"]
 length = 0.001
@@ -176,6 +184,19 @@ script = ExtResource("8_x8vrp")
 flag = 31
 value = false
 
+[node name="ToLvlWorldWebberHouseholdMain" type="Node" parent="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher" index="1" unique_id=1343899067]
+script = ExtResource("11_vu58g")
+scene_change_data = SubResource("Resource_efa3k")
+await_events = true
+event_manager = ExtResource("12_vnnbi")
+metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
+
+[node name="ConditionalNode" type="Node" parent="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher" index="2" unique_id=1581081550]
+script = ExtResource("13_d2psw")
+rule = SubResource("Resource_vnnbi")
+run_in_editor = false
+metadata/_custom_type_script = "uid://i1rx170t4865"
+
 [node name="Spawn01" type="Marker3D" parent="===SCENE_CHANGE========/SpawnLocations" parent_id_path=PackedInt32Array(369867195) index="0" unique_id=949596269]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.1639905, 0, 3.814662)
 
@@ -184,15 +205,11 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("12_hl6u8")
 scene_change_data = SubResource("Resource_1vivr")
+event_manager = ExtResource("12_vnnbi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldWebberHouseholdMainTrigger" index="0" unique_id=1171636324]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.135, 2, 5.2928634)
 shape = SubResource("BoxShape3D_v5gy4")
-
-[node name="ToLvlWorldWebberHouseholdMain" type="Node" parent="===SCENE_CHANGE========" parent_id_path=PackedInt32Array(288681498) index="2" unique_id=1343899067]
-script = ExtResource("11_vu58g")
-scene_change_data = SubResource("Resource_efa3k")
-metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
 
 [node name="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator" parent_id_path=PackedInt32Array(484654225) index="1" unique_id=743721924]
 libraries/ = SubResource("AnimationLibrary_trqci")
@@ -302,7 +319,8 @@ far = 100.0
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0.0122085, 1.6233592, 2.2362573)
 
 [connection signal="on_global_timer_timeout" from="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher" to="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher/SetBlackboardValueNode" method="set_value" unbinds=1]
-[connection signal="on_global_timer_timeout" from="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher" to="===SCENE_CHANGE========/ToLvlWorldWebberHouseholdMain" method="transition_scene" unbinds=1]
+[connection signal="on_global_timer_timeout" from="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher" to="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher/ToLvlWorldWebberHouseholdMain" method="transition_scene" unbinds=1]
+[connection signal="scene_changed" from="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher/ToLvlWorldWebberHouseholdMain" to="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher" method="queue_free"]
 
 [editable path="===CUTSCENE========/CutsceneCanvas/SamsonIntro/SpeechBubble"]
 [editable path="===ENVIRONMENT========/Model/mod_env_world_samsons_room"]

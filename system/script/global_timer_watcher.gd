@@ -16,4 +16,3 @@ func _process(delta):
 func _emit_on_global_timer_timeout(name: String):
 	if name == timer_name:
 		on_global_timer_timeout.emit(name)
-		queue_free()

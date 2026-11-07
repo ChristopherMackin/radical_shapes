@@ -1,12 +1,19 @@
 extends Node
 class_name SceneChangeNode
 
+signal scene_changed
+
 @export var scene_change_data: SceneChangeData
+@export var await_events: bool = false
+@export var event_manager: EventManager
 
 func transition_scene():
+	if await_events:
+		await event_manager.wait_for_no_events()
 	_save_scene_state()
 	Global.blackboard.add_flag(Flag.SPAWN_INDEX, scene_change_data.next_scene_spawn_index)
-	SceneManager.replace_scene_async(scene_change_data.scene_name, scene_change_data.transition)
+	await SceneManager.replace_scene_async(scene_change_data.scene_name, scene_change_data.transition)
+	scene_changed.emit()
 
 func _save_scene_state():
 	if scene_change_data.save_state:
