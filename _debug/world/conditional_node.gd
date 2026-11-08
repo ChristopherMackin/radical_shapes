@@ -18,7 +18,7 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	Util.optional_connect(Global, "blackboard_updated", _on_blackboard_updated)
 
-func _scene_added():
+func _scene_ready():
 	_set_state()
 
 func _on_blackboard_updated():

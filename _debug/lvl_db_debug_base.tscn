@@ -126,4 +126,4 @@ bbcode_enabled = true
 scroll_following = true
 scroll_following_visible_characters = true
 
-[connection signal="on_scene_load" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateInitiator" method="start_debate"]
+[connection signal="on_scene_added" from="===MANAGER========/SceneLoadManager" to="===MANAGER========/DebateInitiator" method="start_debate"]

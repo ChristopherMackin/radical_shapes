@@ -3,8 +3,7 @@ extends Node
 
 class_name SceneLoadManager
 
-signal on_scene_enter
-signal on_scene_load
+signal on_scene_added
 
 @export_category("Dependencies")
 @export_group("Event")
@@ -22,9 +21,10 @@ signal on_scene_load
 	set(val):
 		rule_scene_loaders = Util.auto_populate_resource_array(rule_scene_loaders, val, RuleSceneLoader)
 
-func _scene_added():
-	(func(): on_scene_enter.emit()).call_deferred()
+func _scene_ready():
 	if Engine.is_editor_hint(): return;
+	
+	SceneManager.on_scene_added.connect(_on_scene_added)
 	
 	var scene_loader: SceneLoader = DefaultSceneLoader.new()
 	
@@ -32,10 +32,12 @@ func _scene_added():
 		if !rsl.rule || rsl.rule.check(Global.blackboard.get_query()): scene_loader = rsl.scene_loader
 	
 	await scene_loader.set_scene_state(self)
-	
+
+func _on_scene_added(name: String):
 	await query_event()
 	
-	(func(): on_scene_load.emit()).call_deferred()
+	on_scene_added.emit()
+	
 	queue_free()
 
 func query_event():

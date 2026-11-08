@@ -1,8 +1,9 @@
 extends Node
 
-signal on_scene_change
-signal on_scene_unloaded
-signal on_scene_loaded
+signal on_scene_change_start
+signal on_scene_change_end
+signal on_scene_removed(scene_name: String)
+signal on_scene_added(scene_name: String)
 
 var loaded_scenes: Dictionary[int, Array]
 var canvas: CanvasLayer
@@ -41,11 +42,7 @@ func _ready() -> void:
 		return parent == self or parent == canvas
 	)
 	
-	var added_nodes: Array[Node]
-	added_nodes.assign(Util.get_all_children(node) + [node])
-	added_nodes = added_nodes.filter(func(node: Node): return node.has_method("_scene_added"))
-	for n in added_nodes:
-		n._scene_added()
+	initialize_loaded_scene(node)
 
 
 func replace_scene_async(scene_name: String, transition: PackedScene = null) -> bool:
@@ -60,14 +57,16 @@ func replace_scene_by_index_async(scene_index: int, transition: PackedScene = nu
 	if scene_index <0 || scene_index >= _scene_list.size(): return false
 	
 	Global.blackboard.add_flag(Flag.CURRENT_LOCATION, scene_index)
-	on_scene_change.emit()
+	on_scene_change_start.emit()
 	
 	var free_functions: Array[Callable] = []
 	for key in loaded_scenes:
 		for node: Node in loaded_scenes[key]:
 			free_functions.append(func():
+				var name = node.name
 				node.queue_free()
 				await node.tree_exited
+				on_scene_removed.emit(name)
 			)
 	
 	if transition != null:
@@ -78,7 +77,6 @@ func replace_scene_by_index_async(scene_index: int, transition: PackedScene = nu
 			
 			await Util.await_all(free_functions)
 			loaded_scenes.clear()
-			on_scene_unloaded.emit()
 			
 			instantiate_scene_by_index.call_deferred(scene_index)
 			
@@ -89,16 +87,15 @@ func replace_scene_by_index_async(scene_index: int, transition: PackedScene = nu
 			
 			await Util.await_all(free_functions)
 			loaded_scenes.clear()
-			on_scene_unloaded.emit()
 		
 			instantiate_scene_by_index.call_deferred(scene_index)
 	else:
 		await Util.await_all(free_functions)
 		loaded_scenes.clear()
-		on_scene_unloaded.emit()
 		
 		instantiate_scene_by_index.call_deferred(scene_index)
 	
+	on_scene_change_end.emit()
 	return true
 
 func instantiate_scene_by_index(scene_index: int):
@@ -111,21 +108,28 @@ func instantiate_scene_by_index(scene_index: int):
 	else:
 		add_child(instance)
 	
-	on_scene_loaded.emit()
-	
 	await Util.await_predicate(func(): 
 		var parent = instance.get_parent()
 		return parent == self or parent == canvas
 	)
 	
-	var added_nodes: Array[Node]
-	added_nodes.assign(Util.get_all_children(instance) + [instance])
-	added_nodes = added_nodes.filter(func(node: Node): return node.has_method("_scene_added"))
-	for n in added_nodes:
-		n._scene_added()
+	initialize_loaded_scene(instance)
 	
 	if !loaded_scenes.has(scene_index): loaded_scenes[scene_index] = []
 	loaded_scenes[scene_index].append(instance)
 
 func add_dont_destroy_on_load(node: Node) -> void:
 	Util.set_parent(node, dont_destroy_on_load)
+
+func initialize_loaded_scene(instance):
+	var added_nodes: Array[Node]
+	added_nodes.assign(Util.get_all_children(instance) + [instance])
+	added_nodes = added_nodes.filter(func(node: Node): return node.has_method("_scene_ready"))
+	
+	var await_funcs: Array[Callable]
+	for n in added_nodes:
+		await_funcs.append(func(): await n._scene_ready())
+	
+	await Util.await_all(await_funcs)
+	
+	on_scene_added.emit(instance.name)

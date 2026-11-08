@@ -27,6 +27,12 @@ signal on_set_talking(val: bool)
 	set(val):
 		if character_animation_tree: character_animation_tree.blink_override = val
 
+@export var look_at_override: bool = false:
+	set(val):
+		look_at_override = val
+		if true && _look_at_modifier:
+			_look_at_modifier.target_node = NodePath()
+
 func focus_actor(val: bool):
 	if val:
 		_layer_mask.set_layer(20, true)
@@ -36,32 +42,36 @@ func focus_actor(val: bool):
 		_dialgoue_camera.priority = 0
 
 func focus_look_at_body_shape(_area_rid, body: Node3D, body_shape_index, _local_shape_index):
-	var body_shape_owner = body.shape_find_owner(body_shape_index)
-	var body_shape_node = body.shape_owner_get_owner(body_shape_owner)
+	if !_look_at_modifier || _look_at_modifier.target_node != NodePath() || look_at_override: return
 	
-	if !_look_at_modifier: return
-	_look_at_modifier.target_node = body_shape_node.get_path()
+	_look_at_modifier.target_node = get_shape_node_path(body, body_shape_index)
 
 func unfocus_look_at_body_shape(_area_rid, body: Node3D, body_shape_index, _local_shape_index):
-	var body_shape_owner = body.shape_find_owner(body_shape_index)
-	var body_shape_node = body.shape_owner_get_owner(body_shape_owner)
+	if !_look_at_modifier || look_at_override: return
 	
-	if !_look_at_modifier: return
-	if _look_at_modifier.target_node == body_shape_node.get_path():
+	var path := get_shape_node_path(body, body_shape_index)
+	
+	if _look_at_modifier.target_node == path:
 		_look_at_modifier.target_node = NodePath()
 
 func focus_look_at_area_shape(_area_rid, area: Area3D, area_shape_index, _local_shape_index):
-	var area_shape_owner = area.shape_find_owner(area_shape_index)
-	var area_shape_node = area.shape_owner_get_owner(area_shape_owner)
+	if !_look_at_modifier || _look_at_modifier.target_node != NodePath() || look_at_override: return
 	
-	if !_look_at_modifier: return
-	_look_at_modifier.target_node = area_shape_node.get_path()
+	_look_at_modifier.target_node = get_shape_node_path(area, area_shape_index)
 
 func unfocus_look_at_area_shape(_area_rid, area: Area3D, area_shape_index, _local_shape_index):
-	if !area: return
-	var area_shape_owner = area.shape_find_owner(area_shape_index)
-	var area_shape_node = area.shape_owner_get_owner(area_shape_owner)
+	if !_look_at_modifier || look_at_override: return
 	
-	if !_look_at_modifier: return
-	if !area_shape_node.is_inside_tree() || _look_at_modifier.target_node == area_shape_node.get_path():
+	var path := get_shape_node_path(area, area_shape_index)
+	
+	if _look_at_modifier.target_node == path:
 		_look_at_modifier.target_node = NodePath()
+
+func get_shape_node_path(shape: Node3D, index) -> NodePath:
+	if !shape: return NodePath()
+	
+	var owner = shape.shape_find_owner(index)
+	var node = shape.shape_owner_get_owner(owner)
+	
+	return node.get_path() if node.is_inside_tree() else NodePath()
+	

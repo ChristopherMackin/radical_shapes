@@ -27,7 +27,7 @@ signal skip
 var event_actions: Array[ActionLogActionType]
 var current_title: String
 
-func _scene_added():
+func _scene_ready():
 	label.text = ""
 	dialogue_input_handler.on_handle_input.connect(_handle_input)
 

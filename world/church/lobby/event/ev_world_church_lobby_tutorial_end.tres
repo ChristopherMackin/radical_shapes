@@ -111,9 +111,8 @@ metadata/_custom_type_script = "uid://dl7bhixloptqr"
 [sub_resource type="Resource" id="Resource_ssj43"]
 script = ExtResource("2_l8jjn")
 inputs = Dictionary[String, Variant]({
-"name": "wait_for_vigil
-",
-"seconds": 45.0
+"name": "wait_for_vigil",
+"seconds": 5.0
 })
 action = SubResource("Resource_2lo4u")
 

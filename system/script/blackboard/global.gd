@@ -7,10 +7,18 @@ extends Node
 		blackboard = val
 		Util.optional_connect(blackboard, "blackboard_updated", _on_blackboard_updated)
 
+var global_timers: Dictionary[String, Dictionary]
+
 signal blackboard_updated
 signal on_global_timer_timeout(name: String)
 
-var global_timers: Dictionary[String, Dictionary]
+var actors: Array[Actor]
+
+var state_nodes: Array[StateNode]:
+	get():
+		var state_nodes: Array[StateNode]
+		state_nodes.assign(get_tree().root.find_children("*", "StateNode", true, false))
+		return state_nodes
 
 func _on_blackboard_updated():
 	blackboard_updated.emit()
@@ -20,14 +28,6 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		await Global.create_timer(.01)
 		get_tree().quit()
-
-var actors: Array[Actor]
-
-var state_nodes: Array[StateNode]:
-	get():
-		var state_nodes: Array[StateNode]
-		state_nodes.assign(get_tree().root.find_children("*", "StateNode", true, false))
-		return state_nodes
 
 func create_timer(seconds : float):
 	await get_tree().create_timer(seconds).timeout

@@ -1,18 +1,19 @@
-[gd_scene format=3 uid="uid://smc13muwoff7"]
+[gd_scene format=3 uid="uid://clrctjdwp4qgh"]
 
-[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://scene_management/_script/scene_change/scene_change_node.gd" id="1_wxbxl"]
-[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="2_vkh6n"]
-[ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="3_c05i6"]
-[ext_resource type="AudioStream" uid="uid://brspvy678a3sh" path="res://_asset/sfx/static.mp3" id="4_7jyng"]
-[ext_resource type="Shader" uid="uid://capxcs54yhxwx" path="res://_general/style/tv_static.gdshader" id="5_ov8wb"]
-[ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://_general/style/default_theme.tres" id="6_oci5p"]
-[ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://_asset/cutscene/name_background.png" id="7_ld86b"]
-[ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://_general/script/ui/scrolling-text.gd" id="8_kmoj8"]
+[ext_resource type="PackedScene" uid="uid://dp5ktcf5rd31l" path="res://cutscene/lvl_cut_base.tscn" id="1_6ith4"]
+[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://scene_management/_script/scene_change/scene_change_node.gd" id="1_vumy4"]
+[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="2_013v0"]
+[ext_resource type="AudioStream" uid="uid://brspvy678a3sh" path="res://_asset/sfx/static.mp3" id="2_g4mq0"]
+[ext_resource type="Shader" uid="uid://capxcs54yhxwx" path="res://_general/style/tv_static.gdshader" id="2_vpb4t"]
+[ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="3_m0ppm"]
+[ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://_general/style/default_theme.tres" id="3_s4d3p"]
+[ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://_asset/cutscene/name_background.png" id="6_013v0"]
+[ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://_general/script/ui/scrolling-text.gd" id="7_m0ppm"]
 
-[sub_resource type="Resource" id="Resource_oo0mk"]
-script = ExtResource("2_vkh6n")
+[sub_resource type="Resource" id="Resource_j4rhh"]
+script = ExtResource("2_013v0")
 scene_name = "lvl_world_webber_household_samson"
-transition = ExtResource("3_c05i6")
+transition = ExtResource("3_m0ppm")
 metadata/_custom_type_script = "uid://c12mfuwapm0ko"
 
 [sub_resource type="Animation" id="Animation_x84ys"]
@@ -44,7 +45,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sound/Static:volume_db")
+tracks/2/path = NodePath("===AUDIO========/Static:volume_db")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -96,14 +97,14 @@ tracks/1/keys = {
 tracks/2/type = "audio"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sound/Static")
+tracks/2/path = NodePath("===AUDIO========/Static")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("4_7jyng")
+"stream": ExtResource("2_g4mq0")
 }],
 "times": PackedFloat32Array(15.3667)
 }
@@ -111,7 +112,7 @@ tracks/2/use_blend = true
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sound/Static:volume_db")
+tracks/3/path = NodePath("===AUDIO========/Static:volume_db")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -135,7 +136,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("===MANAGER========/ToLvlWorldWebberHouseholdSamson")
+tracks/5/path = NodePath("===SCENE_CHANGE========/ToLvlWorldWebberHouseholdSamson")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -147,48 +148,41 @@ tracks/5/keys = {
 }]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_x84ys"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a70w0"]
 _data = {
 &"RESET": SubResource("Animation_x84ys"),
 &"intro_01": SubResource("Animation_ljv7t")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4mq0"]
-shader = ExtResource("5_ov8wb")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xfgic"]
+shader = ExtResource("2_vpb4t")
 shader_parameter/amount = 40.0
 
-[node name="Prelude" type="Node3D" unique_id=420393196]
-script = ExtResource("1_wxbxl")
+[node name="LvlCutPrelude" unique_id=420393196 instance=ExtResource("1_6ith4")]
+script = null
 
-[node name="===MANAGER========" type="Node3D" parent="." unique_id=82324019]
+[node name="MainCamera" parent="===CAMERA========" parent_id_path=PackedInt32Array(412578280) index="0" unique_id=209775217]
+top_level = true
 
-[node name="ToLvlWorldWebberHouseholdSamson" type="Node" parent="===MANAGER========" unique_id=25660253]
-script = ExtResource("1_wxbxl")
-scene_change_data = SubResource("Resource_oo0mk")
+[node name="ToLvlWorldWebberHouseholdSamson" type="Node" parent="===SCENE_CHANGE========" parent_id_path=PackedInt32Array(905867392) index="0" unique_id=900746210]
+script = ExtResource("1_vumy4")
+scene_change_data = SubResource("Resource_j4rhh")
 metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
 
-[node name="===CUTSCENE========" type="Node3D" parent="." unique_id=1293818364]
+[node name="AnimationPlayer" parent="===CUTSCENE========" parent_id_path=PackedInt32Array(1293818364) index="0" unique_id=1320180988]
+libraries/ = SubResource("AnimationLibrary_a70w0")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="===CUTSCENE========" unique_id=1320180988]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_x84ys")
-autoplay = &"intro_01"
+[node name="Static" type="AudioStreamPlayer" parent="===AUDIO========" parent_id_path=PackedInt32Array(539985926) index="0" unique_id=661835601]
 
-[node name="Sound" type="Node3D" parent="." unique_id=539985926]
-
-[node name="Static" type="AudioStreamPlayer" parent="Sound" unique_id=1430824532]
-
-[node name="===UI========" type="CanvasLayer" parent="." unique_id=359012464]
-
-[node name="TVStatic" type="ColorRect" parent="===UI========" unique_id=1582526141]
-material = SubResource("ShaderMaterial_g4mq0")
+[node name="TVStatic" type="ColorRect" parent="===UI========" parent_id_path=PackedInt32Array(359012464) index="0" unique_id=1706249322]
+material = SubResource("ShaderMaterial_xfgic")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="===UI========" unique_id=1832867059]
+[node name="ColorRect" type="ColorRect" parent="===UI========" parent_id_path=PackedInt32Array(359012464) index="1" unique_id=972033147]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -196,7 +190,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.380392, 0.133333, 0.486275, 0.811765)
 
-[node name="Background" type="ColorRect" parent="===UI========" unique_id=1928941793]
+[node name="Background" type="ColorRect" parent="===UI========" parent_id_path=PackedInt32Array(359012464) index="2" unique_id=70357833]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -204,20 +198,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.137255, 0.0862745, 0.0588235, 1)
 
-[node name="IntroText" type="RichTextLabel" parent="===UI========" unique_id=1098510314]
+[node name="IntroText" type="RichTextLabel" parent="===UI========" parent_id_path=PackedInt32Array(359012464) index="3" unique_id=1931134474]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("6_oci5p")
+theme = ExtResource("3_s4d3p")
 theme_override_colors/default_color = Color(1, 1, 1, 0)
 theme_override_font_sizes/normal_font_size = 64
 text = "Train up a child in the way he should go:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CutsceneSubtitles" type="Control" parent="===UI========" unique_id=2097565215]
+[node name="CutsceneSubtitles" type="Control" parent="===UI========" parent_id_path=PackedInt32Array(359012464) index="4" unique_id=2056042578]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -229,14 +223,14 @@ offset_right = -257.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SpeakerBackground" type="TextureRect" parent="===UI========/CutsceneSubtitles" unique_id=1140693018]
+[node name="SpeakerBackground" type="TextureRect" parent="===UI========/CutsceneSubtitles" index="0" unique_id=433108669]
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 128.0
-texture = ExtResource("7_ld86b")
+texture = ExtResource("6_013v0")
 stretch_mode = 4
 
-[node name="Speaker" type="RichTextLabel" parent="===UI========/CutsceneSubtitles/SpeakerBackground" unique_id=1726468092]
+[node name="Speaker" type="RichTextLabel" parent="===UI========/CutsceneSubtitles/SpeakerBackground" index="0" unique_id=116694698]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -259,20 +253,20 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="===UI========/CutsceneSubtitles" unique_id=298801123]
+[node name="MarginContainer" type="MarginContainer" parent="===UI========/CutsceneSubtitles" index="1" unique_id=635568546]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("6_oci5p")
+theme = ExtResource("3_s4d3p")
 theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 160
 theme_override_constants/margin_right = 80
 theme_override_constants/margin_bottom = 10
 
-[node name="ScrollingText" type="RichTextLabel" parent="===UI========/CutsceneSubtitles/MarginContainer" unique_id=1568010244]
+[node name="ScrollingText" type="RichTextLabel" parent="===UI========/CutsceneSubtitles/MarginContainer" index="0" unique_id=971142432]
 layout_mode = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.137255, 0.0862745, 0.0588235, 1)
@@ -283,5 +277,5 @@ horizontal_alignment = 1
 visible_characters = 0
 visible_characters_behavior = 1
 visible_ratio = 0.0
-script = ExtResource("8_kmoj8")
+script = ExtResource("7_m0ppm")
 metadata/_custom_type_script = "uid://vyqjymdwc8ae"

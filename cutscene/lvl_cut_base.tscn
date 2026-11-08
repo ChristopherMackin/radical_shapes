@@ -1,58 +1,40 @@
 [gd_scene format=3 uid="uid://dp5ktcf5rd31l"]
 
 [ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://scene_management/_script/scene_change/scene_change_node.gd" id="1_wxbxl"]
-[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="2_vkh6n"]
-[ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="3_c05i6"]
-
-[sub_resource type="Resource" id="Resource_oo0mk"]
-script = ExtResource("2_vkh6n")
-scene_name = "lvl_world_webber_household_samson"
-transition = ExtResource("3_c05i6")
-metadata/_custom_type_script = "uid://c12mfuwapm0ko"
-
-[sub_resource type="Animation" id="Animation_x84ys"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_ljv7t"]
-resource_name = "intro_01"
-length = 22.0
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("===MANAGER========/ToLvlWorldWebberHouseholdSamson")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(22),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"transition_scene"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_x84ys"]
-_data = {
-&"RESET": SubResource("Animation_x84ys"),
-&"intro_01": SubResource("Animation_ljv7t")
-}
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_0fn0g"]
+[ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="2_lw417"]
 
 [node name="LvlCutBase" type="Node3D" unique_id=420393196]
 script = ExtResource("1_wxbxl")
 
 [node name="===MANAGER========" type="Node3D" parent="." unique_id=82324019]
 
-[node name="ToLvlWorldWebberHouseholdSamson" type="Node" parent="===MANAGER========" unique_id=25660253]
-script = ExtResource("1_wxbxl")
-scene_change_data = SubResource("Resource_oo0mk")
-metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
+[node name="===CAMERA========" type="Node3D" parent="." unique_id=412578280]
+
+[node name="MainCamera" type="Camera3D" parent="===CAMERA========" unique_id=209775217]
+
+[node name="PhantomCameraHost" type="Node" parent="===CAMERA========/MainCamera" unique_id=114327840]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_0fn0g")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="===SCENE_CHANGE========" type="Node3D" parent="." unique_id=905867392]
 
 [node name="===CUTSCENE========" type="Node3D" parent="." unique_id=1293818364]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="===CUTSCENE========" unique_id=1320180988]
 root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_x84ys")
 autoplay = &"intro_01"
+
+[node name="===WORLD========" type="Node3D" parent="." unique_id=1475398030]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="===WORLD========" unique_id=1282882775]
+environment = ExtResource("2_lw417")
+
+[node name="===ACTOR=======" type="Node3D" parent="." unique_id=237708892]
+
+[node name="===ENVIRONMENT========" type="Node3D" parent="." unique_id=1564652159]
 
 [node name="===AUDIO========" type="Node3D" parent="." unique_id=539985926]
 

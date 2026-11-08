@@ -2,7 +2,7 @@ extends Node3D
 
 @export var starting_scene: int = 0
 
-func _scene_added() -> void:
+func _scene_ready() -> void:
 	var scene_index = Global.blackboard.get_flag_value(Flag.CURRENT_LOCATION)
 	scene_index = scene_index if scene_index else starting_scene
 	

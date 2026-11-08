@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://ih071jo4mgdw"]
+
+[ext_resource type="PackedScene" uid="uid://dp5ktcf5rd31l" path="res://cutscene/lvl_cut_base.tscn" id="1_ahlp2"]
+[ext_resource type="PackedScene" uid="uid://dnalajbqwpcg2" path="res://character/joy/act_joy.tscn" id="2_6cis3"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_tr5mx"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_ca1u2"]
+[ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_dddfp"]
+[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://scene_management/_script/scene_change/scene_change_node.gd" id="5_u3jy6"]
+[ext_resource type="PackedScene" uid="uid://crjk3jxv3f3il" path="res://character/simon/act_simon.tscn" id="6_dddfp"]
+[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="6_gvqi6"]
+[ext_resource type="PackedScene" uid="uid://bw7ddkhtncrrr" path="res://character/samson/act_samson.tscn" id="7_hvwov"]
+[ext_resource type="PackedScene" uid="uid://twhu5babtfhe" path="res://scene_management/screen_transition/st_fade_to_black.tscn" id="7_rns20"]
+
+[sub_resource type="Resource" id="Resource_hvwov"]
+script = ExtResource("3_ca1u2")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_4plkl"]
+script = ExtResource("6_gvqi6")
+scene_name = "lvl_callendar"
+transition = ExtResource("7_rns20")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="Animation" id="Animation_dddfp"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("===CAMERA========/Camera01:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.77458, 1.4822303)]
+}
+
+[sub_resource type="Animation" id="Animation_hvwov"]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("===CAMERA========/Camera01:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.77458, 1.4822303), Vector3(0, 1.77458, 1.1249801)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("===SCENE_CHANGE========/ToLvlCallendar")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"transition_scene"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d221t"]
+_data = {
+&"RESET": SubResource("Animation_dddfp"),
+&"vigil": SubResource("Animation_hvwov")
+}
+
+[node name="LvlCutVigil" unique_id=420393196 instance=ExtResource("1_ahlp2")]
+
+[node name="MainCamera" parent="===CAMERA========" parent_id_path=PackedInt32Array(412578280) index="0" unique_id=209775217]
+transform = Transform3D(1, 0, 0, 0, 0.95550084, 0.29498833, 0, -0.29498833, 0.95550084, 0, 1.77458, 1.4822303)
+top_level = true
+fov = 40.0
+far = 100.0
+
+[node name="Camera01" type="Node3D" parent="===CAMERA========" parent_id_path=PackedInt32Array(412578280) index="1" unique_id=840954671]
+transform = Transform3D(1, 0, 0, 0, 0.95550084, 0.29498833, 0, -0.29498833, 0.95550084, 0, 1.77458, 1.4822303)
+script = ExtResource("2_tr5mx")
+tween_resource = SubResource("Resource_hvwov")
+tween_on_load = false
+camera_3d_resource = ExtResource("4_dddfp")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="ToLvlCallendar" type="Node" parent="===SCENE_CHANGE========" parent_id_path=PackedInt32Array(905867392) index="0" unique_id=973321079]
+script = ExtResource("5_u3jy6")
+scene_change_data = SubResource("Resource_4plkl")
+metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
+
+[node name="AnimationPlayer" parent="===CUTSCENE========" parent_id_path=PackedInt32Array(1293818364) index="0" unique_id=1320180988]
+libraries/ = SubResource("AnimationLibrary_d221t")
+autoplay = &"vigil"
+
+[node name="JoyActor" parent="===ACTOR=======" parent_id_path=PackedInt32Array(237708892) index="0" unique_id=2066360241 instance=ExtResource("2_6cis3")]
+look_at_override = true
+
+[node name="SimonActor" parent="===ACTOR=======" parent_id_path=PackedInt32Array(237708892) index="1" unique_id=292508824 instance=ExtResource("6_dddfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9315165, 0, 0)
+look_at_override = true
+
+[node name="SamsonActor" parent="===ACTOR=======" parent_id_path=PackedInt32Array(237708892) index="2" unique_id=1017530611 instance=ExtResource("7_hvwov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8805687, 0, 0)
+look_at_override = true

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ckqr8ie5q6kc1"]
+
+[ext_resource type="Script" uid="uid://bd7fowd7pglvl" path="res://scene_management/_script/scene_change/rule_scene_change_node.gd" id="1_6gbq2"]
+[ext_resource type="Script" uid="uid://ck3pri86462x0" path="res://scene_management/_script/scene_change/rule_scene_change_data.gd" id="2_wsd1n"]
+[ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="3_a5oyt"]
+[ext_resource type="Script" uid="uid://76yu5gwmebt5" path="res://system/script/rule/flag_value_rule.gd" id="3_cpucv"]
+[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="4_yvvcq"]
+[ext_resource type="PackedScene" uid="uid://twhu5babtfhe" path="res://scene_management/screen_transition/st_fade_to_black.tscn" id="5_qqppq"]
+
+[sub_resource type="Resource" id="Resource_a5oyt"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("3_cpucv")
+flag = 35
+value = 0
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
+
+[sub_resource type="Resource" id="Resource_dpg2c"]
+script = ExtResource("4_yvvcq")
+scene_name = "lvl_world_mall_atrium"
+transition = ExtResource("5_qqppq")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="Resource" id="Resource_6gbq2"]
+script = ExtResource("2_wsd1n")
+rule = SubResource("Resource_a5oyt")
+scene_change_data = SubResource("Resource_dpg2c")
+metadata/_custom_type_script = "uid://ck3pri86462x0"
+
+[node name="LvlCallendar" type="Node3D" unique_id=963872315]
+
+[node name="RuleSceneChangeNode" type="Node" parent="." unique_id=1853917756]
+script = ExtResource("1_6gbq2")
+rule_scene_change_data_array = Array[ExtResource("2_wsd1n")]([SubResource("Resource_6gbq2")])
+await_events = true
+event_manager = ExtResource("3_a5oyt")
+metadata/_custom_type_script = "uid://bd7fowd7pglvl"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=875290993]

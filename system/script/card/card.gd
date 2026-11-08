@@ -54,7 +54,6 @@ var _on_play_and_tokens_card_actions: Array[CardAction]:
 		token_action.suit = suit
 		token_action.token_counter = token_counter
 		token_action.token_data = token_data
-		token_action
 		var token_action_array: Array[CardAction]
 		token_action_array.assign([token_action])
 		

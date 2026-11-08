@@ -14,7 +14,7 @@ class_name SaveSceneManager
 
 func _enter_tree():
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	Util.optional_connect(SceneManager, "on_scene_change", save_data)
+	Util.optional_connect(SceneManager, "on_scene_change_start", save_data)
 
 func _ready():
 	if Engine.is_editor_hint(): return
