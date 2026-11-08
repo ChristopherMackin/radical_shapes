@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dp5ktcf5rd31l"]
+
+[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://scene_management/_script/scene_change/scene_change_node.gd" id="1_wxbxl"]
+[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="2_vkh6n"]
+[ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="3_c05i6"]
+
+[sub_resource type="Resource" id="Resource_oo0mk"]
+script = ExtResource("2_vkh6n")
+scene_name = "lvl_world_webber_household_samson"
+transition = ExtResource("3_c05i6")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="Animation" id="Animation_x84ys"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_ljv7t"]
+resource_name = "intro_01"
+length = 22.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("===MANAGER========/ToLvlWorldWebberHouseholdSamson")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(22),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"transition_scene"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x84ys"]
+_data = {
+&"RESET": SubResource("Animation_x84ys"),
+&"intro_01": SubResource("Animation_ljv7t")
+}
+
+[node name="LvlCutBase" type="Node3D" unique_id=420393196]
+script = ExtResource("1_wxbxl")
+
+[node name="===MANAGER========" type="Node3D" parent="." unique_id=82324019]
+
+[node name="ToLvlWorldWebberHouseholdSamson" type="Node" parent="===MANAGER========" unique_id=25660253]
+script = ExtResource("1_wxbxl")
+scene_change_data = SubResource("Resource_oo0mk")
+metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
+
+[node name="===CUTSCENE========" type="Node3D" parent="." unique_id=1293818364]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="===CUTSCENE========" unique_id=1320180988]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_x84ys")
+autoplay = &"intro_01"
+
+[node name="===AUDIO========" type="Node3D" parent="." unique_id=539985926]
+
+[node name="===UI========" type="CanvasLayer" parent="." unique_id=359012464]

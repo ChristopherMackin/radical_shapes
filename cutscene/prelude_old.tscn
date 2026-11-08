@@ -1,18 +1,18 @@
-[gd_scene format=3 uid="uid://dp5ktcf5rd31l"]
+[gd_scene format=3 uid="uid://smc13muwoff7"]
 
-[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://scene_management/_script/scene_change/scene_change_node.gd" id="1_vumy4"]
-[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="2_013v0"]
-[ext_resource type="AudioStream" uid="uid://brspvy678a3sh" path="res://_asset/sfx/static.mp3" id="2_g4mq0"]
-[ext_resource type="Shader" uid="uid://capxcs54yhxwx" path="res://_general/style/tv_static.gdshader" id="2_vpb4t"]
-[ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="3_m0ppm"]
-[ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://_general/style/default_theme.tres" id="3_s4d3p"]
-[ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://_asset/cutscene/name_background.png" id="6_013v0"]
-[ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://_general/script/ui/scrolling-text.gd" id="7_m0ppm"]
+[ext_resource type="Script" uid="uid://bimy1ugw1xmg0" path="res://scene_management/_script/scene_change/scene_change_node.gd" id="1_wxbxl"]
+[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="2_vkh6n"]
+[ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="3_c05i6"]
+[ext_resource type="AudioStream" uid="uid://brspvy678a3sh" path="res://_asset/sfx/static.mp3" id="4_7jyng"]
+[ext_resource type="Shader" uid="uid://capxcs54yhxwx" path="res://_general/style/tv_static.gdshader" id="5_ov8wb"]
+[ext_resource type="Theme" uid="uid://c8qmn8ulyc5k6" path="res://_general/style/default_theme.tres" id="6_oci5p"]
+[ext_resource type="Texture2D" uid="uid://cm3h8wftedc6x" path="res://_asset/cutscene/name_background.png" id="7_ld86b"]
+[ext_resource type="Script" uid="uid://vyqjymdwc8ae" path="res://_general/script/ui/scrolling-text.gd" id="8_kmoj8"]
 
 [sub_resource type="Resource" id="Resource_oo0mk"]
-script = ExtResource("2_013v0")
+script = ExtResource("2_vkh6n")
 scene_name = "lvl_world_webber_household_samson"
-transition = ExtResource("3_m0ppm")
+transition = ExtResource("3_c05i6")
 metadata/_custom_type_script = "uid://c12mfuwapm0ko"
 
 [sub_resource type="Animation" id="Animation_x84ys"]
@@ -103,7 +103,7 @@ tracks/2/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("2_g4mq0")
+"stream": ExtResource("4_7jyng")
 }],
 "times": PackedFloat32Array(15.3667)
 }
@@ -154,16 +154,16 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4mq0"]
-shader = ExtResource("2_vpb4t")
+shader = ExtResource("5_ov8wb")
 shader_parameter/amount = 40.0
 
 [node name="Prelude" type="Node3D" unique_id=420393196]
-script = ExtResource("1_vumy4")
+script = ExtResource("1_wxbxl")
 
 [node name="===MANAGER========" type="Node3D" parent="." unique_id=82324019]
 
 [node name="ToLvlWorldWebberHouseholdSamson" type="Node" parent="===MANAGER========" unique_id=25660253]
-script = ExtResource("1_vumy4")
+script = ExtResource("1_wxbxl")
 scene_change_data = SubResource("Resource_oo0mk")
 metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
 
@@ -210,7 +210,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_s4d3p")
+theme = ExtResource("6_oci5p")
 theme_override_colors/default_color = Color(1, 1, 1, 0)
 theme_override_font_sizes/normal_font_size = 64
 text = "Train up a child in the way he should go:"
@@ -233,7 +233,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 128.0
-texture = ExtResource("6_013v0")
+texture = ExtResource("7_ld86b")
 stretch_mode = 4
 
 [node name="Speaker" type="RichTextLabel" parent="===UI========/CutsceneSubtitles/SpeakerBackground" unique_id=1726468092]
@@ -266,7 +266,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_s4d3p")
+theme = ExtResource("6_oci5p")
 theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 160
 theme_override_constants/margin_right = 80
@@ -283,5 +283,5 @@ horizontal_alignment = 1
 visible_characters = 0
 visible_characters_behavior = 1
 visible_ratio = 0.0
-script = ExtResource("7_m0ppm")
+script = ExtResource("8_kmoj8")
 metadata/_custom_type_script = "uid://vyqjymdwc8ae"

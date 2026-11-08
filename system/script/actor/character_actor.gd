@@ -63,5 +63,5 @@ func unfocus_look_at_area_shape(_area_rid, area: Area3D, area_shape_index, _loca
 	var area_shape_node = area.shape_owner_get_owner(area_shape_owner)
 	
 	if !_look_at_modifier: return
-	if _look_at_modifier.target_node == area_shape_node.get_path():
+	if !area_shape_node.is_inside_tree() || _look_at_modifier.target_node == area_shape_node.get_path():
 		_look_at_modifier.target_node = NodePath()
