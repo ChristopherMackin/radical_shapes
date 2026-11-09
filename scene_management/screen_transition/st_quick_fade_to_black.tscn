@@ -14,12 +14,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.137255, 0.0862745, 0.0588235, 0)]
+"values": [Color(0.10980392, 0.05882353, 0.039215688, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_fxd51"]
 resource_name = "fade_in"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -44,12 +44,12 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.137255, 0.0862745, 0.0588235, 1), Color(0.137255, 0.0862745, 0.0588235, 0)]
+"values": [Color(0.11372549, 0.0627451, 0.039215688, 0.99215686), Color(0.10980392, 0.05882353, 0.039215688, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_bnohs"]
 resource_name = "fade_out"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -74,7 +74,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.137255, 0.0862745, 0.0588235, 0), Color(0.137255, 0.0862745, 0.0588235, 1)]
+"values": [Color(0.10980392, 0.05882353, 0.039215688, 0), Color(0.11372549, 0.0627451, 0.039215688, 0.99215686)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ayjk"]
@@ -103,7 +103,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.137255, 0.0862745, 0.0588235, 0)
+color = Color(0.10980392, 0.05882353, 0.039215688, 0)
 
 [connection signal="transition_in_started" from="." to="AnimationPlayer" method="play" binds= ["fade_in"]]
 [connection signal="transition_out_started" from="." to="AnimationPlayer" method="play" binds= ["fade_out"]]

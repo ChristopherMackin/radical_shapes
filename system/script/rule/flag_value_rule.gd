@@ -7,7 +7,7 @@ extends Rule
 @export var value: Variant
 
 func check(_query : Dictionary) -> bool:
-	if !Global.blackboard.has_flag(flag): 
-		return value == false
+	if !Global.blackboard.has_flag(flag):
+		return value is bool && value == false
 	
 	return EnumComparitor.evaluate(Global.blackboard.get_flag_value(flag), value, comparitor)
