@@ -1,12 +1,10 @@
 @tool
 extends BucketEventFactory
-
 class_name RuleBucketEventFactory
 
-@export var rule: Rule
+@export var rule: Rule:
+	get: return method.rule
+	set(val): method.rule = val
 
-func get_event(_query: Dictionary) -> Event:
-	if rule.check(_query):
-		return super.get_event(_query)
-	
-	return null
+func _init():
+	method = RuleBucketFactoryMethod.new()

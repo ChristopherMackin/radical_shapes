@@ -1,29 +1,39 @@
 [gd_resource type="Resource" script_class="BucketEventFactory" format=3 uid="uid://fowxmelh4k2l"]
 
 [ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="1_gar2g"]
-[ext_resource type="Resource" uid="uid://d1haqrj1r8frx" path="res://world/webber_household/samson/event/ev_world_webber_household_samson_samson_intro.tres" id="2_1uxeq"]
+[ext_resource type="Resource" uid="uid://d1haqrj1r8frx" path="res://world/webber_household/samson/event/ev_world_webber_household_samson_samson_intro.tres" id="2_44a56"]
 [ext_resource type="Script" uid="uid://bkpc76nqmkxc2" path="res://system/script/event_factory/bucket_event_factory.gd" id="2_u21af"]
-[ext_resource type="Script" uid="uid://dbvysemw11ei8" path="res://system/script/event_factory/single_event_factory.gd" id="3_fy3p0"]
-[ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/rule/concept_rule.gd" id="4_8tox1"]
-[ext_resource type="Script" uid="uid://c44gav4s6as63" path="res://system/script/event_factory/rule_bucket_event_factory.gd" id="5_rs650"]
+[ext_resource type="Script" uid="uid://b3gc77q7whheh" path="res://system/script/rule/rule.gd" id="3_fb0ww"]
+[ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/rule/concept_rule.gd" id="4_ykgic"]
+[ext_resource type="Script" uid="uid://76yu5gwmebt5" path="res://system/script/rule/flag_value_rule.gd" id="5_tgth2"]
+[ext_resource type="Script" uid="uid://csehxotj4ndvf" path="res://system/script/rule/multi_rule.gd" id="6_6i1nl"]
+[ext_resource type="Script" uid="uid://c2ote8d3tq7pk" path="res://system/script/event_factory/rule_event_factory.gd" id="7_jave5"]
 
-[sub_resource type="Resource" id="Resource_q82c0"]
-script = ExtResource("3_fy3p0")
-event = ExtResource("2_1uxeq")
-metadata/_custom_type_script = "uid://dbvysemw11ei8"
-
-[sub_resource type="Resource" id="Resource_xd64n"]
+[sub_resource type="Resource" id="Resource_bovbu"]
 resource_name = "RU: ON_SCENE_ENTER"
-script = ExtResource("4_8tox1")
+script = ExtResource("4_ykgic")
 concept = 10
 metadata/_custom_type_script = "uid://fnphjbccs4gy"
 
-[sub_resource type="Resource" id="Resource_phv5u"]
-script = ExtResource("5_rs650")
-rule = SubResource("Resource_xd64n")
-buckets = Array[ExtResource("1_gar2g")]([SubResource("Resource_q82c0")])
-metadata/_custom_type_script = "uid://c44gav4s6as63"
+[sub_resource type="Resource" id="Resource_hwk2g"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("5_tgth2")
+flag = 30
+value = 0
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
+
+[sub_resource type="Resource" id="Resource_qnoua"]
+resource_name = "RU: MultiRule"
+script = ExtResource("6_6i1nl")
+rules = Array[ExtResource("3_fb0ww")]([SubResource("Resource_bovbu"), SubResource("Resource_hwk2g")])
+metadata/_custom_type_script = "uid://csehxotj4ndvf"
+
+[sub_resource type="Resource" id="Resource_l0mof"]
+script = ExtResource("7_jave5")
+rule = SubResource("Resource_qnoua")
+event = ExtResource("2_44a56")
+metadata/_custom_type_script = "uid://c2ote8d3tq7pk"
 
 [resource]
 script = ExtResource("2_u21af")
-buckets = Array[ExtResource("1_gar2g")]([SubResource("Resource_phv5u")])
+buckets = Array[ExtResource("1_gar2g")]([SubResource("Resource_l0mof")])

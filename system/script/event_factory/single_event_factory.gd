@@ -3,7 +3,9 @@ extends EventFactory
 
 class_name SingleEventFactory
 
-@export var event: Event
+@export var event: Event:
+	get: return method.product
+	set(val): method.product = val
 
-func get_event(_query: Dictionary) -> Event:
-	return event if !_query.has(event.resource_path.get_file()) else null
+func _init():
+	method = SingleFactoryMethod.new()

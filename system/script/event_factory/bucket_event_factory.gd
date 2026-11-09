@@ -3,12 +3,12 @@ extends EventFactory
 
 class_name BucketEventFactory
 
-@export var buckets: Array[EventFactory]
+@export var buckets: Array[EventFactory]:
+	get: 
+		var mb: Array[EventFactory]
+		mb.assign(method.buckets)
+		return mb
+	set(val): method.buckets.assign(val)
 
-func get_event(_query: Dictionary) -> Event:
-	for bucket in buckets:
-		var event = bucket.get_event(_query)
-		if event != null:
-			return event
-	
-	return null
+func _init():
+	method = BucketFactoryMethod.new()

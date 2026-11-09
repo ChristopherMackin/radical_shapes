@@ -3,11 +3,13 @@ extends EventFactory
 
 class_name RuleEventFactory
 
-@export var rule: Rule
-@export var event: Event
+@export var rule: Rule:
+	get: return method.rule
+	set(val): method.rule = val
 
-func get_event(_query: Dictionary) -> Event:
-	if !rule || (!_query.has(event.resource_path.get_file()) && rule.check(_query)):
-		return event
-	
-	return null
+@export var event: Event:
+	get: return method.product
+	set(val): method.product = val
+
+func _init():
+	method = RuleFactoryMethod.new()

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_do3o4"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_nacv3"]
 [ext_resource type="Resource" uid="uid://bwqcfomls0j57" path="res://world/base/base_camera_settings.tres" id="4_vbgxv"]
-[ext_resource type="Resource" uid="uid://fowxmelh4k2l" path="res://world/webber_household/samson/ef_world_webber_household_samson.tres" id="7_s0gfc"]
+[ext_resource type="Resource" uid="uid://fowxmelh4k2l" path="res://world/webber_household/samson/ef_world_webber_household_samson.tres" id="5_vnnbi"]
 [ext_resource type="Resource" uid="uid://30fstvf0tbr0" path="res://world/webber_household/samson/bb_world_webber_household_samson.tres" id="7_vbgxv"]
 [ext_resource type="Script" uid="uid://dsi73c24f2xyd" path="res://world/webber_household/samson/set_blackboard_value_node.gd" id="8_x8vrp"]
 [ext_resource type="Environment" uid="uid://d2ej1c3jw7pkw" path="res://world/base/indoor_environment_default.tres" id="10_gj0p4"]
@@ -170,7 +170,7 @@ camera_3d_resource = ExtResource("4_vbgxv")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="SceneLoadManager" parent="===MANAGER========" parent_id_path=PackedInt32Array(1947846897) index="0" unique_id=991142355 node_paths=PackedStringArray("character_controllers", "spawn_locations")]
-event_factory = ExtResource("7_s0gfc")
+event_factory = ExtResource("5_vnnbi")
 blackboard = ExtResource("7_vbgxv")
 character_controllers = [NodePath("../../===ACTOR========/CBJoy"), NodePath("../../===ACTOR========/CbSamson")]
 spawn_locations = [NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn01")]

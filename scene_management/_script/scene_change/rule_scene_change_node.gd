@@ -3,20 +3,12 @@ class_name RuleSceneChangeNode
 
 signal scene_changed
 
-@export var rule_scene_change_data_array: Array[RuleSceneChangeData]
+@export var scene_change_data_factory: SceneChangeDataFactory
 @export var await_events: bool = false
 @export var event_manager: EventManager
 
-func _get_scene_change_data() -> SceneChangeData:
-	for rule_scene_change_data in rule_scene_change_data_array:
-		var rule: Rule = rule_scene_change_data.rule
-		if rule.check(Global.blackboard.get_query()):
-			return rule_scene_change_data.scene_change_data
-	
-	return null
-
 func transition_scene():
-	var scene_change_data = _get_scene_change_data()
+	var scene_change_data = scene_change_data_factory.get_scene_change_data(Global.blackboard.get_query())
 	if !scene_change_data: return
 	
 	if await_events:
