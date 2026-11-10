@@ -464,28 +464,28 @@ environment = ExtResource("24_aewww")
 
 [node name="ModEnvWorldMainRoom" parent="===ENVIRONMENT========/Model" parent_id_path=PackedInt32Array(1153107026) index="0" unique_id=1146796348 instance=ExtResource("25_gl4cb")]
 
-[node name="Collision" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="2" unique_id=1846456886]
+[node name="Collision" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="2" unique_id=718169619]
 visible = false
 
-[node name="Door_003" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="5" unique_id=1707567680]
+[node name="Door_003" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="5" unique_id=661250998]
 surface_material_override/0 = ExtResource("26_73i0a")
 
-[node name="Door_004" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="6" unique_id=1743123992]
+[node name="Door_004" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="6" unique_id=1735670205]
 surface_material_override/0 = ExtResource("26_73i0a")
 
-[node name="DoorFrame_004" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="10" unique_id=1746234184]
+[node name="DoorFrame_004" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="10" unique_id=1764594975]
 surface_material_override/0 = ExtResource("26_73i0a")
 
-[node name="DoorFrame_005" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="11" unique_id=1030947934]
+[node name="DoorFrame_005" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="11" unique_id=740206990]
 surface_material_override/0 = ExtResource("26_73i0a")
 
-[node name="Floor" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="13" unique_id=420899185]
+[node name="Floor" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="13" unique_id=1879813913]
 surface_material_override/0 = ExtResource("27_wca11")
 
-[node name="WallFrame" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="16" unique_id=1227808079]
+[node name="WallFrame" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="16" unique_id=1297960280]
 surface_material_override/0 = ExtResource("26_73i0a")
 
-[node name="Walls" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="17" unique_id=529113429]
+[node name="Walls" parent="===ENVIRONMENT========/Model/ModEnvWorldMainRoom" index="17" unique_id=1322368166]
 surface_material_override/0 = ExtResource("28_j2inn")
 
 [node name="MeshCollisionShape" type="CollisionShape3D" parent="===ENVIRONMENT========/Collision" parent_id_path=PackedInt32Array(1817161414) index="1" unique_id=1588986972]
@@ -533,6 +533,7 @@ transform = Transform3D(-0.19594672, 0, 0.98061454, 0, 1, 0, -0.98061454, 0, -0.
 [node name="CutsceneJoy" parent="===ACTOR========" parent_id_path=PackedInt32Array(1646683861) index="3" unique_id=2066360241 instance=ExtResource("31_cfuwh")]
 transform = Transform3D(0.00026257435, -1.2165237e-31, -0.99999994, 0, 1, -2.9209815e-24, 0.99999994, 0, 0.00026257435, 22.838566, -4.7683716e-07, 4.8030047)
 visible = false
+look_at_override = false
 actor_name = "cutscene_joy"
 
 [node name="MainCamera" parent="===UI========/UiGameView/SubViewport" parent_id_path=PackedInt32Array(208854357) index="0" unique_id=807046495]

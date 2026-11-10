@@ -11,6 +11,7 @@ var global_timers: Dictionary[String, Dictionary]
 
 signal blackboard_updated
 signal on_global_timer_timeout(name: String)
+signal on_global_timer_started(name: String)
 
 var actors: Array[Actor]
 
@@ -46,6 +47,8 @@ func create_global_timer(seconds: float, name: String = "global_timer", overwrit
 	global_timers[name] = {}
 	global_timers[name]["timer"] = timer
 	global_timers[name]["durration"] = seconds
+	on_global_timer_started.emit(name)
+	
 	await timer.timeout
 	
 	if !global_timers.has(name): return

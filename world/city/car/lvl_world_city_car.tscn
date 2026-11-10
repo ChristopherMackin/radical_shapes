@@ -122,7 +122,6 @@ transform = Transform3D(1, -1.2165237e-31, 0, -1.2165237e-31, 1, 0, 0, 0, 1, 0, 
 visible = false
 
 [node name="JoyActor" parent="===ACTOR========/CBJoy" index="1" unique_id=2066360241]
-look_at_override = false
 actor_name = "unused"
 
 [node name="CharacterAnimationTree" parent="===ACTOR========/CBJoy/JoyActor" index="7" unique_id=1926218777]

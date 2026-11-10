@@ -63,8 +63,9 @@ character_animator = NodePath("JoyActor/CharacterAnimationTree")
 
 [node name="JoyActor" parent="." index="1" unique_id=2066360241 node_paths=PackedStringArray("character_animation_tree") instance=ExtResource("2_dhf01")]
 character_animation_tree = NodePath("CharacterAnimationTree")
+look_at_override = false
 
-[node name="Skeleton3D" parent="JoyActor/Outfit/JoyOutfit02/root" parent_id_path=PackedInt32Array(2066360241, 1427265525, 1680161381) index="0" unique_id=568571043]
+[node name="Skeleton3D" parent="JoyActor/Outfit/JoyOutfit02/root" parent_id_path=PackedInt32Array(2066360241, 1427265525, 790333867) index="0" unique_id=1605564477]
 bones/1/position = Vector3(0.70251924, 2.5755637, 0.023947112)
 bones/1/rotation = Quaternion(-6.943252e-08, -8.742278e-08, 6.069982e-15, 1)
 bones/2/position = Vector3(0.13033777, -4.707137e-10, -7.066916e-10)
@@ -275,7 +276,7 @@ bones/72/position = Vector3(-5.122274e-09, 1.5599653e-08, -2.658635e-08)
 bones/72/rotation = Quaternion(1.5541445e-08, -2.6309863e-08, 1.2107195e-08, 1)
 bones/72/scale = Vector3(1, 0.99999994, 1)
 
-[node name="Skeleton3D" parent="JoyActor/Outfit/JoyOutfit03/root" parent_id_path=PackedInt32Array(2066360241, 1352365965, 222649896) index="0" unique_id=255456040]
+[node name="Skeleton3D" parent="JoyActor/Outfit/JoyOutfit03/root" parent_id_path=PackedInt32Array(2066360241, 1352365965, 1862548456) index="0" unique_id=1146261593]
 bones/1/position = Vector3(0.70251924, 2.5755637, 0.023947112)
 bones/1/rotation = Quaternion(-6.943252e-08, -8.742278e-08, 6.069982e-15, 1)
 bones/2/position = Vector3(0.13033777, -4.707137e-10, -7.066916e-10)
@@ -486,7 +487,7 @@ bones/72/position = Vector3(-5.122274e-09, 1.5599653e-08, -2.658635e-08)
 bones/72/rotation = Quaternion(1.5541445e-08, -2.6309863e-08, 1.2107195e-08, 1)
 bones/72/scale = Vector3(1, 0.99999994, 1)
 
-[node name="Skeleton3D" parent="JoyActor/Outfit/JoyOutfit04/root" parent_id_path=PackedInt32Array(2066360241, 1193891897, 1434905273) index="0" unique_id=1207077352]
+[node name="Skeleton3D" parent="JoyActor/Outfit/JoyOutfit04/root" parent_id_path=PackedInt32Array(2066360241, 1193891897, 1180219652) index="0" unique_id=1147681784]
 bones/1/position = Vector3(0.70251924, 2.5755637, 0.023947112)
 bones/1/rotation = Quaternion(-6.943252e-08, -8.742278e-08, 6.069982e-15, 1)
 bones/2/position = Vector3(0.13033777, -4.707137e-10, -7.066916e-10)
@@ -697,7 +698,7 @@ bones/72/position = Vector3(-5.122274e-09, 1.5599653e-08, -2.658635e-08)
 bones/72/rotation = Quaternion(1.5541445e-08, -2.6309863e-08, 1.2107195e-08, 1)
 bones/72/scale = Vector3(1, 0.99999994, 1)
 
-[node name="Skeleton3D" parent="JoyActor/Outfit/JoyOutfit05/root" parent_id_path=PackedInt32Array(2066360241, 19173196, 20900610) index="0" unique_id=1908834245]
+[node name="Skeleton3D" parent="JoyActor/Outfit/JoyOutfit05/root" parent_id_path=PackedInt32Array(2066360241, 19173196, 143220400) index="0" unique_id=139977423]
 bones/1/position = Vector3(0.70251924, 2.5755637, 0.023947112)
 bones/1/rotation = Quaternion(-6.943252e-08, -8.742278e-08, 6.069982e-15, 1)
 bones/2/position = Vector3(0.13033777, -4.707137e-10, -7.066916e-10)
@@ -908,7 +909,7 @@ bones/72/position = Vector3(-5.122274e-09, 1.5599653e-08, -2.658635e-08)
 bones/72/rotation = Quaternion(1.5541445e-08, -2.6309863e-08, 1.2107195e-08, 1)
 bones/72/scale = Vector3(1, 0.99999994, 1)
 
-[node name="Skeleton3D" parent="JoyActor/Outfit/JoyOutfit06/root" parent_id_path=PackedInt32Array(2066360241, 582217168, 650044942) index="0" unique_id=3983395]
+[node name="Skeleton3D" parent="JoyActor/Outfit/JoyOutfit06/root" parent_id_path=PackedInt32Array(2066360241, 582217168, 367060926) index="0" unique_id=1618236650]
 bones/1/position = Vector3(0.70251924, 2.5755637, 0.023947112)
 bones/1/rotation = Quaternion(-6.943252e-08, -8.742278e-08, 6.069982e-15, 1)
 bones/2/position = Vector3(0.13033777, -4.707137e-10, -7.066916e-10)
@@ -1159,8 +1160,6 @@ expiration_flags = 129
 
 [node name="InteractionMarker" parent="." index="3" unique_id=2075054482 instance=ExtResource("6_dhf01")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.7779982, 0.04039049)
-
-[node name="InteractionMarker" parent="InteractionMarker" index="0" unique_id=622486580]
 visible = false
 
 [node name="HideDurringEvent" type="Node" parent="InteractionMarker" index="1" unique_id=1937266105 node_paths=PackedStringArray("node")]
@@ -1168,8 +1167,8 @@ script = ExtResource("7_eklor")
 node = NodePath("..")
 manager = ExtResource("8_0rkyc")
 
-[connection signal="interactable_focused" from="JoyActor/InteractionArea" to="InteractionMarker" method="set_visible"]
-[connection signal="interactable_unfocused" from="JoyActor/InteractionArea" to="InteractionMarker" method="set_visible"]
+[connection signal="interactable_focused" from="JoyActor/InteractionArea" to="InteractionMarker" method="set_visible" binds= [true]]
+[connection signal="interactable_unfocused" from="JoyActor/InteractionArea" to="InteractionMarker" method="set_visible" binds= [false]]
 
 [editable path="JoyActor"]
 [editable path="JoyActor/Skeleton"]

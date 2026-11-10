@@ -3,12 +3,79 @@
 [ext_resource type="Script" uid="uid://bd7fowd7pglvl" path="res://scene_management/_script/scene_change/rule_scene_change_node.gd" id="1_6gbq2"]
 [ext_resource type="Script" uid="uid://crb0j45d5gigy" path="res://utility_scene/lvl_callendar_manager.gd" id="1_yda4i"]
 [ext_resource type="Resource" uid="uid://bu7tksp5p5nqv" path="res://system/event_manager.tres" id="3_a5oyt"]
-[ext_resource type="Script" uid="uid://bkkgknkd1y4hd" path="res://scene_management/_script/scene_change/scene_change_data_factory/rule_scene_change_data_factory.gd" id="3_cpucv"]
+[ext_resource type="Script" uid="uid://bdokh773p0of2" path="res://scene_management/_script/scene_change/scene_change_data_factory/scene_change_data_factory.gd" id="3_yvvcq"]
+[ext_resource type="Script" uid="uid://c12mfuwapm0ko" path="res://scene_management/_script/scene_change/scene_change_data.gd" id="4_kfdqv"]
+[ext_resource type="Script" uid="uid://5qms3v8uuyhe" path="res://scene_management/_script/scene_change/scene_change_data_factory/bucket_scene_change_data_factory.gd" id="4_qqppq"]
+[ext_resource type="Script" uid="uid://7e78lofeaams" path="res://scene_management/_script/scene_change/scene_change_data_factory/int_match_bucket_scene_change_data_factory.gd" id="4_yda4i"]
+[ext_resource type="PackedScene" uid="uid://ff2xbl1qm1j1" path="res://scene_management/screen_transition/st_quick_fade_to_black.tscn" id="5_6qett"]
 [ext_resource type="FontFile" uid="uid://c6hemjlvek8hj" path="res://_asset/_general/font/TenorSans-Regular.ttf" id="7_qqppq"]
 
+[sub_resource type="Resource" id="Resource_4rn6i"]
+resource_name = "Sun: Church"
+script = ExtResource("4_kfdqv")
+scene_name = "lvl_world_church_lobby"
+transition = ExtResource("5_6qett")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="Resource" id="Resource_kfdqv"]
+resource_name = "Mon: Mall Bible Study"
+script = ExtResource("4_kfdqv")
+scene_name = "lvl_world_mall_atrium"
+transition = ExtResource("5_6qett")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
 [sub_resource type="Resource" id="Resource_6qett"]
-script = ExtResource("3_cpucv")
-metadata/_custom_type_script = "uid://bkkgknkd1y4hd"
+resource_name = "Tue: Drive to Work"
+script = ExtResource("4_kfdqv")
+scene_name = "lvl_world_city_car"
+transition = ExtResource("5_6qett")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="Resource" id="Resource_kg7g6"]
+resource_name = "Wed: Around the House"
+script = ExtResource("4_kfdqv")
+scene_name = "lvl_world_webber_household_main"
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="Resource" id="Resource_5eq1p"]
+resource_name = "Thur: Mall Free Time"
+script = ExtResource("4_kfdqv")
+scene_name = "lvl_world_mall_atrium"
+transition = ExtResource("5_6qett")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="Resource" id="Resource_coh43"]
+resource_name = "Fri: Diary Entry"
+script = ExtResource("4_kfdqv")
+scene_name = "lvl_world_webber_household_joy"
+transition = ExtResource("5_6qett")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="Resource" id="Resource_01sgo"]
+resource_name = "Sat: Church Setup"
+script = ExtResource("4_kfdqv")
+scene_name = "lvl_world_church_basement_sunday_school_room"
+transition = ExtResource("5_6qett")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="Resource" id="Resource_yda4i"]
+script = ExtResource("4_kfdqv")
+scene_name = "lvl_world_mall_atrium"
+transition = ExtResource("5_6qett")
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="Resource" id="Resource_yvvcq"]
+resource_name = "Story Progress 01: Days of the Week"
+script = ExtResource("4_yda4i")
+flag = 35
+default_data = SubResource("Resource_yda4i")
+data = Array[ExtResource("4_kfdqv")]([SubResource("Resource_4rn6i"), SubResource("Resource_kfdqv"), SubResource("Resource_6qett"), SubResource("Resource_kg7g6"), SubResource("Resource_5eq1p"), SubResource("Resource_coh43"), SubResource("Resource_01sgo")])
+metadata/_custom_type_script = "uid://7e78lofeaams"
+
+[sub_resource type="Resource" id="Resource_4loan"]
+script = ExtResource("4_qqppq")
+scene_change_data_factories = Array[ExtResource("3_yvvcq")]([SubResource("Resource_yvvcq")])
+metadata/_custom_type_script = "uid://5qms3v8uuyhe"
 
 [sub_resource type="Animation" id="Animation_yda4i"]
 length = 0.001
@@ -67,7 +134,7 @@ day_label = NodePath("===UI========/DayLabel")
 
 [node name="RuleSceneChangeNode" type="Node" parent="." unique_id=1853917756]
 script = ExtResource("1_6gbq2")
-scene_change_data_factory = SubResource("Resource_6qett")
+scene_change_data_factory = SubResource("Resource_4loan")
 await_events = true
 event_manager = ExtResource("3_a5oyt")
 metadata/_custom_type_script = "uid://bd7fowd7pglvl"

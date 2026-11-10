@@ -31,13 +31,13 @@ value = 0
 resource_name = "STORY_PROGRESS"
 script = ExtResource("1_q82c0")
 key = "STORY_PROGRESS"
-value = 0
+value = 1
 
 [sub_resource type="Resource" id="Resource_ywoag"]
 resource_name = "DAY_OF_THE_WEEK"
 script = ExtResource("1_q82c0")
 key = "DAY_OF_THE_WEEK"
-value = 0
+value = 6
 
 [resource]
 script = ExtResource("1_bw6ub")

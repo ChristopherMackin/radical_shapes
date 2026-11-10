@@ -28,6 +28,16 @@
 script = ExtResource("3_nacv3")
 duration = 0.0
 
+[sub_resource type="Resource" id="Resource_1vivr"]
+script = ExtResource("13_msuer")
+scene_name = "lvl_world_webber_household_main"
+transition = ExtResource("14_belr8")
+next_scene_spawn_index = 1
+metadata/_custom_type_script = "uid://c12mfuwapm0ko"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v5gy4"]
+size = Vector3(1.955, 4, 1)
+
 [sub_resource type="Resource" id="Resource_efa3k"]
 script = ExtResource("13_msuer")
 scene_name = "lvl_world_webber_household_main"
@@ -40,16 +50,6 @@ script = ExtResource("14_c7ag6")
 flag = 33
 value = false
 metadata/_custom_type_script = "uid://76yu5gwmebt5"
-
-[sub_resource type="Resource" id="Resource_1vivr"]
-script = ExtResource("13_msuer")
-scene_name = "lvl_world_webber_household_main"
-transition = ExtResource("14_belr8")
-next_scene_spawn_index = 1
-metadata/_custom_type_script = "uid://c12mfuwapm0ko"
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_v5gy4"]
-size = Vector3(1.955, 4, 1)
 
 [sub_resource type="Animation" id="Animation_trqci"]
 length = 0.001
@@ -175,28 +175,6 @@ blackboard = ExtResource("7_vbgxv")
 character_controllers = [NodePath("../../===ACTOR========/CBJoy"), NodePath("../../===ACTOR========/CbSamson")]
 spawn_locations = [NodePath("../../===SCENE_CHANGE========/SpawnLocations/Spawn01")]
 
-[node name="WaitForJoyTimerWatcher" type="Node" parent="===DONT_DESTROY_ON_LOAD========" parent_id_path=PackedInt32Array(1517020527) index="0" unique_id=884097792]
-script = ExtResource("12_at566")
-timer_name = "wait_for_joy"
-
-[node name="SetBlackboardValueNode" type="Node" parent="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher" index="0" unique_id=1609776882]
-script = ExtResource("8_x8vrp")
-flag = 31
-value = false
-
-[node name="ToLvlWorldWebberHouseholdMain" type="Node" parent="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher" index="1" unique_id=1343899067]
-script = ExtResource("11_vu58g")
-scene_change_data = SubResource("Resource_efa3k")
-await_events = true
-event_manager = ExtResource("12_vnnbi")
-metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
-
-[node name="ConditionalNode" type="Node" parent="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher" index="2" unique_id=1581081550]
-script = ExtResource("13_d2psw")
-rule = SubResource("Resource_vnnbi")
-run_in_editor = false
-metadata/_custom_type_script = "uid://i1rx170t4865"
-
 [node name="Spawn01" type="Marker3D" parent="===SCENE_CHANGE========/SpawnLocations" parent_id_path=PackedInt32Array(369867195) index="0" unique_id=949596269]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.1639905, 0, 3.814662)
 
@@ -210,6 +188,28 @@ event_manager = ExtResource("12_vnnbi")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="===SCENE_CHANGE========/SceneChangeNodes/ToLvlWorldWebberHouseholdMainTrigger" index="0" unique_id=1171636324]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.135, 2, 5.2928634)
 shape = SubResource("BoxShape3D_v5gy4")
+
+[node name="WaitForJoyTimerWatcher" type="Node" parent="===EVENT========" parent_id_path=PackedInt32Array(1880115747) index="0" unique_id=884097792]
+script = ExtResource("12_at566")
+timer_name = "wait_for_joy"
+
+[node name="SetBlackboardValueNode" type="Node" parent="===EVENT========/WaitForJoyTimerWatcher" index="0" unique_id=1609776882]
+script = ExtResource("8_x8vrp")
+flag = 31
+value = false
+
+[node name="ToLvlWorldWebberHouseholdMain" type="Node" parent="===EVENT========/WaitForJoyTimerWatcher" index="1" unique_id=1343899067]
+script = ExtResource("11_vu58g")
+scene_change_data = SubResource("Resource_efa3k")
+await_events = true
+event_manager = ExtResource("12_vnnbi")
+metadata/_custom_type_script = "uid://bimy1ugw1xmg0"
+
+[node name="ConditionalNode" type="Node" parent="===EVENT========/WaitForJoyTimerWatcher" index="2" unique_id=1581081550]
+script = ExtResource("13_d2psw")
+rule = SubResource("Resource_vnnbi")
+run_in_editor = false
+metadata/_custom_type_script = "uid://i1rx170t4865"
 
 [node name="AnimationPlayer" parent="===CUTSCENE========/SceneAnimator" parent_id_path=PackedInt32Array(484654225) index="1" unique_id=743721924]
 libraries/ = SubResource("AnimationLibrary_trqci")
@@ -253,17 +253,17 @@ environment = ExtResource("10_gj0p4")
 [node name="mod_env_world_samsons_room" parent="===ENVIRONMENT========/Model" parent_id_path=PackedInt32Array(1153107026) index="0" unique_id=1592860289 instance=ExtResource("11_d2psw")]
 transform = Transform3D(1, 1.2165237e-31, 0, 1.2165237e-31, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Door" parent="===ENVIRONMENT========/Model/mod_env_world_samsons_room" index="1" unique_id=1451884261]
+[node name="Door" parent="===ENVIRONMENT========/Model/mod_env_world_samsons_room" index="1" unique_id=1405021367]
 surface_material_override/0 = ExtResource("15_nacv3")
 
-[node name="DoorFrame" parent="===ENVIRONMENT========/Model/mod_env_world_samsons_room" index="2" unique_id=1777058836]
+[node name="DoorFrame" parent="===ENVIRONMENT========/Model/mod_env_world_samsons_room" index="2" unique_id=1962507180]
 surface_material_override/0 = ExtResource("15_nacv3")
 
-[node name="Floor" parent="===ENVIRONMENT========/Model/mod_env_world_samsons_room" index="3" unique_id=497711693]
+[node name="Floor" parent="===ENVIRONMENT========/Model/mod_env_world_samsons_room" index="3" unique_id=85027210]
 instance_shader_parameters/ColorParameter = Color(0.24350333, 0.23620662, 0.20472786, 1)
 surface_material_override/0 = ExtResource("11_833kt")
 
-[node name="Wall" parent="===ENVIRONMENT========/Model/mod_env_world_samsons_room" index="5" unique_id=927820620]
+[node name="Wall" parent="===ENVIRONMENT========/Model/mod_env_world_samsons_room" index="5" unique_id=1321617700]
 instance_shader_parameters/ColorParameter = Color(0.61964005, 0.42615664, 0.108416684, 1)
 surface_material_override/0 = ExtResource("12_gj0p4")
 
@@ -318,9 +318,8 @@ far = 100.0
 [node name="PortraitCamera" parent="===UI========/DialogueArea/Portrait/SubViewport" parent_id_path=PackedInt32Array(264276467) index="0" unique_id=1879654437]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0.0122085, 1.6233592, 2.2362573)
 
-[connection signal="on_global_timer_timeout" from="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher" to="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher/SetBlackboardValueNode" method="set_value" unbinds=1]
-[connection signal="on_global_timer_timeout" from="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher" to="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher/ToLvlWorldWebberHouseholdMain" method="transition_scene" unbinds=1]
-[connection signal="scene_changed" from="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher/ToLvlWorldWebberHouseholdMain" to="===DONT_DESTROY_ON_LOAD========/WaitForJoyTimerWatcher" method="queue_free"]
+[connection signal="on_global_timer_timeout" from="===EVENT========/WaitForJoyTimerWatcher" to="===EVENT========/WaitForJoyTimerWatcher/SetBlackboardValueNode" method="set_value" unbinds=1]
+[connection signal="on_global_timer_timeout" from="===EVENT========/WaitForJoyTimerWatcher" to="===EVENT========/WaitForJoyTimerWatcher/ToLvlWorldWebberHouseholdMain" method="transition_scene" unbinds=1]
 
 [editable path="===CUTSCENE========/CutsceneCanvas/SamsonIntro/SpeechBubble"]
 [editable path="===ENVIRONMENT========/Model/mod_env_world_samsons_room"]

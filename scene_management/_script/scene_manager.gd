@@ -8,6 +8,7 @@ signal on_scene_added(scene_name: String)
 var loaded_scenes: Dictionary[int, Array]
 var canvas: CanvasLayer
 var dont_destroy_on_load: Node3D
+var orphaned_nodes: Node3D
 
 @export_global_file("*.tscn") var _scene_list: Array[String]
 var scene_list: Array[String]:
@@ -28,9 +29,13 @@ func _ready() -> void:
 	dont_destroy_on_load = Node3D.new()
 	dont_destroy_on_load.name = "DontDestroyOnLoad"
 	
+	orphaned_nodes = Node3D.new()
+	orphaned_nodes.name = "OrphanedNodes"
+	
 	get_tree().current_scene = self
 	add_child(canvas)
 	add_child(dont_destroy_on_load)
+	add_child(orphaned_nodes)
 	
 	if node is Control:
 		node.reparent.call_deferred(canvas)
@@ -68,6 +73,14 @@ func replace_scene_by_index_async(scene_index: int, transition: PackedScene = nu
 				await node.tree_exited
 				on_scene_removed.emit(name)
 			)
+	
+	for node in orphaned_nodes.get_children():
+		free_functions.append(func():
+			var name = node.name
+			node.queue_free()
+			await node.tree_exited
+			on_scene_removed.emit(name)
+		)
 	
 	if transition != null:
 		var transition_instance = transition.instantiate()
@@ -120,6 +133,10 @@ func instantiate_scene_by_index(scene_index: int):
 
 func add_dont_destroy_on_load(node: Node) -> void:
 	Util.set_parent(node, dont_destroy_on_load)
+
+func remove_dont_destroy_on_load(node: Node) -> void:
+	if node.get_parent() == dont_destroy_on_load:
+		Util.set_parent(node, orphaned_nodes)
 
 func initialize_loaded_scene(instance):
 	var added_nodes: Array[Node]

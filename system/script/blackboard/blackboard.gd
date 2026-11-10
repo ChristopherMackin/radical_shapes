@@ -101,6 +101,8 @@ func get_flag_expiration_flags(flag: int) -> int:
 	return get_expiration_flags(Flag.name(flag))
 
 func add_flag(flag: int, value, expiration_flags: int = 0):
+	if flag == Flag.DAY_OF_THE_WEEK:
+		print("Flag set to %s" % value)
 	add(Flag.name(flag), value, expiration_flags)
 
 func erase_flag(flag: int):

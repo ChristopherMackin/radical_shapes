@@ -6,13 +6,19 @@ signal on_global_timer_timeout(name: String)
 @export var timer_name: String = "global_timer"
 
 func _ready() -> void:
-	Global.on_global_timer_timeout.connect(_emit_on_global_timer_timeout)
+	Global.on_global_timer_started.connect(_on_global_timer_started)
+	Global.on_global_timer_timeout.connect(_on_global_timer_timeout)
+
+func _on_global_timer_started(name: String):
+	if name != timer_name: return
+	SceneManager.add_dont_destroy_on_load(self)
 
 func _process(delta):
 	var normalized_time = Global.get_global_timer_normalized_time(timer_name)
 	if normalized_time == -1: return
 	print(normalized_time)
 
-func _emit_on_global_timer_timeout(name: String):
+func _on_global_timer_timeout(name: String):
 	if name == timer_name:
 		on_global_timer_timeout.emit(name)
+	SceneManager.remove_dont_destroy_on_load(self)

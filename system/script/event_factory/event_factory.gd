@@ -11,4 +11,4 @@ func get_event(query: Dictionary) -> Event:
 	return event if !query.has(event.resource_path.get_file()) else null
 
 func produce(query: Dictionary):
-	return method.produce(query)
+	return get_event(query)

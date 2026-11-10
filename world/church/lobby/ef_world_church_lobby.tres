@@ -2,6 +2,50 @@
 
 [ext_resource type="Script" uid="uid://18i051ifv5h0" path="res://system/script/event_factory/event_factory.gd" id="1_xqspp"]
 [ext_resource type="Script" uid="uid://bkpc76nqmkxc2" path="res://system/script/event_factory/bucket_event_factory.gd" id="2_7l5nf"]
+[ext_resource type="Script" uid="uid://76yu5gwmebt5" path="res://system/script/rule/flag_value_rule.gd" id="2_i3oik"]
+[ext_resource type="Resource" uid="uid://b0ffx1125fe0j" path="res://world/church/lobby/event/ev_world_church_lobby_tutorial_prelude.tres" id="2_swmxt"]
+[ext_resource type="Script" uid="uid://c44gav4s6as63" path="res://system/script/event_factory/rule_bucket_event_factory.gd" id="3_bmj68"]
+[ext_resource type="Script" uid="uid://dbvysemw11ei8" path="res://system/script/event_factory/single_event_factory.gd" id="3_rmd1x"]
+[ext_resource type="Resource" uid="uid://cj6cftma342ds" path="res://world/church/lobby/event/ev_world_church_lobby_tutorial_end.tres" id="4_f34ql"]
+[ext_resource type="Script" uid="uid://fnphjbccs4gy" path="res://system/script/rule/concept_rule.gd" id="5_rmd1x"]
+
+[sub_resource type="Resource" id="Resource_re5uk"]
+script = ExtResource("3_rmd1x")
+event = ExtResource("2_swmxt")
+metadata/_custom_type_script = "uid://dbvysemw11ei8"
+
+[sub_resource type="Resource" id="Resource_swmxt"]
+script = ExtResource("3_rmd1x")
+event = ExtResource("4_f34ql")
+metadata/_custom_type_script = "uid://dbvysemw11ei8"
+
+[sub_resource type="Resource" id="Resource_yqbxj"]
+resource_name = "RU: ON_SCENE_ENTER"
+script = ExtResource("5_rmd1x")
+concept = 10
+metadata/_custom_type_script = "uid://fnphjbccs4gy"
+
+[sub_resource type="Resource" id="Resource_57e23"]
+resource_name = "ON_SCENE_ENTER"
+script = ExtResource("3_bmj68")
+rule = SubResource("Resource_yqbxj")
+buckets = Array[ExtResource("1_xqspp")]([SubResource("Resource_re5uk"), SubResource("Resource_swmxt")])
+metadata/_custom_type_script = "uid://c44gav4s6as63"
+
+[sub_resource type="Resource" id="Resource_fb0ww"]
+resource_name = "RU: FlagValueRule"
+script = ExtResource("2_i3oik")
+flag = 30
+value = 0
+metadata/_custom_type_script = "uid://76yu5gwmebt5"
+
+[sub_resource type="Resource" id="Resource_44a56"]
+resource_name = "Story Progress 00"
+script = ExtResource("3_bmj68")
+rule = SubResource("Resource_fb0ww")
+buckets = Array[ExtResource("1_xqspp")]([SubResource("Resource_57e23")])
+metadata/_custom_type_script = "uid://c44gav4s6as63"
 
 [resource]
 script = ExtResource("2_7l5nf")
+buckets = Array[ExtResource("1_xqspp")]([SubResource("Resource_44a56")])
